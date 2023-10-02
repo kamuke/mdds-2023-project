@@ -66,6 +66,7 @@ socket.on('user list', (users) => {
     li.textContent = `${user.username} (${user.id})`;
 
     li.classList.add(
+      'font-semibold',
       'p-2',
       'text-sm',
       'rounded-lg',

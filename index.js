@@ -67,12 +67,11 @@ io.on('connection', (socket) => {
     const options = { hour: '2-digit', minute: '2-digit' };
     const formattedTime = LocalTime.toLocaleTimeString('fi-FI', options);
 
-    if (rooms[room].length >= 5) {
+    if (rooms[room].length >= 50) {
       rooms[room].shift();
     }
     const message = {userId:socket.id, user:user.username, message:msg.message, time:formattedTime}
     rooms[room].push(message);
-    console.log('testii', rooms);
   
     io.emit('chat message', message);
   });
