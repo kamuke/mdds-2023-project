@@ -21,6 +21,7 @@ const rooms = {
   room2: [],
   room3: []
 };
+let currentRoom;
 
 const users = [];
 
@@ -55,9 +56,10 @@ io.on('connection', (socket) => {
   });
 
   socket.on('join room', (room) => {
-    console.log(`${socket.id} joining room`, room);
     socket.join(room);
-    socket.emit('chat history', rooms[`room${room}`]);
+    currentRoom = room;
+    console.log(`${socket.id} joining room`, room);
+    io.to(currentRoom).emit('chat history', rooms[`room${room}`]);
   });
 
   socket.on('chat message', (msg) => {
@@ -74,10 +76,10 @@ io.on('connection', (socket) => {
     if (rooms[room].length >= 50) {
       rooms[room].shift();
     }
-    const message = {userId:socket.id, room:msg.room, user:user.username, message:msg.message, time:formattedTime}
+    const message = {userId:socket.id, user:user.username, message:msg.message, time:formattedTime}
     rooms[room].push(message);
-  
-    io.emit('chat message', message);
+
+    io.to(currentRoom).emit('chat message', message);
   });
 });
 

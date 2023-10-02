@@ -13,7 +13,6 @@ let selectedRoom = roomSelect.value;
 joinForm.addEventListener('submit', (event) => {
   event.preventDefault();
   if (nicknameInput.value) {
-    console.log('joining room ' + selectedRoom);
     socket.emit('join', nicknameInput.value);
     nicknameInput.value = '';
     document.getElementById('login').classList.add('hidden');
@@ -22,7 +21,6 @@ joinForm.addEventListener('submit', (event) => {
     usersButton.classList.remove('invisible');
     document.getElementById('messageInput').focus();
   }
-  socket.emit('join room', selectedRoom);
 });
 
 messageForm.addEventListener('submit', (event) => {
@@ -46,15 +44,18 @@ roomSelect.addEventListener('change', () => {
 
 usersButton.addEventListener('click', () => {
   usersList.classList.toggle('hidden');
+  messages.classList.toggle('hidden');
+  roomSelect.classList.toggle('invisible');
+  messageForm.classList.toggle('hidden');
+
   usersButton.classList.toggle('bg-primary');
   usersButton.classList.toggle('text-gray-900');
-  roomSelect.classList.toggle('invisible');
-  messages.classList.toggle('hidden');
-  messageForm.classList.toggle('hidden');
 });
 
 socket.on('connect', () => {
   console.log('user is connected', socket.id);
+  socket.emit('join room', selectedRoom);
+  console.log('joining room ' + selectedRoom);
 });
 
 socket.on('user list', (users) => {
@@ -87,7 +88,6 @@ socket.on('user list', (users) => {
 });
 
 socket.on('chat history', (chatHistory) => {
-  console.log('chat history', chatHistory);
   messages.innerText = '';
   for (const message of chatHistory) {
     displayMessage(message);
@@ -95,10 +95,6 @@ socket.on('chat history', (chatHistory) => {
 });
 
 socket.on('chat message', (msg) => {
-  console.log('chat message', msg);
-  if (msg.room !== selectedRoom) {
-    return;
-  }
   console.log('chat message', msg);
   displayMessage(msg);
 });
