@@ -12,8 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <script src="/socket.io/socket.io.js" defer></script>
-    <script defer src="script/chat.js" defer></script>
+    <script src="script/chat.js" defer></script>
     <script src="script/parallax.js" defer></script>
     <script src="script/myplayer.js" defer></script>
   </head>
@@ -218,7 +217,7 @@
               poster="img/placeholder_poster.PNG"
               data-setup="{}"
             >
-              <source src="video/placeholder_video.mp4" type="video/mp4" />
+              <source src="https://appletree-mytime-samsungbrazil.amagi.tv/playlist.m3u8" type="application/x-mpegURL" />
               <p class="vjs-no-js">
                 To view this video please enable JavaScript, and consider
                 upgrading to a web browser that
@@ -238,33 +237,43 @@
               class="flex items-center justify-between p-4 bg-gray-800 w-full"
             >
               <h3 class="text-xl text-gray-100">Chat</h3>
+              <button class="text-xl text-gray-100 hover:text-gray-900 p-2 rounded-lg hover:bg-gradient-to-tr invisible from-primary to-tetriary" id="getUserListBtn">Users (0)</button>
               <label for="roomSelect" class="sr-only">Select chat room</label>
               <select
                 id="roomSelect"
                 class="rounded-lg bg-gray-800 border-gray-700 text-gray-100 focus:ring-secondary focus:border-secondary font-sans"
               >
-                <option value="Room 1" selected>Room 1</option>
-                <option value="Room 2">Room 2</option>
-                <option value="Room 3">Room 3</option>
+                <option value="1" selected>Room 1</option>
+                <option value="2">Room 2</option>
+                <option value="3">Room 3</option>
               </select>
             </div>
             <ul
               id="messages"
               class="p-4 overflow-auto grow flex flex-col w-full"
             ></ul>
+            <ul class="overflow-auto grow flex-col w-full hidden p-4" id="userList"></ul>
+
+            <div id="login" class="items-center gap-2 p-4 bg-gray-800 w-full">
+              <form id="joinForm" class="flex">
+                <label for="nickenameInput" class="sr-only">Nickname</label>
+                <input
+                  id="nicknameInput"
+                  autocomplete="off"
+                  type="text"
+                  placeholder="Nickname"
+                  required
+                  maxlength="30"
+                  class="block w-full p-2.5 text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+                />
+                <button class="rounded-lg w-36 ml-4 bg-primary hover:bg-gradient-to-tr from-primary to-tetriary" type="submit">Join</button>
+              </form>
+            </div>
+
             <form
               id="messageForm"
-              class="flex items-center gap-4 p-4 bg-gray-800 w-full"
+              class="hidden items-center gap-4 p-4 bg-gray-800 w-full"
             >
-              <label for="nickenameInput" class="sr-only">Nickname</label>
-              <input
-                id="nicknameInput"
-                autocomplete="off"
-                type="text"
-                placeholder="Nickname"
-                required
-                class="block w-24 p-2.5 text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
-              />
               <label for="chat" class="sr-only">Message</label>
               <input
                 id="messageInput"
@@ -291,6 +300,7 @@
               </button>
             </form>
           </div>
+
         </div>
       </section>
       <!-- Stream section ends -->
@@ -481,5 +491,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
     <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script>
+    <script src="../node_modules/socket.io/client-dist/socket.io.js"></script>
   </body>
 </html>
