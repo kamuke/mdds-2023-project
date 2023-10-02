@@ -9,6 +9,7 @@ const roomSelect = document.getElementById('roomSelect');
 const usersButton = document.getElementById('getUserListBtn');
 const usersList = document.getElementById('userList');
 
+let selectedRoom = roomSelect.value;
 joinForm.addEventListener('submit', (event) => {
   event.preventDefault();
   if (nicknameInput.value) {
@@ -36,7 +37,6 @@ messageForm.addEventListener('submit', (event) => {
   }
 });
 
-let selectedRoom = roomSelect.value;
 roomSelect.addEventListener('change', () => {
   messages.innerHTML = '';
   selectedRoom = roomSelect.value;
@@ -95,6 +95,10 @@ socket.on('chat history', (chatHistory) => {
 });
 
 socket.on('chat message', (msg) => {
+  console.log('chat message', msg);
+  if (msg.room !== selectedRoom) {
+    return;
+  }
   console.log('chat message', msg);
   displayMessage(msg);
 });

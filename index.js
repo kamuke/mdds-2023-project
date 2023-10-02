@@ -27,10 +27,15 @@ const users = [];
 const deleteUserById = (socketId) => {
   try {
     const index = users.findIndex(user => user.id === socketId);
-    console.log('deleting user', users[index]);
-    users.splice(index, 1);
+
+    if (index !== -1) {
+      console.log('Deleting user:', users[index]);
+      users.splice(index, 1);
+    } else {
+      console.log('User not found with ID:', socketId);
+    }
   } catch (error) {
-    console.warn('deleting user failed', error);
+    console.warn('Deleting user failed:', error);
   }
 };
 
@@ -40,7 +45,6 @@ io.on('connection', (socket) => {
 
   socket.on('join', (username) => {
     users.push({username: username, id: socket.id});
-    console.log('users connected:', users);
     io.emit('user list', users);
   });
 
@@ -70,7 +74,7 @@ io.on('connection', (socket) => {
     if (rooms[room].length >= 50) {
       rooms[room].shift();
     }
-    const message = {userId:socket.id, user:user.username, message:msg.message, time:formattedTime}
+    const message = {userId:socket.id, room:msg.room, user:user.username, message:msg.message, time:formattedTime}
     rooms[room].push(message);
   
     io.emit('chat message', message);
