@@ -1066,6 +1066,26 @@ input:checked + .toggle-bg {
   inset: 0px;
 }
 
+.-bottom-7 {
+  bottom: -1.75rem;
+}
+
+.-left-7 {
+  left: -1.75rem;
+}
+
+.-right-10 {
+  right: -2.5rem;
+}
+
+.-right-9 {
+  right: -2.25rem;
+}
+
+.-top-10 {
+  top: -2.5rem;
+}
+
 .bottom-0 {
   bottom: 0px;
 }
@@ -1084,6 +1104,14 @@ input:checked + .toggle-bg {
 
 .top-0 {
   top: 0px;
+}
+
+.top-\[90px\] {
+  top: 90px;
+}
+
+.-right-2 {
+  right: -0.5rem;
 }
 
 .z-0 {
@@ -1108,6 +1136,10 @@ input:checked + .toggle-bg {
 
 .z-50 {
   z-index: 50;
+}
+
+.z-\[-1\] {
+  z-index: -1;
 }
 
 .order-last {
@@ -1252,6 +1284,10 @@ input:checked + .toggle-bg {
   height: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .min-h-full {
   min-height: 100%;
 }
@@ -1388,6 +1424,10 @@ input:checked + .toggle-bg {
   cursor: pointer;
 }
 
+.resize-none {
+  resize: none;
+}
+
 .resize {
   resize: both;
 }
@@ -1490,6 +1530,10 @@ input:checked + .toggle-bg {
   overflow: hidden;
 }
 
+.rounded {
+  border-radius: 0.25rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1518,6 +1562,10 @@ input:checked + .toggle-bg {
 
 .border-2 {
   border-width: 2px;
+}
+
+.border-\[f0f0f0\] {
+  border-color: f0f0f0;
 }
 
 .border-blue-600 {
@@ -1552,6 +1600,11 @@ input:checked + .toggle-bg {
 
 .border-transparent {
   border-color: transparent;
+}
+
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
 .bg-blue-700 {
@@ -1664,6 +1717,10 @@ input:checked + .toggle-bg {
   background-repeat: no-repeat;
 }
 
+.fill-primary {
+  fill: #f1e25c;
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1681,12 +1738,20 @@ input:checked + .toggle-bg {
   padding: 0.625rem;
 }
 
+.p-3 {
+  padding: 0.75rem;
+}
+
 .p-4 {
   padding: 1rem;
 }
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-2 {
@@ -1702,6 +1767,11 @@ input:checked + .toggle-bg {
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+
+.px-\[14px\] {
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 .py-1 {
@@ -1786,6 +1856,11 @@ input:checked + .toggle-bg {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .text-lg {
@@ -1943,6 +2018,11 @@ input:checked + .toggle-bg {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .outline {
@@ -2164,6 +2244,10 @@ input:checked + .toggle-bg {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-opacity-90:hover {
+  --tw-bg-opacity: 0.9;
+}
+
 .hover\:bg-gradient-to-tr:hover {
   background-image: linear-gradient(to top right, var(--tw-gradient-stops));
 }
@@ -2190,6 +2274,11 @@ input:checked + .toggle-bg {
 
 .hover\:underline:hover {
   text-decoration-line: underline;
+}
+
+.focus\:border-primary:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(241 226 92 / var(--tw-border-opacity));
 }
 
 .focus\:border-secondary:focus {
@@ -2227,6 +2316,12 @@ input:checked + .toggle-bg {
 .focus\:ring-secondary:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(142 90 255 / var(--tw-ring-opacity));
+}
+
+.focus-visible\:shadow-none:focus-visible {
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .group:hover .group-hover\:bg-secondary {
@@ -2339,6 +2434,14 @@ input:checked + .toggle-bg {
     align-items: center;
   }
 
+  .sm\:p-12 {
+    padding: 3rem;
+  }
+
+  .sm\:p-4 {
+    padding: 1rem;
+  }
+
   .sm\:text-center {
     text-align: center;
   }
@@ -2381,10 +2484,6 @@ input:checked + .toggle-bg {
     flex-direction: column;
   }
 
-  .md\:rounded-full {
-    border-radius: 9999px;
-  }
-
   .md\:p-4 {
     padding: 1rem;
   }
@@ -2412,6 +2511,11 @@ input:checked + .toggle-bg {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 }
 
