@@ -17,11 +17,10 @@ const io = require("socket.io")(http, {
 app.use(express.static('public'));
 
 const rooms = {
-  room1: [],
-  room2: [],
-  room3: []
+  1: [],
+  2: [],
+  3: []
 };
-let currentRoom;
 
 const users = [];
 
@@ -57,15 +56,12 @@ io.on('connection', (socket) => {
 
   socket.on('join room', (room) => {
     socket.join(room);
-    currentRoom = room;
     console.log(`${socket.id} joining room`, room);
-    io.to(currentRoom).emit('chat history', rooms[`room${room}`]);
+    io.to(room).emit('chat history', rooms[room]);
   });
 
   socket.on('chat message', (msg) => {
     console.log('message by: ' + socket.id, msg);
-
-    const room = `room${msg.room}`;
     const user = users.find(user => user.id === socket.id);
 
     const UTCTime = new Date();
@@ -73,13 +69,13 @@ io.on('connection', (socket) => {
     const options = { hour: '2-digit', minute: '2-digit' };
     const formattedTime = LocalTime.toLocaleTimeString('fi-FI', options);
 
-    if (rooms[room].length >= 50) {
-      rooms[room].shift();
+    if (rooms[msg.room].length >= 50) {
+      rooms[msg.room].shift();
     }
-    const message = {userId:socket.id, user:user.username, message:msg.message, time:formattedTime}
-    rooms[room].push(message);
+    const message = {userId:socket.id, room:msg.room, user:user.username, message:msg.message, time:formattedTime}
+    rooms[msg.room].push(message);
 
-    io.to(currentRoom).emit('chat message', message);
+    io.to(msg.room).emit('chat message', message);
   });
 });
 
