@@ -18,6 +18,7 @@ joinForm.addEventListener('submit', (event) => {
     document.getElementById('login').classList.add('hidden');
     document.getElementById('messageForm').classList.remove('hidden');
     document.getElementById('messageForm').classList.add('flex');
+    usersButton.classList.remove('invisible');
     document.getElementById('messageInput').focus();
   }
   socket.emit('join room', selectedRoom);
@@ -45,10 +46,11 @@ roomSelect.addEventListener('change', () => {
 
 usersButton.addEventListener('click', () => {
   usersList.classList.toggle('hidden');
-  usersButton.classList.toggle('bg-tetriary-100');
-  usersButton.classList.toggle('text-black');
+  usersButton.classList.toggle('bg-primary');
+  usersButton.classList.toggle('text-gray-900');
+  roomSelect.classList.toggle('invisible');
   messages.classList.toggle('hidden');
-
+  messageForm.classList.toggle('hidden');
 });
 
 socket.on('connect', () => {
