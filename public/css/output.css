@@ -1122,10 +1122,6 @@ input:checked + .toggle-bg {
   grid-column: span 6 / span 6;
 }
 
-.m-4 {
-  margin: 1rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1188,8 +1184,12 @@ input:checked + .toggle-bg {
   margin-top: 0.5rem;
 }
 
-.ml-8 {
-  margin-left: 2rem;
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
 }
 
 .block {
@@ -1272,12 +1272,12 @@ input:checked + .toggle-bg {
   width: 2.5rem;
 }
 
-.w-24 {
-  width: 6rem;
-}
-
 .w-3\/4 {
   width: 75%;
+}
+
+.w-36 {
+  width: 9rem;
 }
 
 .w-4 {
@@ -1304,8 +1304,16 @@ input:checked + .toggle-bg {
   width: 100%;
 }
 
-.w-36 {
-  width: 9rem;
+.w-3\/12 {
+  width: 25%;
+}
+
+.w-2 {
+  width: 0.5rem;
+}
+
+.w-3 {
+  width: 0.75rem;
 }
 
 .max-w-screen-2xl {
@@ -1611,6 +1619,11 @@ input:checked + .toggle-bg {
   background-color: rgb(218 200 254 / var(--tw-bg-opacity));
 }
 
+.bg-secondary-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(192 163 255 / var(--tw-bg-opacity));
+}
+
 .bg-secondary-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(165 123 255 / var(--tw-bg-opacity));
@@ -1619,6 +1632,11 @@ input:checked + .toggle-bg {
 .bg-tetriary-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(222 241 198 / var(--tw-bg-opacity));
+}
+
+.bg-tetriary-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(44 116 10 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -1630,24 +1648,19 @@ input:checked + .toggle-bg {
   background-color: rgb(255 255 255 / 0.5);
 }
 
-.bg-lime-200 {
+.bg-primary-900 {
   --tw-bg-opacity: 1;
-  background-color: rgb(217 249 157 / var(--tw-bg-opacity));
+  background-color: rgb(224 119 29 / var(--tw-bg-opacity));
 }
 
-.bg-primary-400 {
+.bg-primary-500 {
   --tw-bg-opacity: 1;
-  background-color: rgb(241 226 92 / var(--tw-bg-opacity));
+  background-color: rgb(238 221 67 / var(--tw-bg-opacity));
 }
 
-.bg-primary-100 {
+.bg-primary-600 {
   --tw-bg-opacity: 1;
-  background-color: rgb(250 245 196 / var(--tw-bg-opacity));
-}
-
-.bg-secondary-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(142 90 255 / var(--tw-bg-opacity));
+  background-color: rgb(236 204 61 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
@@ -1931,9 +1944,9 @@ input:checked + .toggle-bg {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-black {
+.text-gray-200 {
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
 .underline {

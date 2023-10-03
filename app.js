@@ -17,13 +17,13 @@ mongoose.connect(mongoString);
 const database = mongoose.connection;
 
 database.on('error', (error) => {
-    console.log(error);
+  console.log(error);
 });
 
 database.once('connected', () => {
-    console.log('Database Connected');
+  console.log('Database Connected');
 });
 
 app.listen(3010, () => {
-    console.log(`Server Started at ${3010}`)
+  console.log(`Server Started at ${3010}`)
 });
