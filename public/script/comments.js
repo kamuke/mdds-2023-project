@@ -2,11 +2,13 @@
 
 const url = 'http://localhost:3010';
 const form = document.getElementById('commentForm');
+const commentInput = document.getElementById('commentInput');
+const nameInput = document.getElementById('nameInput');
 
 form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
   const data = serializeJson(form);
-  console.log('dataa', data);
+  console.log('comment', data);
   const fetchOptions = {
     method: 'POST',
     headers: {
@@ -18,6 +20,8 @@ form.addEventListener('submit', async (evt) => {
   const response = await fetch(url + '/api/post', fetchOptions);
   const json = await response.json();
   console.log('comment post response', json);
+  commentInput.value = '';
+  nameInput.value = '';
   getMessages();
 });
 
@@ -28,7 +32,7 @@ const getMessages = async () => {
     };
     const response = await fetch(url + '/api/getPosts', fetchOptions);
     const messages = await response.json();
-    console.log(messages);
+    console.log('comment fetch', messages);
     showMessages(messages);
     calcurateRatings(messages);
 
@@ -36,12 +40,14 @@ const getMessages = async () => {
     console.log(e.message);
   }
 };
-  
+
 getMessages();
 
 const calcurateRatings = (messages) => {
+  const ratingCard = document.getElementById('ratingCard');
+  ratingCard.innerHTML = '';
+
   const totalRatings = messages.length;
-  console.log(totalRatings);
   const ratingsCount = [0, 0, 0, 0, 0];
 
   messages.forEach((message) => {
@@ -51,66 +57,64 @@ const calcurateRatings = (messages) => {
     }
   });
 
-const rating1Fraction = Math.round((ratingsCount[4] / totalRatings) * 100);
-const rating2Fraction = Math.round((ratingsCount[3] / totalRatings) * 100);
-const rating3Fraction = Math.round((ratingsCount[2] / totalRatings) * 100);
-const rating4Fraction = Math.round((ratingsCount[1] / totalRatings) * 100);
-const rating5Fraction = Math.round((ratingsCount[0] / totalRatings) * 100);
+  const rating1Percent = Math.round((ratingsCount[4] / totalRatings) * 100);
+  const rating2Percent = Math.round((ratingsCount[3] / totalRatings) * 100);
+  const rating3Percent = Math.round((ratingsCount[2] / totalRatings) * 100);
+  const rating4Percent = Math.round((ratingsCount[1] / totalRatings) * 100);
+  const rating5Percent = Math.round((ratingsCount[0] / totalRatings) * 100);
 
-const rating1Class = `${rating1Fraction}%`;
-const rating2Class = `${rating2Fraction}%`;
-const rating3Class = `${rating3Fraction}%`;
-const rating4Class = `${rating4Fraction}%`;
-const rating5Class = `${rating5Fraction}%`;
-
-const ratingCard = document.getElementById('ratingCard');
-
-for (let i = 5; i > 0; i--) {
-
-  const ratingDiv = document.createElement('div');
-  ratingDiv.classList.add('flex');
-  const ratingText = document.createElement('p');
-  ratingText.classList.add('text-sm', 'text-gray-100', 'mr-1', 'w-3');
-  ratingText.innerText = `${i}`;
-  const ratingImg = document.createElement('img');
-  ratingImg.classList.add('w-4', 'h-4', 'mr-1');
-  ratingImg.src = 'img/star.svg';
-
-  const childDivWrapper = document.createElement('div');
-  childDivWrapper.classList.add('bg-gray-200', 'mb-1', 'h-4', 'w-full');
-
-  const childDiv = document.createElement('div');
-  childDiv.id = `rating${i}`;
-  childDiv.classList.add('bg-primary-500', 'h-4');
+  const rating1Class = `${rating1Percent}%`;
+  const rating2Class = `${rating2Percent}%`;
+  const rating3Class = `${rating3Percent}%`;
+  const rating4Class = `${rating4Percent}%`;
+  const rating5Class = `${rating5Percent}%`;
   
-  childDivWrapper.appendChild(childDiv);
-  ratingCard.appendChild(ratingDiv);
-  ratingDiv.appendChild(ratingImg);
-  ratingDiv.appendChild(ratingText);
-  ratingDiv.appendChild(childDivWrapper);
+  for (let i = 5; i > 0; i--) {
+    const ratingDiv = document.createElement('div');
+    ratingDiv.classList.add('flex', 'justify-start', 'mb-1');
+  
+    const ratingText = document.createElement('p');
+    ratingText.classList.add('text-sm', 'text-gray-100', 'mr-1', 'min-w-fit', 'h-5', 'w-8', 'align-middle');
+    if (totalRatings > 9) {
+      ratingText.classList.add('w-12');
+    }
+    ratingText.innerText = `${i} (${ratingsCount[i - 1]})`;
+  
+    const ratingImg = document.createElement('img');
+    ratingImg.classList.add('w-5', 'h-5', 'mr-1');
+    ratingImg.src = 'img/star.svg';
+  
+    const childDivWrapper = document.createElement('div');
+    childDivWrapper.classList.add('bg-gray-200', 'h-5', 'w-52');
 
-}
+    const childDiv = document.createElement('div');
+    childDiv.id = `rating${i}`;
+    childDiv.classList.add('bg-primary-500', 'h-5');
 
-const w1 = document.getElementById(`rating5`);
-w1.style.width = `${rating1Class}`;
-const w2 = document.getElementById(`rating4`);
-w2.style.width = `${rating2Class}`;
-const w3 = document.getElementById(`rating3`);
-w3.style.width = `${rating3Class}`;
-const w4 = document.getElementById(`rating2`);
-w4.style.width = `${rating4Class}`;
-const w5 = document.getElementById(`rating1`);
-w5.style.width = `${rating5Class}`;
+    childDivWrapper.appendChild(childDiv);
+    ratingDiv.appendChild(ratingImg);
+    ratingDiv.appendChild(ratingText);
+    ratingDiv.appendChild(childDivWrapper);
+    ratingCard.appendChild(ratingDiv);
+  }
 
+  const w1 = document.getElementById(`rating5`);
+  w1.style.width = `${rating1Class}`;
+  const w2 = document.getElementById(`rating4`);
+  w2.style.width = `${rating2Class}`;
+  const w3 = document.getElementById(`rating3`);
+  w3.style.width = `${rating3Class}`;
+  const w4 = document.getElementById(`rating2`);
+  w4.style.width = `${rating4Class}`;
+  const w5 = document.getElementById(`rating1`);
+  w5.style.width = `${rating5Class}`;
 };
 
 const showMessages = (messages) => {
   const commentContainer = document.getElementById('comments');
-  //commentContainer.classList.add('flex', 'flex-col', 'items-center', 'w-full');
   commentContainer.innerHTML = '';
 
   messages.forEach((message) => {
-
     const commentDiv = document.createElement('div');
     commentDiv.classList.add(
       'p-2',
@@ -149,7 +153,7 @@ const showMessages = (messages) => {
     }
 
     const comment = document.createElement('p');
-    comment.innerText = message.message;
+    comment.innerText = message.comment;
 
     commentDiv.appendChild(header);
     commentDiv.appendChild(rating);

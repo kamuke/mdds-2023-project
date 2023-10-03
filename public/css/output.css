@@ -1172,6 +1172,14 @@ input:checked + .toggle-bg {
   margin-left: 1rem;
 }
 
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
 .mr-4 {
   margin-right: 1rem;
 }
@@ -1182,14 +1190,6 @@ input:checked + .toggle-bg {
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
-.mr-1 {
-  margin-right: 0.25rem;
 }
 
 .block {
@@ -1304,20 +1304,34 @@ input:checked + .toggle-bg {
   width: 100%;
 }
 
-.w-3\/12 {
-  width: 25%;
+.w-24 {
+  width: 6rem;
 }
 
-.w-2 {
-  width: 0.5rem;
+.w-12 {
+  width: 3rem;
 }
 
-.w-3 {
-  width: 0.75rem;
+.w-96 {
+  width: 24rem;
+}
+
+.w-52 {
+  width: 13rem;
+}
+
+.min-w-fit {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 
 .max-w-screen-2xl {
   max-width: 1536px;
+}
+
+.max-w-fit {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 
 .flex-1 {
@@ -1609,6 +1623,11 @@ input:checked + .toggle-bg {
   background-color: rgb(241 226 92 / var(--tw-bg-opacity));
 }
 
+.bg-primary-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 221 67 / var(--tw-bg-opacity));
+}
+
 .bg-secondary {
   --tw-bg-opacity: 1;
   background-color: rgb(142 90 255 / var(--tw-bg-opacity));
@@ -1617,11 +1636,6 @@ input:checked + .toggle-bg {
 .bg-secondary-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(218 200 254 / var(--tw-bg-opacity));
-}
-
-.bg-secondary-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(192 163 255 / var(--tw-bg-opacity));
 }
 
 .bg-secondary-300 {
@@ -1634,11 +1648,6 @@ input:checked + .toggle-bg {
   background-color: rgb(222 241 198 / var(--tw-bg-opacity));
 }
 
-.bg-tetriary-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(44 116 10 / var(--tw-bg-opacity));
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1646,21 +1655,6 @@ input:checked + .toggle-bg {
 
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
-}
-
-.bg-primary-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(224 119 29 / var(--tw-bg-opacity));
-}
-
-.bg-primary-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(238 221 67 / var(--tw-bg-opacity));
-}
-
-.bg-primary-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(236 204 61 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
@@ -1815,6 +1809,10 @@ input:checked + .toggle-bg {
   text-align: center;
 }
 
+.align-middle {
+  vertical-align: middle;
+}
+
 .font-display {
   font-family: Dela Gothic One;
 }
@@ -1942,11 +1940,6 @@ input:checked + .toggle-bg {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-gray-200 {
-  --tw-text-opacity: 1;
-  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
 .underline {

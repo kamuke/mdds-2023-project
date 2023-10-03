@@ -11,10 +11,10 @@ const dataSchema = new mongoose.Schema({
     required: true,
     type: Number
   },
-  message: {
+  comment: {
     required: true,
     type: String
   }
-}, { timestamps: true });
+}, { timestamps: true, versionKey: false, collection: 'comments' });
 
-module.exports = mongoose.model('Data', dataSchema);
+module.exports = mongoose.model('comments', dataSchema);

@@ -7,7 +7,7 @@ router.post('/post', async (req, res) => {
   const data = new Model({
     name: req.body.name,
     rating: req.body.rating,
-    message: req.body.message
+    comment: req.body.comment
   })
   try {
     const dataToSave = await data.save();
