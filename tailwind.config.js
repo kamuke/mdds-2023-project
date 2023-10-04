@@ -11,6 +11,9 @@ module.exports = {
         sans: ['Lexend'],
         display: ['Dela Gothic One'],
       },
+      fontSize: {
+        '5xl': ['3rem', { lineHeight: '1.25' }],
+      },
       colors: {
         primary: {
           DEFAULT: '#f1e25c',
