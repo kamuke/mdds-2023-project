@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <script type="module" src="script/contact.js" defer></script>
   </head>
   <body class="bg-gray-950">
     <header class="max-w-screen-2xl mx-auto py-4 px-4 relative z-10">
@@ -272,11 +273,17 @@
               >
                 <form id="contactForm">
                   <div class="mb-6">
+                    <input
+                      type="hidden"
+                      id="contactNumber"
+                      name="contact_number"
+                    />
                     <label for="nameInput" class="text-sm text-gray-100"
                       >Your name: *</label
                     >
                     <input
                       id="nameInput"
+                      name="user_name"
                       type="text"
                       placeholder="Your name"
                       class="w-full mt-2.5 p-2.5 text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
@@ -289,6 +296,7 @@
                   <div class="mb-6">
                     <input
                       id="emailInput"
+                      name="user_email"
                       type="email"
                       placeholder="Your email"
                       class="w-full mt-2.5 p-2.5 text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
@@ -301,7 +309,8 @@
                   <div class="mb-6">
                     <input
                       id="phoneInput"
-                      type="text"
+                      name="user_phonenumber"
+                      type="tel"
                       placeholder="Your phonenumber"
                       class="w-full mt-2.5 p-2.5 text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
                     />
@@ -312,6 +321,7 @@
                     >
                     <textarea
                       id="messageInput"
+                      name="message"
                       rows="6"
                       placeholder="Your message"
                       class="w-full mt-2.5 p-2.5 text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
@@ -367,5 +377,9 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
   </body>
 </html>
