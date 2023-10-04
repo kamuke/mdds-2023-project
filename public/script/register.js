@@ -17,6 +17,7 @@ form.addEventListener('submit', async (evt) => {
   const response = await fetch(url + '/api/register', fetchOptions);
   const json = await response.json();
   console.log('register response', json);
+  window.location.href = 'login.html';
   if (json.message) {
     alert("Give an unique email address");
   }

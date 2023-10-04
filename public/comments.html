@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metropolia Ciné - Online Festival 11.10.2023</title>
+    <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet" />
     <link href="css/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,34 +12,50 @@
       href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <script src="script/comments.js" defer></script>
     <script src="script/serialize.js" defer></script>
-    <script src="script/login.js" defer></script>
-    <title>Login</title>
+    <script src="script/auth-user.js" defer></script>
 </head>
 <body>
-  <section class="max-w-screen-2xl mx-auto px-4"></section>
-    <form
-          id="loginForm"
+     <!-- comments section starts -->
+     <section class="max-w-screen-2xl mx-auto px-4">
+        <div id="ratingCard" class="max-w-fit"></div>
+        <form
+          id="commentForm"
           class="items-center gap-4 p-4 bg-gray-800 w-full"
         >
-          <label for="login" class="sr-only">Login</label>
+          <label for="comments" class="sr-only">Comment</label>
+          <div class="flex mb-4">
             <input
-              id="loginEmail"
-              type="email"
+              id="nameInput"
+              type="text"
               autocomplete="off"
               required
-              name="email"
+              name="name"
               class="block mr-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
-              placeholder="Email"
+              placeholder="Name"
             />
+            <select
+              class="rounded-lg bg-gray-800 border-gray-700 text-gray-100 focus:ring-secondary focus:border-secondary font-sans"
+              name="rating"
+              type="number"
+            >
+              <option value="1" selected>1 Star</option>
+              <option value="2">2 Stars</option>
+              <option value="3">3 Stars</option>
+              <option value="4">4 Stars</option>
+              <option value="5">5 Stars</option>
+            </select>
+          </div>
+          <div class="flex ">
             <input
-            id="loginPassword"
-            type="password"
+            type="text"
             autocomplete="off"
             required
-            name="password"
+            id="commentInput"
+            name="comment"
             class="block mr-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
-            placeholder="password"
+            placeholder="Message..."
             />
             <button
               type="submit"
@@ -54,19 +72,10 @@
                 ></path>
               </svg>
             </button>
+          </div>
         </form>
-        <a
-        href="register.html"
-        class="block py-2 px-4 bg-secondary text-gray-950 rounded-lg lg:rounded-full"
-        aria-current="page"
-        >Register</a
-        >
-        <a
-        href="index.html"
-        class="block py-2 px-4 bg-secondary text-gray-950 rounded-lg lg:rounded-full"
-        aria-current="page"
-        >Home</a
-        >
-  </section>
+        <div id="comments" class="p-4"></div>
+      </section>
+      <!-- comments section ends -->
 </body>
 </html>

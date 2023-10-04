@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
     password: req.body.password
   });
   try {
-    const user = await loginModel.findOne({ 'email': data.email, 'password': data.password });
+    const user = await registerModel.findOne({ 'email': data.email, 'password': data.password });
     console.log('user', user);
     if (!user) {
       res.status(401).json({message: 'Invalid credentials'})
@@ -70,7 +70,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/authUser', async (req, res) => {
   try {
-    const user = await registerModel.findById(req.body.id);
+    const user = await registerModel.findById(req.body._id);
     console.log('user', user);
     if (!user) {
       res.status(401).json({message: 'Invalid credentials'})
