@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metropolia Ciné - Program</title>
+    <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet" />
+    <link href="css/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script/parallax.js" defer></script>
+    <script src="script/program.js" defer></script>
+  </head>
+  <body class="bg-gray-950">
+    <header class="max-w-screen-2xl mx-auto py-4 px-4">
+      <div
+        class="w-full flex flex-wrap items-center justify-between py-2 px-4 mx-auto bg-gray-900 rounded-lg"
+      >
+        <a href="/" class="flex gap-2 items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-10 h-10 md:w-12 md:h-12 text-primary"
+          >
+            <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+            <path
+              fill-rule="evenodd"
+              d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span
+            class="self-center hidden sm:inline text-2xl text-gray-100 uppercase font-display tracking-widest pb-1"
+            >Metropolia Ciné</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-100 border-2 border-transparent rounded-lg lg:hidden hover:border-gray-100 focus:outline-none focus:ring-2 focus:ring-secondary"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-8 h-8"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <nav class="hidden w-full lg:block lg:w-auto" id="navbar-default">
+          <ul
+            class="font-semibold flex flex-col lg:flex-row gap-3 pt-3 pb-3 lg:pt-0 lg:pb-0"
+          >
+            <li>
+              <a
+                href="/"
+                class="block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="transition-all block py-2 px-4 bg-secondary text-gray-950rounded-lg lg:rounded-full"
+                aria-current="page"
+                >Program</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
+                aria-current="page"
+                >Info</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg md:rounded-full"
+                aria-current="page"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero sections starts -->
+      <section class="max-w-screen-2xl mx-auto px-4 lg:pb-24 grid grid-cols-12">
+        <div
+          class="pt-6 lg:py-44 col-span-12 lg:col-span-6 order-last lg:-order-1"
+        >
+          <h1
+            class="mb-6 md:mb-8 text-3xl md:text-6xl text-gray-100 font-display tracking-wider"
+          >
+            <span class="text-secondary">Program</span> 2023
+          </h1>
+          <p
+            class="mb-8 font-semibold text-gray-100 text-xl md:text-2xl underline underline-offset-8 decoration-4 decoration-secondary"
+          >
+            11.10.2023 12:00
+          </p>
+          <p class="mb-8 md:mb-12 font-light text-gray-300 md:text-xl">
+            You can check the full program of Metropolia Ciné here. Please watch the movies in our stream that you can find on our front page, or click the button below!
+          </p>
+          <a
+            href="#live"
+            class="transition-all inline-flex items-center justify-center rounded-lg px-4 py-2 mr-4 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
+            aria-label="Scroll to live"
+          >
+            Live now!
+            <span class="relative flex h-4 w-4 ml-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-300 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-4 w-4 bg-secondary"
+              ></span>
+            </span>
+          </a>
+          <a
+            href="#"
+            class="inline-flex items-center justify-center rounded-lg mr-8 px-4 py-2 text-gray-100 border-2 border-transparent uppercase font-semibold hover:border-2 hover:border-gray-100"
+          >
+            Read more
+          </a>
+        </div>
+        <!-- Parallax scroll hero img starts -->
+        <div class="hidden lg:block col-span-6 relative z-0">
+          <div
+            class="bg-[url('../img/hero_back.png')] bg-no-repeat h-full w-full fixed"
+            data-type="parallax"
+            data-speed="90"
+          ></div>
+          <div
+            class="bg-[url('../img/hero_1.png')] bg-no-repeat h-full w-full fixed"
+            data-type="parallax"
+            data-speed="80"
+          ></div>
+          <div
+            class="bg-[url('../img/hero_2.png')] bg-no-repeat h-full w-full fixed"
+            data-type="parallax"
+            data-speed="50"
+          ></div>
+          <div
+            class="bg-[url('../img/hero_3.png')] bg-no-repeat h-full w-full fixed"
+            data-type="parallax"
+            data-speed="65"
+          ></div>
+          <div
+            class="bg-[url('../img/hero_4.png')] bg-no-repeat h-full w-full fixed"
+            data-type="parallax"
+            data-speed="75"
+          ></div>
+        </div>
+        <!-- Parallax scroll hero img starts -->
+        <!-- Static hero img for mobile starts -->
+        <div class="block lg:hidden h-full col-span-12">
+          <div
+            class="bg-[url('../img/hero_back.png')] bg-[length:85%] bg-no-repeat bg-center h-full w-full"
+          >
+            <img
+              src="img/hero_full.png"
+              alt="Colorful illustration"
+              class="mx-auto w-3/4"
+            />
+          </div>
+        </div>
+        <!-- Static hero img ends -->
+      </section>
+      <!-- Hero sections ends -->
+
+      <!-- Program section starts -->
+      <section class="max-w-screen-2xl mx-auto px-4 pb-14 lg:pb-20 py-14">
+        <h2
+          class="text-2xl md:text-4xl text-gray-100 font-display tracking-wider"
+        >
+          11.10.2023
+        </h2>
+
+        <!-- Genre choices -->
+        <div class="pt-5" id="">
+          <ul id="list-genre" class="list-none flex">
+            <li id="All">
+              <button>
+                <span class="inline-block px-2 py-1 mr-2 bg-secondary-100 text-secondary-900 rounded-full font-semibold uppercase tracking-wide text-xs">All</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 1st movie -->
+        <div class="mx-3 grid grid-cols-12 gap-8 pt-12 mb-8" id="list-program">
+          <!-- render this from JS -->
+          <div style="writing-mode: vertical-rl; text-orientation: upright;" class="text-secondary flex items-center justify-center underline underline-offset-8 decoration-4 decoration-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z" clip-rule="evenodd" />
+             </svg>
+            <h3 class="my-2 text-2xl font-semibold text-gray-100">
+             13:15
+             </h3>
+          </div>
+          <a
+            href=""
+            class="rounded-lg col-[span_11] lg:col-span-3 lg:col-start-3 lg:col-end-13 group"
+          >
+            <div class="group-hover:bg-secondary rounded-lg">
+              <div
+                class="bg-gray-900 rounded-lg shadow-xl hover:-translate-x-3 hover:-translate-y-3 flex flex-row md:flex-col"
+              >
+                <img
+                  class="rounded-lg h-36 md:h-56 w-1/2 md:w-full object-cover"
+                  src="https://picsum.photos/1000/1000"
+                  alt=""
+                />
+                <div class="p-5 md:p-4 flex flex-col items-stretch w-full">
+                  <div>
+                    <span
+                      class="inline-block px-2 py-1 bg-secondary-100 text-secondary-900 rounded-full font-semibold uppercase tracking-wide text-xs"
+                      >Genre</span
+                    >
+                  </div>
+                  <h3 class="my-2 text-1xl font-semibold text-gray-100">
+                    Test movie
+                  </h3>
+                  <div class="flex justify-between text-gray-300">
+                    <span class="text-xs">13:15-14:55</span>
+                  </div>
+                  <div class="flex justify-between text-gray-300 pt-2">
+                    <span>Delete this from html when rendering from JS works :D</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </section>
+      <!-- Program section ends -->
+
+      <!-- MODAL -->
+      <div class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="addMovie">
+        <!--
+          Background backdrop, show/hide based on modal state.
+      
+          Entering: "ease-out duration-300"
+            From: "opacity-0"
+            To: "opacity-100"
+          Leaving: "ease-in duration-200"
+            From: "opacity-100"
+            To: "opacity-0"
+        -->
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+      
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <!--
+              Modal panel, show/hide based on modal state.
+      
+              Entering: "ease-out duration-300"
+                From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                To: "opacity-100 translate-y-0 sm:scale-100"
+              Leaving: "ease-in duration-200"
+                From: "opacity-100 translate-y-0 sm:scale-100"
+                To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            -->
+            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+              <div class="bg-primary px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                <div class="sm:flex sm:items-start">
+                  <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                    <h3 class="my-2 text-1xl font-semibold text-gray-950" id="modal-title">Add the movie to Google Calendar?</h3>
+                    <a
+                    href="https://calendar.google.com/calendar/r/eventedit?text=Movie+Name&dates=20231011T130500Z/20231011T140000Z&details=Link+here:+https://example.com/&location=Metropolia+Ammattikorkeakoulu+-+Karamalmin+kampus,+Karaportti+2,+02610+Espoo,+Suomi"
+                    class="inline-flex items-center justify-center rounded-lg mr-8 px-4 py-2 text-gray-950 border-2 border-transparent uppercase font-semibold hover:border-2 hover:border-gray-950"
+                    >
+                      Add
+                    </a>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="max-w-screen-2xl mx-auto pb-4 px-4">
+      <div class="w-full mx-auto p-4 md:py-8 bg-gray-900 rounded-lg">
+        <div
+          class="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-4"
+        >
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-gray-100 sm:text-center"
+              >© 2023 <a href="#" class="hover:underline">Metropolia Ciné</a>.
+              All Rights Reserved.
+            </span>
+          </div>
+          <ul
+            class="flex flex-wrap gap-4 items-center text-sm font-semibold text-gray-100"
+          >
+            <li>
+              <a href="#" class="hover:underline">Info</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">Contact</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script>
+  </body>
+</html>
