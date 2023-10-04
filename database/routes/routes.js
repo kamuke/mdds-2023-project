@@ -57,7 +57,7 @@ router.post('/login', async (req, res) => {
     const user = await registerModel.findOne({ 'email': data.email, 'password': data.password });
     console.log('user login', user);
     if (!user) {
-      res.status(401).json({message: 'Invalid credentials'})
+      res.status(400).json({message: 'Invalid credentials'})
     }  else {
       const userWithoutPassword = { ...user._doc };
       delete userWithoutPassword.password; 
@@ -74,7 +74,7 @@ router.post('/authUser', async (req, res) => {
     const user = await registerModel.findById(req.body._id);
     console.log('user auth', user);
     if (!user) {
-      res.status(401).json({message: 'Invalid credentials'})
+      res.status(400).json({message: 'Invalid credentials'})
     } else {
       const userWithoutPassword = { ...user._doc };
       delete userWithoutPassword.password; 
