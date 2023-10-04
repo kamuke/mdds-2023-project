@@ -2,7 +2,7 @@
 
 **Members:** Catrina Koskinen, Kerttu Kamula, Veli-Matti Heino
 
-**Stack:** Express, Socket.IO, Tailwind CSS, Flowbite
+**Stack:** Express, Socket.IO, Tailwind CSS, Flowbite 
 
 **Start BE for socket.IO chat:**
 
