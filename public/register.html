@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script/serialize.js" defer></script>
+    <script src="script/register.js" defer></script>
+    <title>Register</title>
+</head>
+<body>
+  <section class="max-w-screen-2xl mx-auto px-4"></section>
+    <form
+          id="registerForm"
+          class="items-center gap-4 p-4 bg-gray-800 w-full"
+        >
+          <label for="register" class="sr-only">Register</label>
+            <input
+              id="registerEmail"
+              type="email"
+              autocomplete="off"
+              required
+              name="email"
+              class="block mr-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+              placeholder="Email"
+            />
+            <input
+            id="RegisterName"
+            type="text"
+            autocomplete="off"
+            required
+            name="name"
+            class="block mr-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+            placeholder="Username"
+            />
+            <input
+            id="registerPassword"
+            type="password"
+            autocomplete="off"
+            required
+            name="password"
+            class="block mr-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+            placeholder="password"
+            />
+            <button
+              type="submit"
+              class="inline-flex justify-center p-2.5 text-gray-950 rounded-lg cursor-pointer bg-primary hover:bg-gradient-to-tr from-primary to-tetriary"
+            >
+              <svg
+                class="w-6 h-6 rotate-90"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+                ></path>
+              </svg>
+            </button>
+        </form>
+  </section>
+</body>
+</html>
