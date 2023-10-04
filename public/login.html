@@ -15,9 +15,9 @@
     <title>Login</title>
 </head>
 <body class="bg-gray-950">
-  <header class="max-w-screen-2xl mx-auto py-4 px-4">
+  <header class="max-w-screen-2xl mx-auto py-4 px-4 relative z-10">
     <div
-      class="w-full flex flex-wrap items-center justify-between py-2 px-4 mx-auto bg-gray-900 rounded-lg"
+      class="w-full flex flex-wrap items-center justify-between py-2 px-4 mx-auto bg-gray-900 shadow-lg rounded-lg"
     >
       <a href="index.html" class="flex gap-2 items-center">
         <svg
@@ -25,6 +25,7 @@
           viewBox="0 0 24 24"
           fill="currentColor"
           class="w-10 h-10 md:w-12 md:h-12 text-primary"
+          alt="Metropolia Ciné's eye logo"
         >
           <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
           <path
@@ -66,12 +67,20 @@
         <ul
           class="font-semibold flex flex-col lg:flex-row gap-3 pt-3 pb-3 lg:pt-0 lg:pb-0"
         >
+        <li>
+          <a
+            href="comments.html"
+            class="block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 lg:rounded-full"
+            aria-current="page"
+            >Social</a
+          >
+        </li>
           <li>
             <a
-              href="#"
-              class="block py-2 px-4 bg-secondary text-gray-950 rounded-lg lg:rounded-full"
+              href="login.html"
+              class="transition-all block py-2 px-4 bg-secondary text-gray-950 rounded-lg lg:rounded-full"
               aria-current="page"
-              >Home</a
+              >Login/Register</a
             >
           </li>
           <li>
@@ -84,18 +93,10 @@
           </li>
           <li>
             <a
-              href="#"
-              class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
+              href="info.html"
+              class="block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950  rounded-lg lg:rounded-full"
               aria-current="page"
-              >Info</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg md:rounded-full"
-              aria-current="page"
-              >Contact</a
+              >Info & Contact</a
             >
           </li>
         </ul>
