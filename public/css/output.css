@@ -1145,6 +1145,11 @@ input:checked + .toggle-bg {
   margin-bottom: 0.5rem;
 }
 
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
 .-mr-1 {
   margin-right: -0.25rem;
 }
@@ -1203,6 +1208,14 @@ input:checked + .toggle-bg {
 
 .mt-3 {
   margin-top: 0.75rem;
+}
+
+.mr-10 {
+  margin-right: 2.5rem;
+}
+
+.mr-40 {
+  margin-right: 10rem;
 }
 
 .block {
@@ -1271,6 +1284,22 @@ input:checked + .toggle-bg {
 
 .h-full {
   height: 100%;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.h-1\/2 {
+  height: 50%;
+}
+
+.h-56 {
+  height: 14rem;
+}
+
+.h-64 {
+  height: 16rem;
 }
 
 .min-h-full {
@@ -1459,6 +1488,10 @@ input:checked + .toggle-bg {
   flex-wrap: wrap;
 }
 
+.content-center {
+  align-content: center;
+}
+
 .items-start {
   align-items: flex-start;
 }
@@ -1535,6 +1568,10 @@ input:checked + .toggle-bg {
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.whitespace-break-spaces {
+  white-space: break-spaces;
 }
 
 .rounded-full {
@@ -1670,6 +1707,11 @@ input:checked + .toggle-bg {
   background-color: rgb(255 255 255 / 0.5);
 }
 
+.bg-secondary-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(27 22 217 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1788,6 +1830,11 @@ input:checked + .toggle-bg {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .pb-1 {
@@ -1961,6 +2008,11 @@ input:checked + .toggle-bg {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-secondary-100 {
+  --tw-text-opacity: 1;
+  color: rgb(218 200 254 / var(--tw-text-opacity));
 }
 
 .underline {
