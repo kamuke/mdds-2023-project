@@ -10,6 +10,7 @@ const authModel = require('../models/auth-model');
 router.post('/post', async (req, res) => {
   const data = new commentModel({
     name: req.body.name,
+    title: req.body.title,
     rating: req.body.rating,
     comment: req.body.comment
   })
