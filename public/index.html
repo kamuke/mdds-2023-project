@@ -15,6 +15,7 @@
     <script src="script/chat.js" defer></script>
     <script src="script/parallax.js" defer></script>
     <script src="script/myplayer.js" defer></script>
+    <script src="script/countdown.js" defer></script>
   </head>
   <body class="bg-gray-950">
     <header class="max-w-screen-2xl mx-auto py-4 px-4">
@@ -111,13 +112,16 @@
           <p
             class="mb-8 font-semibold text-gray-100 text-xl md:text-2xl underline underline-offset-8 decoration-4 decoration-secondary"
           >
-            11.10.2023 12:00
+            11.10.2023 1PM
           </p>
           <p class="mb-8 md:mb-12 font-light text-gray-300 md:text-xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
             suscipit tenetur recusandae similique consectetur ipsa libero
             repudiandae culpa quasi ex cupiditate blanditiis, mollitia corporis
             beatae ab molestias veritatis alias harum.
+          </p>
+          <p class="mb-8 md:mb-12 text-gray-300 text-xl">
+            Opening stream starting in <span id="countdown"></span>
           </p>
           <a
             href="#live"
@@ -209,7 +213,10 @@
               poster="img/placeholder_poster.PNG"
               data-setup="{}"
             >
-              <source src="https://appletree-mytime-samsungbrazil.amagi.tv/playlist.m3u8" type="application/x-mpegURL" />
+              <source
+                src="https://appletree-mytime-samsungbrazil.amagi.tv/playlist.m3u8"
+                type="application/x-mpegURL"
+              />
               <p class="vjs-no-js">
                 To view this video please enable JavaScript, and consider
                 upgrading to a web browser that
@@ -229,7 +236,12 @@
               class="flex items-center justify-between p-4 bg-gray-800 w-full"
             >
               <h3 class="text-xl text-gray-100">Chat</h3>
-              <button class="text-xl text-gray-100 hover:text-gray-900 p-2 rounded-lg hover:bg-gradient-to-tr invisible from-primary to-tetriary" id="getUserListBtn">Users (0)</button>
+              <button
+                class="text-xl text-gray-100 hover:text-gray-900 p-2 rounded-lg hover:bg-gradient-to-tr invisible from-primary to-tetriary"
+                id="getUserListBtn"
+              >
+                Users (0)
+              </button>
               <label for="roomSelect" class="sr-only">Select chat room</label>
               <select
                 id="roomSelect"
@@ -244,7 +256,10 @@
               id="messages"
               class="p-4 overflow-auto grow flex flex-col w-full"
             ></ul>
-            <ul class="overflow-auto grow flex-col w-full hidden p-4" id="userList"></ul>
+            <ul
+              class="overflow-auto grow flex-col w-full hidden p-4"
+              id="userList"
+            ></ul>
 
             <div id="login" class="items-center gap-2 p-4 bg-gray-800 w-full">
               <form id="joinForm" class="flex">
@@ -258,7 +273,12 @@
                   maxlength="30"
                   class="block w-full p-2.5 text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
                 />
-                <button class="rounded-lg w-36 ml-4 bg-primary hover:bg-gradient-to-tr from-primary to-tetriary" type="submit">Join</button>
+                <button
+                  class="rounded-lg w-36 ml-4 bg-primary hover:bg-gradient-to-tr from-primary to-tetriary"
+                  type="submit"
+                >
+                  Join
+                </button>
               </form>
             </div>
 
@@ -292,7 +312,6 @@
               </button>
             </form>
           </div>
-
         </div>
       </section>
       <!-- Stream section ends -->
