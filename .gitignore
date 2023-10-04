@@ -194,3 +194,8 @@ dist
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/node,macos,visualstudiocode
+
+emailjs.config.js
+
+output.css
+public/css/output.css

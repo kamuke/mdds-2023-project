@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metropolia Ciné - Online Festival 11.10.2023</title>
+    <link href="css/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="script/contact.js" defer></script>
+  </head>
+  <body class="bg-gray-950">
+    <header class="max-w-screen-2xl mx-auto py-4 px-4 relative z-10">
+      <div
+        class="w-full flex flex-wrap items-center justify-between py-2 px-4 mx-auto bg-gray-900 shadow-lg rounded-lg"
+      >
+        <a href="index.html" class="flex gap-2 items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-10 h-10 md:w-12 md:h-12 text-primary"
+            alt="Metropolia Ciné's eye logo"
+          >
+            <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+            <path
+              fill-rule="evenodd"
+              d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span
+            class="self-center hidden sm:inline text-2xl text-gray-100 uppercase font-display tracking-widest pb-1"
+            >Metropolia Ciné</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-100 border-2 border-transparent rounded-lg lg:hidden hover:border-gray-100 focus:outline-none focus:ring-2 focus:ring-secondary"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-8 h-8"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <nav class="hidden w-full lg:block lg:w-auto" id="navbar-default">
+          <ul
+            class="font-semibold flex flex-col lg:flex-row gap-3 pt-3 pb-3 lg:pt-0 lg:pb-0"
+          >
+          <li>
+            <a
+              href="comments.html"
+              class="block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 lg:rounded-full"
+              aria-current="page"
+              >Social</a
+            >
+          </li>
+            <li>
+              <a
+              href="login.html"
+              class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
+              aria-current="page"
+              >Login/Register</a
+            >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
+                aria-current="page"
+                >Program</a
+              >
+            </li>
+            <li>
+              <a
+                href="info.html"
+                class="block py-2 px-4 bg-secondary text-gray-950 rounded-lg lg:rounded-full"
+                aria-current="page"
+                >Info & Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="absolute w-full top-0 z-0">
+      <main>
+        <section id="info">
+          <div
+            class="bg-gradient-to-tr from-secondary to-secondary-700 bg-secondary pt-36 md:pt-56 pb-60 md:pb-80 rounded-b-lg"
+          >
+            <div class="max-w-screen-lg mx-auto px-4">
+              <h2
+                class="text-2xl md:text-5xl text-gray-100 font-display tracking-wider leading-tight mb-8 text-center"
+              >
+                About
+                <span class="text-gray-950">Metropolia Ciné</span>
+              </h2>
+              <div class="text-white font-light text-center md:text-xl mb-10">
+                <p class="mb-6">
+                  Experience the magic of cinema from the comfort of your own
+                  screen. Our festival kicks off with an exciting opening stream
+                  on
+                  <span class="font-semibold"> October 11th at 1:00 PM.</span>
+                  The stream can be viewed from
+                  <a href="index.html#live" class="underline">home page</a>.
+                </p>
+                <p>
+                  Join us for an unforgettable week of film exploration,
+                  artistic expression, and community engagement.
+                </p>
+              </div>
+              <!-- TODO: Add link to program site -->
+              <div class="flex justify-center">
+                <a
+                  href="#"
+                  class="transition-all inline-flex items-center justify-center rounded-lg py-2 px-4 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
+                >
+                  Check out our program
+                  <svg
+                    class="w-5 h-5 ml-2 -mr-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-screen-xl mx-auto px-4 relative -top-32 md:-top-40">
+            <div class="ml-3 grid-cols-12 grid gap-y-12 gap-x-0 md:gap-10">
+              <article
+                class="bg-gradient-to-br from-tetriary-800 to-tetriary rounded-lg col-span-12 md:col-span-4"
+              >
+                <div
+                  class="bg-gray-50 rounded-lg shadow p-8 -translate-x-3 -translate-y-3 h-full"
+                >
+                  <div class="flex justify-center mb-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="w-20 h-20 text-secondary"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div class="text-gray-950">
+                    <h3 class="text-2xl font-semibold text-center mb-4">
+                      Opening stream
+                    </h3>
+                    <p class="text-center">
+                      Be part of the grand opening on October 11th, where we'll
+                      set the stage for an amazing week of cinematic delights.
+                      Tune in at 1:00 PM to kickstart the online festival!
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <article
+                class="bg-gradient-to-br from-tetriary-800 to-tetriary rounded-lg col-span-12 md:col-span-4"
+              >
+                <div
+                  class="bg-gray-50 rounded-lg shadow p-8 -translate-x-3 -translate-y-3 h-full"
+                >
+                  <div class="flex justify-center mb-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="w-20 h-20 text-secondary"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M1.5 5.625c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v12.75c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 18.375V5.625zm1.5 0v1.5c0 .207.168.375.375.375h1.5a.375.375 0 00.375-.375v-1.5a.375.375 0 00-.375-.375h-1.5A.375.375 0 003 5.625zm16.125-.375a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h1.5A.375.375 0 0021 7.125v-1.5a.375.375 0 00-.375-.375h-1.5zM21 9.375A.375.375 0 0020.625 9h-1.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h1.5a.375.375 0 00.375-.375v-1.5zm0 3.75a.375.375 0 00-.375-.375h-1.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h1.5a.375.375 0 00.375-.375v-1.5zm0 3.75a.375.375 0 00-.375-.375h-1.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h1.5a.375.375 0 00.375-.375v-1.5zM4.875 18.75a.375.375 0 00.375-.375v-1.5a.375.375 0 00-.375-.375h-1.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h1.5zM3.375 15h1.5a.375.375 0 00.375-.375v-1.5a.375.375 0 00-.375-.375h-1.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375zm0-3.75h1.5a.375.375 0 00.375-.375v-1.5A.375.375 0 004.875 9h-1.5A.375.375 0 003 9.375v1.5c0 .207.168.375.375.375zm4.125 0a.75.75 0 000 1.5h9a.75.75 0 000-1.5h-9z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div class="text-gray-950">
+                    <h3 class="text-2xl font-semibold text-center mb-4">
+                      Film Lineup
+                    </h3>
+                    <p class="text-center">
+                      Explore our diverse film selection and create your
+                      personal watchlist. Each movie promises a unique
+                      storytelling experience.
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <article
+                class="bg-gradient-to-br from-tetriary-800 to-tetriary rounded-lg col-span-12 md:col-span-4"
+              >
+                <div
+                  class="bg-gray-50 rounded-lg shadow p-8 -translate-x-3 -translate-y-3 h-full"
+                >
+                  <div class="flex justify-center mb-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="w-20 h-20 text-secondary"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div class="text-gray-950">
+                    <h3 class="text-2xl font-semibold text-center mb-4">
+                      Live Chat
+                    </h3>
+                    <p class="text-center">
+                      Connect with other film enthusiasts during the screenings.
+                      Share your passion for cinema and exchange views with an
+                      audience.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section
+          id="contact"
+          class="max-w-screen-xl mx-auto px-4 py-14 lg:pb-20 lg:pt-0 -mt-14"
+        >
+          <div class="grid grid-cols-12 gap-x-0 gap-y-8 md:gap-16">
+            <div class="col-span-12 lg:col-span-6 flex flex-col justify-center">
+              <h2
+                class="text-2xl md:text-5xl text-gray-100 font-display tracking-wider leading-tight mb-8"
+              >
+                Questions? Ideas?
+                <span class="text-secondary">Contact us!</span>
+              </h2>
+              <p class="mb-4 font-light text-gray-300 md:text-xl">
+                Feel free to reach out to us for any inquiries, suggestions, or
+                feedback you may have. We value your input and are here to
+                assist you. Please fill out the form. Thank you for connecting
+                with us!
+              </p>
+            </div>
+            <div
+              class="col-span-12 lg:col-span-6 bg-gradient-to-br from-secondary-700 to-secondary ml-3 rounded-lg"
+            >
+              <div
+                class="bg-gray-900 rounded-lg p-4 sm:p-12 shadow-lg -translate-x-3 -translate-y-3"
+              >
+                <form id="contactForm">
+                  <div class="mb-6">
+                    <input
+                      type="hidden"
+                      id="contactNumber"
+                      name="contact_number"
+                    />
+                    <label for="nameInput" class="text-sm text-gray-100"
+                      >Your name: *</label
+                    >
+                    <input
+                      id="nameInput"
+                      name="user_name"
+                      type="text"
+                      placeholder="Your name"
+                      class="w-full mt-2.5 p-2.5 text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+                      required
+                    />
+                  </div>
+                  <label for="emailInput" class="text-sm text-gray-100"
+                    >Your email: *</label
+                  >
+                  <div class="mb-6">
+                    <input
+                      id="emailInput"
+                      name="user_email"
+                      type="email"
+                      placeholder="Your email"
+                      class="w-full mt-2.5 p-2.5 text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+                      required
+                    />
+                  </div>
+                  <label for="phoneInput" class="text-sm text-gray-100"
+                    >Your phonenumber:</label
+                  >
+                  <div class="mb-6">
+                    <input
+                      id="phoneInput"
+                      name="user_phonenumber"
+                      type="tel"
+                      placeholder="Your phonenumber"
+                      class="w-full mt-2.5 p-2.5 text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+                    />
+                  </div>
+                  <div class="mb-6">
+                    <label for="messageInput" class="text-sm text-gray-100"
+                      >Your message: *</label
+                    >
+                    <textarea
+                      id="messageInput"
+                      name="message"
+                      rows="6"
+                      placeholder="Your message"
+                      class="w-full mt-2.5 p-2.5 text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="mb-6">
+                    <p class="text-sm text-gray-100">
+                      Fields marked with an asterisk (*) are mandatory, ensuring
+                      we can assist you effectively.
+                    </p>
+                  </div>
+                  <button
+                    type="submit"
+                    class="w-full transition-all inline-flex items-center justify-center rounded-lg py-2 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
+                  >
+                    Send your message
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="max-w-screen-2xl mx-auto pb-4 px-4">
+        <div class="w-full mx-auto p-4 md:py-8 bg-gray-900 rounded-lg">
+          <div
+            class="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-4"
+          >
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-100 sm:text-center"
+                >© 2023
+                <a href="index.html" class="hover:underline">Metropolia Ciné</a
+                >. All Rights Reserved.
+              </span>
+            </div>
+            <ul
+              class="flex flex-wrap gap-4 items-center text-sm font-semibold text-gray-100"
+            >
+              <li>
+                <a href="info.html" class="hover:underline">Info</a>
+              </li>
+              <li>
+                <a href="info.html#contact" class="hover:underline">Contact</a>
+              </li>
+              <li>
+                <a href="#" class="hover:underline">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+  </body>
+</html>

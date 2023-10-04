@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script/serialize.js" defer></script>
+    <script src="script/login.js" defer></script>
+    <title>Login</title>
+</head>
+<body class="bg-gray-950">
+  <header class="max-w-screen-2xl mx-auto py-4 px-4 relative z-10">
+    <div
+      class="w-full flex flex-wrap items-center justify-between py-2 px-4 mx-auto bg-gray-900 shadow-lg rounded-lg"
+    >
+      <a href="index.html" class="flex gap-2 items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="w-10 h-10 md:w-12 md:h-12 text-primary"
+          alt="Metropolia Ciné's eye logo"
+        >
+          <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+          <path
+            fill-rule="evenodd"
+            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <span
+          class="self-center hidden sm:inline text-2xl text-gray-100 uppercase font-display tracking-widest pb-1"
+          >Metropolia Ciné</span
+        >
+      </a>
+      <button
+        data-collapse-toggle="navbar-default"
+        type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-100 border-2 border-transparent rounded-lg lg:hidden hover:border-gray-100 focus:outline-none focus:ring-2 focus:ring-secondary"
+        aria-controls="navbar-default"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="w-8 h-8"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 17 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+            d="M1 1h15M1 7h15M1 13h15"
+          />
+        </svg>
+      </button>
+      <nav class="hidden w-full lg:block lg:w-auto" id="navbar-default">
+        <ul
+          class="font-semibold flex flex-col lg:flex-row gap-3 pt-3 pb-3 lg:pt-0 lg:pb-0"
+        >
+        <li>
+          <a
+            href="comments.html"
+            class="block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 lg:rounded-full"
+            aria-current="page"
+            >Social</a
+          >
+        </li>
+          <li>
+            <a
+              href="login.html"
+              class="transition-all block py-2 px-4 bg-secondary text-gray-950 rounded-lg lg:rounded-full"
+              aria-current="page"
+              >Login/Register</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
+              aria-current="page"
+              >Program</a
+            >
+          </li>
+          <li>
+            <a
+              href="info.html"
+              class="block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950  rounded-lg lg:rounded-full"
+              aria-current="page"
+              >Info & Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="mx-auto px-4 max-w-md">
+  <div class="p-4 text-2xl text-gray-100 max-w-fit mx-auto"> Login</div>
+    <form
+          id="loginForm"
+          class="items-center gap-4 p-4 bg-gray-800 w-full"
+        >
+          <label for="login" class="sr-only">Login</label>
+            <input
+              id="loginEmail"
+              type="email"
+              autocomplete="off"
+              required
+              name="email"
+              class="block  mb-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+              placeholder="Email"
+            />
+            <input
+            id="loginPassword"
+            type="password"
+            autocomplete="off"
+            required
+            name="password"
+            class="block  mb-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+            placeholder="Password"
+            />
+            <div class="flex flex-col">
+            <button
+              type="submit"
+              class="inline-flex justify-center p-2.5 text-gray-950 rounded-lg cursor-pointer bg-primary hover:bg-gradient-to-tr from-primary to-tetriary"
+            >
+            Login
+            </button>
+            <a
+            href="register.html"
+            class="block py-2 p-2.5 text-gray-100 rounded-lg lg:rounded-full hover:text-primary"
+            aria-current="page"
+            >Don't have an account? Register</a
+            >
+          </div>
+        </form>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+</body>
+</html>
