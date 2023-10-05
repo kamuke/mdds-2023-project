@@ -120,30 +120,14 @@
             repudiandae culpa quasi ex cupiditate blanditiis, mollitia corporis
             beatae ab molestias veritatis alias harum.
           </p>
-          <p class="mb-8 md:mb-12 text-gray-300 text-xl">
-            Opening stream starting in <span id="countdown"></span>
-          </p>
-          <a
-            href="#live"
-            class="transition-all inline-flex items-center justify-center rounded-lg px-4 py-2 mr-4 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
-            aria-label="Scroll to live"
-          >
-            Live now!
-            <span class="relative flex h-4 w-4 ml-2">
-              <span
-                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-300 opacity-75"
-              ></span>
-              <span
-                class="relative inline-flex rounded-full h-4 w-4 bg-secondary"
-              ></span>
-            </span>
-          </a>
-          <a
-            href="info.html"
-            class="inline-flex items-center justify-center rounded-lg mr-8 px-4 py-2 text-gray-100 border-2 border-transparent uppercase font-semibold hover:border-2 hover:border-gray-100"
-          >
-            Read more
-          </a>
+          <div id="hero-buttons">
+            <a
+              href="info.html"
+              class="inline-flex items-center justify-center rounded-lg mr-8 px-4 py-2 text-gray-100 border-2 border-transparent uppercase font-semibold hover:border-2 hover:border-gray-100"
+            >
+              Read more
+            </a>
+          </div>
         </div>
         <!-- Parallax scroll hero img starts -->
         <div class="hidden lg:block col-span-6 relative z-0">
@@ -193,17 +177,10 @@
       <!-- Stream section starts -->
       <section id="live" class="max-w-screen-2xl mx-auto px-4 py-14 lg:py-20">
         <h2
+          id="live-heading"
           class="text-2xl md:text-4xl text-gray-100 inline-flex items-center justify-center mb-8 font-display tracking-wider"
         >
-          Live ON
-          <span class="relative flex h-5 w-5 ml-4">
-            <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-300 opacity-75"
-            ></span>
-            <span
-              class="relative inline-flex rounded-full h-5 w-5 bg-secondary"
-            ></span>
-          </span>
+          Stream starting in <span id="countdown"></span>
         </h2>
         <div class="grid grid-cols-12 gap-5">
           <div class="col-span-12 lg:col-span-8">
@@ -214,6 +191,7 @@
               data-setup="{}"
             >
               <source
+                id="my-player-source"
                 src="https://appletree-mytime-samsungbrazil.amagi.tv/playlist.m3u8"
                 type="application/x-mpegURL"
               />
