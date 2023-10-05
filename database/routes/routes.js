@@ -43,7 +43,11 @@ router.post('/register', async (req, res) => {
     res.status(200).json(dataToSave);
   }
   catch (error) {
-    res.status(400).json({message: error.message});
+    if (error.message.includes('E11000')) {
+      res.status(400).json({message: 'Use unique email address'});
+    } else {
+      res.status(400).json({message: error.message});
+    }
   }
 });
 

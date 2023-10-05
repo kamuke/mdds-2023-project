@@ -3,6 +3,12 @@
 const url = 'http://localhost:3010';
 const form = document.getElementById('registerForm');
 
+const dialog = document.getElementById("modal");
+dialog.classList.add('w-64', 'bg-secondary', 'text-gray-100', 'text-center', 'rounded-lg', 'p-4', 'm-auto');
+dialog.addEventListener("click", () => {
+  dialog.close();
+});
+
 form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
   const data = serializeJson(form);
@@ -13,7 +19,7 @@ form.addEventListener('submit', async (evt) => {
     },
     body: JSON.stringify(data),
   };
-  
+
   try {
   const response = await fetch(url + '/api/register', fetchOptions);
   const json = await response.json();
@@ -21,12 +27,16 @@ form.addEventListener('submit', async (evt) => {
     const message = json.error
       ? `${json.message}: ${json.error}`
       : json.message;
-      alert(message);
     throw new Error(message || response.statusText);
   }
-  console.log('register response', json);
-  window.location.href = 'login.html';
+  dialog.innerHTML = "Registered successfully";
+  dialog.showModal();
+  setTimeout(() => {
+    window.location.href = 'login.html';
+    } , 500);
   } catch (e) {
+    dialog.innerHTML = e.message;
+    dialog.showModal();
     console.log(e.message);
   }
 });

@@ -5,10 +5,15 @@ const form = document.getElementById('commentForm');
 const commentInput = document.getElementById('commentInput');
 const nameInput = document.getElementById('nameInput');
 
+const dialog = document.getElementById("modal");
+dialog.classList.add('w-64', 'bg-secondary', 'text-gray-100', 'text-center', 'rounded-lg', 'p-4', 'm-auto');
+dialog.addEventListener("click", () => {
+  dialog.close();
+});
+
 form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
   const data = serializeJson(form);
-  console.log('comment', data);
   const fetchOptions = {
     method: 'POST',
     headers: {
@@ -27,12 +32,15 @@ form.addEventListener('submit', async (evt) => {
       alert(message);
     throw new Error(message || response.statusText);
   }
-  console.log('comment post response', json);
   commentInput.value = '';
   nameInput.value = '';
   getMessages();
+  dialog.innerHTML = "Message sent";
+  dialog.showModal();
   } catch (e) {
     console.log(e.message);
+    dialog.innerHTML = e.message;
+    dialog.showModal();
   }
 });
 
@@ -42,21 +50,19 @@ const getMessages = async () => {
       method: 'GET',
     };
     const response = await fetch(url + '/api/getPosts', fetchOptions);
-    console.log('comment fetch response', response);
     const messages = await response.json();
     if (!response.ok) {
       const message = json.error
         ? `${json.message}: ${json.error}`
         : json.message;
-        alert(message);
       throw new Error(message || response.statusText);
     }
-    console.log('comment fetch', messages);
     showMessages(messages);
     calcurateRatings(messages);
-
   } catch (e) {
     console.log(e.message);
+    dialog.innerHTML = e.message;
+    dialog.showModal();
   }
 };
 

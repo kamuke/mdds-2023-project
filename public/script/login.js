@@ -3,6 +3,12 @@
 const url = 'http://localhost:3010';
 const form = document.getElementById('loginForm');
 
+const dialog = document.getElementById("modal");
+dialog.classList.add('w-64', 'bg-secondary', 'text-gray-100', 'text-center', 'rounded-lg', 'p-4', 'm-auto');
+dialog.addEventListener("click", () => {
+  dialog.close();
+});
+
 form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
   const data = serializeJson(form);
@@ -23,11 +29,24 @@ form.addEventListener('submit', async (evt) => {
         : json.message;
       throw new Error(message || response.statusText);
     }
+    dialog.innerHTML = "Logged in successfully";
+    dialog.showModal();
     localStorage.setItem('userInfo', JSON.stringify(json));
+    setTimeout(() => {
     window.location.href = 'index.html';
+    } , 500);
   } catch (e) {
-    alert(e.message);
+    dialog.innerHTML = e.message;
+    dialog.showModal();
     localStorage.removeItem('userInfo');
     console.log(e.message);
   }
 });
+
+  const unauthorizedMessage = localStorage.getItem('unauthorizedMessage');
+  if (unauthorizedMessage) {
+      console.log('unauthorizedMessage', unauthorizedMessage);
+      dialog.innerHTML = unauthorizedMessage;
+      dialog.showModal();
+      localStorage.removeItem('unauthorizedMessage');
+  };

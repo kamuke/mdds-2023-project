@@ -30,16 +30,40 @@ const authUser = async () => {
   }
 };
 
+const socialLink = document.getElementById('social-link');
+const loginLink = document.getElementById('login-link');
+
+if (localStorage.getItem('userInfo')) {
+  socialLink.classList.remove('hidden');
+  socialLink.classList.add('block');
+  loginLink.innerText = 'Logout';
+}
+
+loginLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  if (localStorage.getItem('userInfo')) {
+    localStorage.removeItem('userInfo');
+    window.location.href = 'index.html';
+    console.log('index');
+  } else {
+    window.location.href = 'login.html';
+    console.log('login');
+  }
+});
+
 const onPageLoad = async () => {
+
   const currentPagePath = window.location.pathname;
   if (currentPagePath.includes('comments.html')) {
     const isAuthenticated = await authUser();
     if (isAuthenticated) {
       document.body.classList.remove('hidden');
     } else {
-      window.location.href = 'login.html';
       localStorage.removeItem('userInfo');
+      localStorage.setItem('unauthorizedMessage', 'Unauthorized access');
+      window.location.href = 'login.html';
     }
   }
 };
+
 window.addEventListener('load', onPageLoad);
