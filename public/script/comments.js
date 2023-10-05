@@ -17,12 +17,23 @@ form.addEventListener('submit', async (evt) => {
     body: JSON.stringify(data),
   };
   
+  try {
   const response = await fetch(url + '/api/post', fetchOptions);
   const json = await response.json();
+  if (!response.ok) {
+    const message = json.error
+      ? `${json.message}: ${json.error}`
+      : json.message;
+      alert(message);
+    throw new Error(message || response.statusText);
+  }
   console.log('comment post response', json);
   commentInput.value = '';
   nameInput.value = '';
   getMessages();
+  } catch (e) {
+    console.log(e.message);
+  }
 });
 
 const getMessages = async () => {
@@ -31,7 +42,15 @@ const getMessages = async () => {
       method: 'GET',
     };
     const response = await fetch(url + '/api/getPosts', fetchOptions);
+    console.log('comment fetch response', response);
     const messages = await response.json();
+    if (!response.ok) {
+      const message = json.error
+        ? `${json.message}: ${json.error}`
+        : json.message;
+        alert(message);
+      throw new Error(message || response.statusText);
+    }
     console.log('comment fetch', messages);
     showMessages(messages);
     calcurateRatings(messages);

@@ -14,11 +14,19 @@ form.addEventListener('submit', async (evt) => {
     body: JSON.stringify(data),
   };
   
+  try {
   const response = await fetch(url + '/api/register', fetchOptions);
   const json = await response.json();
+  if (!response.ok) {
+    const message = json.error
+      ? `${json.message}: ${json.error}`
+      : json.message;
+      alert(message);
+    throw new Error(message || response.statusText);
+  }
   console.log('register response', json);
   window.location.href = 'login.html';
-  if (json.message) {
-    alert("Give an unique email address");
+  } catch (e) {
+    console.log(e.message);
   }
 });
