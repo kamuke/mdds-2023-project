@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
 const url = 'http://localhost:3010';
 const form = document.getElementById('loginForm');
 
 const dialog = document.getElementById("modal");
-dialog.classList.add('w-64', 'bg-secondary', 'text-gray-100', 'text-center', 'rounded-lg', 'p-4', 'm-auto');
+dialog.classList.add('w-max-fit', 'bg-secondary', 'text-gray-100', 'text-center', 'rounded-lg', 'p-4', 'm-auto', 'focus:outline-none');
 dialog.addEventListener("click", () => {
   dialog.close();
 });
