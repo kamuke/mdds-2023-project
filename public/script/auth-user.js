@@ -36,7 +36,7 @@ const loginLink = document.getElementById('login-link');
 if (localStorage.getItem('userInfo')) {
   socialLink.classList.remove('hidden');
   socialLink.classList.add('block');
-  loginLink.classList.add('bg-primary', 'text-black');
+  loginLink.classList.add('bg-primary', 'text-gray-950');
   loginLink.innerText = 'Logout';
 }
 
