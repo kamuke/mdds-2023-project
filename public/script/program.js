@@ -17,6 +17,7 @@ const jsonData = {
             "time": '10/04/2023 14:00',
             "endTime": '10/04/2023 14:40',
             "length": '40',
+            "rating": '12',
             "genre": "Romance",
             "summary": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             "director": "Olivia Anderson",
@@ -27,6 +28,7 @@ const jsonData = {
             "time": '10/04/2023 13:15',
             "endTime": '10/04/2023 13:35',
             "length": '20',
+            "rating": '12',
             "genre": "Drama",
             "summary": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             "director": "Benjamin Carpenter",
@@ -37,6 +39,7 @@ const jsonData = {
             "time": '10/04/2023 15:00',
             "endTime": '10/04/2023 15:20',
             "length": '20',
+            "rating": 'S',
             "genre": "Comedy",
             "summary": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             "director": "Sophie Reynolds",
@@ -47,6 +50,7 @@ const jsonData = {
             "time": '10/04/2023 14:30',
             "endTime": '10/04/2023 14:50',
             "length": '20',
+            "rating": '18',
             "genre": "Drama",
             "summary": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             "director": "Lucas Mitchell",
@@ -57,6 +61,7 @@ const jsonData = {
             "time": '10/04/2023 15:30',
             "endTime": '10/04/2023 15:50',
             "length": '20',
+            "rating": '16',
             "genre": "Romance",
             "summary": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             "director": "Emma Sullivan",
@@ -153,7 +158,7 @@ const renderMovie = (movies) => {
     
         //add listing's own id
         linkWrapper.id = 'listing-'+movie.id;
-        linkWrapper.classList = 'animate-loadListing lg:w-[500px] rounded-lg col-[span_11] lg:col-span-2 lg:col-start-3 lg:col-end-13 group cursor-pointer';
+        linkWrapper.classList = 'movie-listing animate-loadListing lg:w-[500px] rounded-lg col-[span_11] lg:col-span-2 lg:col-start-3 lg:col-end-13 group cursor-pointer';
         linkWrapper.setAttribute('data-modal-target', 'movieModal');
         linkWrapper.setAttribute('data-modal-toggle', 'movieModal');
         divHoverElement.classList = 'group-hover:bg-secondary rounded-lg';
@@ -200,6 +205,8 @@ const renderMovieByGenre = (genre) => {
     }
 
     renderMovie(filteredMovies);
+    //call for looping listings again for modal
+    loopListings();
 };
 
 // init
