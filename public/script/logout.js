@@ -1,6 +1,6 @@
 "use strict";
 
-const dialog = document.getElementById("modal");
+const dialog = document.getElementById("modal1");
 dialog.classList.add('text-xl', 'w-max-fit', 'bg-tetriary', 'text-gray-950', 'text-center', 'rounded-lg', 'p-4', 'm-auto', 'focus:outline-none');
 dialog.addEventListener("click", () => {
   dialog.close();
