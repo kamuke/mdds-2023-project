@@ -12,6 +12,7 @@
     />
     <script src="script/serialize.js" defer></script>
     <script src="script/login.js" defer></script>
+    <script src="script/auth-user.js" defer></script>
     <title>Login</title>
 </head>
 <body class="bg-gray-950">
@@ -69,14 +70,16 @@
         >
         <li>
           <a
+            id="social-link"
             href="comments.html"
-            class="block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 lg:rounded-full"
+            class="hidden py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 lg:rounded-full"
             aria-current="page"
             >Social</a
           >
         </li>
           <li>
             <a
+              id="login-link"
               href="login.html"
               class="transition-all block py-2 px-4 bg-secondary text-gray-950 rounded-lg lg:rounded-full"
               aria-current="page"
@@ -85,7 +88,7 @@
           </li>
           <li>
             <a
-              href="#"
+              href="program.html"
               class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
               aria-current="page"
               >Program</a
@@ -144,6 +147,7 @@
           </div>
         </form>
   </section>
+  <dialog id="modal"></dialog>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 </body>
 </html>

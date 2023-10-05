@@ -1,25 +1,69 @@
+'use strict';
+
 const authUser = async () => {
-    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-    try {
-      const fetchOptions = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userInfo),
-      };
-        const response = await fetch(url + '/api/authUser', fetchOptions);
-        const user = await response.json();
-        console.log('authUser fetch', user);
-        console.log('userInfo', userInfo);
-        if (user._id !== userInfo._id ) {
-          window.location.href = 'login.html';
-          localStorage.removeItem('userInfo');
-        }
-    } catch (e) {
-      console.log(e.message);
-      window.location.href = 'login.html';
-      localStorage.removeItem('userInfo');
+  const url = 'http://localhost:3010';
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  if (!userInfo) {
+    return false;
+  }
+  const fetchOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(userInfo),
+  };
+
+  try {
+    const response = await fetch(url + '/api/authUser', fetchOptions);
+    await response.json();
+    if (!response.ok) {
+      const message = json.error
+        ? `${json.message}: ${json.error}`
+        : json.message;
+      throw new Error(message || response.statusText);
     }
+    return true;
+  } catch (e) {
+    console.log(e.message);
+    return false;
+  }
 };
-authUser();
+
+const socialLink = document.getElementById('social-link');
+const loginLink = document.getElementById('login-link');
+
+if (localStorage.getItem('userInfo')) {
+  socialLink.classList.remove('hidden');
+  socialLink.classList.add('block');
+  loginLink.innerText = 'Logout';
+}
+
+loginLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  if (localStorage.getItem('userInfo')) {
+    localStorage.removeItem('userInfo');
+    window.location.href = 'index.html';
+    console.log('index');
+  } else {
+    window.location.href = 'login.html';
+    console.log('login');
+  }
+});
+
+const onPageLoad = async () => {
+
+  const currentPagePath = window.location.pathname;
+  if (currentPagePath.includes('comments.html')) {
+    const isAuthenticated = await authUser();
+    if (isAuthenticated) {
+      document.body.classList.remove('hidden');
+    } else {
+      localStorage.removeItem('userInfo');
+      localStorage.setItem('unauthorizedMessage', 'Unauthorized access');
+      window.location.href = 'login.html';
+    }
+  }
+};
+
+window.addEventListener('load', onPageLoad);

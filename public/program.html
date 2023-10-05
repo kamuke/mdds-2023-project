@@ -12,6 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <script src="script/serialize.js" defer></script>
+    <script src="script/auth-user.js" defer ></script>
     <script src="script/parallax.js" defer></script>
     <script src="script/program.js" defer></script>
   </head>
@@ -69,14 +71,16 @@
           >
           <li>
             <a
+              id="social-link"
               href="comments.html"
-              class="block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 lg:rounded-full"
+              class="hidden py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 lg:rounded-full"
               aria-current="page"
               >Social</a
             >
           </li>
             <li>
               <a
+              id="login-link"
               href="login.html"
               class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
               aria-current="page"
@@ -180,7 +184,7 @@
         </div>
       </div>
     </footer>
-
+    <dialog id="modal"></dialog>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
     <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script>
   </body>
