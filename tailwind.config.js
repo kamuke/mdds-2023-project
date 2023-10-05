@@ -52,6 +52,15 @@ module.exports = {
           900: '#2c740a',
         },
       },
+      animation: {
+        'loadListing': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1)'
+      },
+      keyframes: {
+        loadListing: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        }
+      }
     },
   },
   plugins: [require('flowbite/plugin')],
