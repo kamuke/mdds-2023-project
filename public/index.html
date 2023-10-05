@@ -17,6 +17,7 @@
     <script src="script/myplayer.js" defer></script>
     <script src="script/serialize.js" defer></script>
     <script src="script/auth-user.js" defer></script>
+    <script src="script/logout.js" defer></script>
   </head>
   <body class="bg-gray-950">
     <header class="max-w-screen-2xl mx-auto py-4 px-4">
@@ -70,23 +71,14 @@
           <ul
             class="font-semibold flex flex-col lg:flex-row gap-3 pt-3 pb-3 lg:pt-0 lg:pb-0"
           >
-          <li>
-            <a
-              id="social-link"
-              href="comments.html"
-              class="hidden py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 lg:rounded-full"
-              aria-current="page"
-              >Social</a
-            >
-          </li>
             <li>
               <a
-              id="login-link"
-              href="login.html"
-              class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
-              aria-current="page"
-              >Login/Register</a
-            >
+                id="social-link"
+                href="comments.html"
+                class="hidden py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 lg:rounded-full"
+                aria-current="page"
+                >Social</a
+              >
             </li>
             <li>
               <a
@@ -103,6 +95,15 @@
                 aria-current="page"
                 >Info & Contact</a
               >
+            </li>
+            <li>
+              <a
+              id="login-link"
+              href="login.html"
+              class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
+              aria-current="page"
+              >Login/Register</a
+            >
             </li>
           </ul>
         </nav>
@@ -493,7 +494,8 @@
         </div>
       </div>
     </footer>
-    <dialog id="modal"></dialog>
+    <dialog id="modal1"></dialog>
+    <dialog id="modal2"></dialog>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
     <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script>
     <script src="../node_modules/socket.io/client-dist/socket.io.js"></script>

@@ -1,4 +1,4 @@
-'use strict;'
+"use strict";
 
 require('dotenv').config();
 const express = require('express');
@@ -13,7 +13,6 @@ app.use(express.urlencoded({extended: true}));
 app.use('/api', routes);
 
 const mongoString = process.env.DATABASE_URL
-
 mongoose.connect(mongoString);
 const database = mongoose.connection;
 

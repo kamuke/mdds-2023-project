@@ -1,12 +1,17 @@
-'use strict';
+"use strict";
 
 const url = 'http://localhost:3010';
 const form = document.getElementById('registerForm');
 
-const dialog = document.getElementById("modal");
-dialog.classList.add('w-64', 'bg-secondary', 'text-gray-100', 'text-center', 'rounded-lg', 'p-4', 'm-auto');
-dialog.addEventListener("click", () => {
-  dialog.close();
+const dialogSuccess = document.getElementById("modal1");
+dialogSuccess.classList.add('bg-tetriary', 'text-xl', 'w-max-fit', 'text-gray-950', 'text-center', 'rounded-lg', 'p-4', 'm-auto', 'focus:outline-none');
+dialogSuccess.addEventListener("click", () => {
+  dialogSuccess.close();
+});
+const dialogFail = document.getElementById("modal2");
+dialogFail.classList.add('bg-red-500', 'text-xl', 'w-max-fit', 'text-gray-950', 'text-center', 'rounded-lg', 'p-4', 'm-auto', 'focus:outline-none');
+dialogFail.addEventListener("click", () => {
+  dialogFail.close();
 });
 
 form.addEventListener('submit', async (evt) => {
@@ -29,14 +34,14 @@ form.addEventListener('submit', async (evt) => {
       : json.message;
     throw new Error(message || response.statusText);
   }
-  dialog.innerHTML = "Registered successfully";
-  dialog.showModal();
+  dialogSuccess.innerHTML = "Registered successfully";
+  dialogSuccess.showModal();
   setTimeout(() => {
     window.location.href = 'login.html';
     } , 500);
   } catch (e) {
-    dialog.innerHTML = e.message;
-    dialog.showModal();
+    dialogFail.innerHTML = e.message;
+    dialogFail.showModal();
     console.log(e.message);
   }
 });

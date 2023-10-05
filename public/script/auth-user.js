@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const authUser = async () => {
   const url = 'http://localhost:3010';
@@ -36,6 +36,7 @@ const loginLink = document.getElementById('login-link');
 if (localStorage.getItem('userInfo')) {
   socialLink.classList.remove('hidden');
   socialLink.classList.add('block');
+  loginLink.classList.add('bg-primary', 'text-gray-950');
   loginLink.innerText = 'Logout';
 }
 
@@ -43,6 +44,7 @@ loginLink.addEventListener('click', (event) => {
   event.preventDefault();
   if (localStorage.getItem('userInfo')) {
     localStorage.removeItem('userInfo');
+    localStorage.setItem('logoutMessage', 'Logged out successfully');
     window.location.href = 'index.html';
     console.log('index');
   } else {

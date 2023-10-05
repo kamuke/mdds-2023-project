@@ -68,22 +68,13 @@
         <ul
           class="font-semibold flex flex-col lg:flex-row gap-3 pt-3 pb-3 lg:pt-0 lg:pb-0"
         >
-        <li>
-          <a
-            id="social-link"
-            href="comments.html"
-            class="hidden py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 lg:rounded-full"
-            aria-current="page"
-            >Social</a
-          >
-        </li>
           <li>
             <a
-              id="login-link"
-              href="login.html"
-              class="transition-all block py-2 px-4 bg-secondary text-gray-950 rounded-lg lg:rounded-full"
+              id="social-link"
+              href="comments.html"
+              class="hidden py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 lg:rounded-full"
               aria-current="page"
-              >Login/Register</a
+              >Social</a
             >
           </li>
           <li>
@@ -100,6 +91,15 @@
               class="block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950  rounded-lg lg:rounded-full"
               aria-current="page"
               >Info & Contact</a
+            >
+          </li>
+          <li>
+            <a
+              id="login-link"
+              href="login.html"
+              class="transition-all block py-2 px-4 bg-secondary text-gray-950 rounded-lg lg:rounded-full"
+              aria-current="page"
+              >Login/Register</a
             >
           </li>
         </ul>
@@ -134,20 +134,21 @@
             <div class="flex flex-col">
             <button
               type="submit"
-              class="inline-flex justify-center p-2.5 text-gray-950 rounded-lg cursor-pointer bg-primary hover:bg-gradient-to-tr from-primary to-tetriary"
+              class="inline-flex justify-center mb-4 p-2.5 text-gray-950 rounded-lg cursor-pointer bg-primary hover:bg-gradient-to-tr from-primary to-tetriary"
             >
             Login
             </button>
             <a
             href="register.html"
-            class="block py-2 p-2.5 text-gray-100 rounded-lg lg:rounded-full hover:text-primary"
+            class="block text-center text-gray-100 rounded-lg lg:rounded-full hover:text-primary"
             aria-current="page"
             >Don't have an account? Register</a
             >
           </div>
         </form>
   </section>
-  <dialog id="modal"></dialog>
+  <dialog id="modal1"></dialog>
+  <dialog id="modal2"></dialog>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 </body>
 </html>

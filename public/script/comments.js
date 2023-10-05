@@ -1,14 +1,19 @@
-'use strict';
+"use strict";
 
 const url = 'http://localhost:3010';
 const form = document.getElementById('commentForm');
 const commentInput = document.getElementById('commentInput');
 const nameInput = document.getElementById('nameInput');
 
-const dialog = document.getElementById("modal");
-dialog.classList.add('w-64', 'bg-secondary', 'text-gray-100', 'text-center', 'rounded-lg', 'p-4', 'm-auto');
-dialog.addEventListener("click", () => {
-  dialog.close();
+const dialogSuccess = document.getElementById("modal1");
+dialogSuccess.classList.add('bg-tetriary', 'text-xl', 'w-max-fit', 'text-gray-950', 'text-center', 'rounded-lg', 'p-4', 'm-auto', 'focus:outline-none');
+dialogSuccess.addEventListener("click", () => {
+  dialogSuccess.close();
+});
+const dialogFail = document.getElementById("modal2");
+dialogFail.classList.add('bg-red-500', 'text-xl', 'w-max-fit', 'text-gray-950', 'text-center', 'rounded-lg', 'p-4', 'm-auto', 'focus:outline-none');
+dialogFail.addEventListener("click", () => {
+  dialogFail.close();
 });
 
 form.addEventListener('submit', async (evt) => {
@@ -35,12 +40,12 @@ form.addEventListener('submit', async (evt) => {
   commentInput.value = '';
   nameInput.value = '';
   getMessages();
-  dialog.innerHTML = "Message sent";
-  dialog.showModal();
+  dialogSuccess.innerHTML = "Message sent";
+  dialogSuccess.showModal();
   } catch (e) {
     console.log(e.message);
-    dialog.innerHTML = e.message;
-    dialog.showModal();
+    dialogFail.innerHTML = e.message;
+    dialogFail.showModal();
   }
 });
 
@@ -61,8 +66,8 @@ const getMessages = async () => {
     calcurateRatings(messages);
   } catch (e) {
     console.log(e.message);
-    dialog.innerHTML = e.message;
-    dialog.showModal();
+    dialogFail.innerHTML = e.message;
+    dialogFail.showModal();
   }
 };
 
