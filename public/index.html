@@ -16,6 +16,7 @@
     <script src="script/parallax.js" defer></script>
     <script src="script/serialize.js" defer></script>
     <script src="script/auth-user.js" defer></script>
+    <script src="script/countdown.js" defer></script>
     <script src="script/logout.js" defer></script>
   </head>
   <body class="bg-gray-950">
@@ -97,12 +98,12 @@
             </li>
             <li>
               <a
-              id="login-link"
-              href="login.html"
-              class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
-              aria-current="page"
-              >Login/Register</a
-            >
+                id="login-link"
+                href="login.html"
+                class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
+                aria-current="page"
+                >Login/Register</a
+              >
             </li>
           </ul>
         </nav>
@@ -123,7 +124,7 @@
           <p
             class="mb-8 font-semibold text-gray-100 text-xl md:text-2xl underline underline-offset-8 decoration-4 decoration-secondary"
           >
-            11.10.2023 12:00
+            11.10.2023 1PM
           </p>
           <p class="mb-8 md:mb-12 font-light text-gray-300 md:text-xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
@@ -131,27 +132,14 @@
             repudiandae culpa quasi ex cupiditate blanditiis, mollitia corporis
             beatae ab molestias veritatis alias harum.
           </p>
-          <a
-            href="#live"
-            class="transition-all inline-flex items-center justify-center rounded-lg px-4 py-2 mr-4 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
-            aria-label="Scroll to live"
-          >
-            Live now!
-            <span class="relative flex h-4 w-4 ml-2">
-              <span
-                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-300 opacity-75"
-              ></span>
-              <span
-                class="relative inline-flex rounded-full h-4 w-4 bg-secondary"
-              ></span>
-            </span>
-          </a>
-          <a
-            href="info.html"
-            class="inline-flex items-center justify-center rounded-lg mr-8 px-4 py-2 text-gray-100 border-2 border-transparent uppercase font-semibold hover:border-2 hover:border-gray-100"
-          >
-            Read more
-          </a>
+          <div id="hero-buttons">
+            <a
+              href="info.html"
+              class="inline-flex items-center justify-center rounded-lg mr-8 py-2 text-gray-100 uppercase font-semibold hover:underline underline-offset-8"
+            >
+              Read more
+            </a>
+          </div>
         </div>
         <!-- Parallax scroll hero img starts -->
         <div class="hidden lg:block col-span-6 relative z-0">
@@ -201,18 +189,12 @@
       <!-- Stream section starts -->
       <section id="live" class="max-w-screen-2xl mx-auto px-4 py-14 lg:py-20">
         <h2
+          id="live-heading"
           class="text-2xl md:text-4xl text-gray-100 inline-flex items-center justify-center mb-8 font-display tracking-wider"
-        >
-          Live ON
-          <span class="relative flex h-5 w-5 ml-4">
-            <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-300 opacity-75"
-            ></span>
-            <span
-              class="relative inline-flex rounded-full h-5 w-5 bg-secondary"
-            ></span>
-          </span>
-        </h2>
+        ></h2>
+        <p id="waiting" class="mb-8 font-light text-gray-300">
+          While waiting for the live event you can enjoy this another stream.
+        </p>
         <div class="grid grid-cols-12 gap-5">
           <div class="col-span-12 lg:col-span-8">
             <video
@@ -220,7 +202,11 @@
               class="video-js vjs-theme-custom w-full rounded-lg overflow-hidden"
               poster="img/placeholder_poster.PNG"
             >
-              <source src="https://appletree-mytime-samsungbrazil.amagi.tv/playlist.m3u8" type="application/x-mpegURL" />
+              <source
+                id="my-player-source"
+                src="https://appletree-mytime-samsungbrazil.amagi.tv/playlist.m3u8"
+                type="application/x-mpegURL"
+              />
               <p class="vjs-no-js">
                 To view this video please enable JavaScript, and consider
                 upgrading to a web browser that
@@ -240,7 +226,12 @@
               class="flex items-center justify-between p-4 bg-gray-800 w-full"
             >
               <h3 class="text-xl text-gray-100">Chat</h3>
-              <button class="text-xl text-gray-100 hover:text-gray-900 p-2 rounded-lg hover:bg-gradient-to-tr invisible from-primary to-tetriary" id="getUserListBtn">Users (0)</button>
+              <button
+                class="text-xl text-gray-100 hover:text-gray-900 p-2 rounded-lg hover:bg-gradient-to-tr invisible from-primary to-tetriary"
+                id="getUserListBtn"
+              >
+                Users (0)
+              </button>
               <label for="roomSelect" class="sr-only">Select chat room</label>
               <select
                 id="roomSelect"
@@ -255,7 +246,10 @@
               id="messages"
               class="p-4 overflow-auto grow flex flex-col w-full"
             ></ul>
-            <ul class="overflow-auto grow flex-col w-full hidden p-4" id="userList"></ul>
+            <ul
+              class="overflow-auto grow flex-col w-full hidden p-4"
+              id="userList"
+            ></ul>
 
             <div id="login" class="items-center gap-2 p-4 bg-gray-800 w-full">
               <form id="joinForm" class="flex">
@@ -269,7 +263,12 @@
                   maxlength="30"
                   class="block w-full p-2.5 text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
                 />
-                <button class="rounded-lg w-36 ml-4 bg-primary hover:bg-gradient-to-tr from-primary to-tetriary" type="submit">Join</button>
+                <button
+                  class="rounded-lg w-36 ml-4 bg-primary hover:bg-gradient-to-tr from-primary to-tetriary"
+                  type="submit"
+                >
+                  Join
+                </button>
               </form>
             </div>
 
@@ -303,7 +302,6 @@
               </button>
             </form>
           </div>
-
         </div>
       </section>
       <!-- Stream section ends -->
