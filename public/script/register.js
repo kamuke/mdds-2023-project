@@ -1,6 +1,6 @@
 "use strict";
 
-const url = 'http://localhost:3010';
+const url = 'http://localhost:3000';
 const form = document.getElementById('registerForm');
 
 const dialogSuccess = document.getElementById("modal1");
@@ -42,6 +42,9 @@ form.addEventListener('submit', async (evt) => {
   } catch (e) {
     dialogFail.innerHTML = e.message;
     dialogFail.showModal();
+    setTimeout(() => {
+      dialogFail.close();
+    } , 500);
     console.log(e.message);
   }
 });

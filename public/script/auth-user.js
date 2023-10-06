@@ -1,7 +1,7 @@
 "use strict";
 
 const authUser = async () => {
-  const url = 'http://localhost:3010';
+  const url = 'http://localhost:3000';
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   if (!userInfo) {
     return false;
