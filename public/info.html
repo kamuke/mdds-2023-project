@@ -94,12 +94,12 @@
             </li>
             <li>
               <a
-              id="login-link"
-              href="login.html"
-              class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
-              aria-current="page"
-              >Login/Register</a
-            >
+                id="login-link"
+                href="login.html"
+                class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
+                aria-current="page"
+                >Login/Register</a
+              >
             </li>
           </ul>
         </nav>
@@ -133,10 +133,9 @@
                   artistic expression, and community engagement.
                 </p>
               </div>
-              <!-- TODO: Add link to program site -->
               <div class="flex justify-center">
                 <a
-                  href="#"
+                  href="program.html"
                   class="transition-all inline-flex items-center justify-center rounded-lg py-2 px-4 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
                 >
                   Check out our program
@@ -386,8 +385,18 @@
         </div>
       </footer>
     </div>
-    <dialog id="modal1"></dialog>
-    <dialog id="modal2"></dialog>
+    <dialog
+      id="modalSuccess"
+      class="bg-tetriary text-xl w-max-fit text-gray-950 text-center rounded-lg p-4 m-auto focus:outline-none"
+    >
+      <p id="modalSuccessParagraph" class="mb-4"></p>
+    </dialog>
+    <dialog
+      id="modalFail"
+      class="bg-red-500 text-xl w-max-fit text-gray-950 text-center rounded-lg p-4 m-auto focus:outline-none"
+    >
+      <p id="modalFailParagraph" class="mb-4"></p>
+    </dialog>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
     <script
       type="text/javascript"
