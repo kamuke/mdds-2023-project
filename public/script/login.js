@@ -1,6 +1,6 @@
 "use strict";
 
-const url = 'http://localhost:3010';
+const url = 'http://localhost:3000';
 const form = document.getElementById('loginForm');
 
 const dialogSuccess = document.getElementById("modal1");
@@ -37,6 +37,9 @@ form.addEventListener('submit', async (evt) => {
     }
     dialogSuccess.innerHTML = "Logged in successfully";
     dialogSuccess.showModal();
+    setTimeout(() => {
+      dialogSuccess.close();
+    } , 500);
     localStorage.setItem('userInfo', JSON.stringify(json));
     setTimeout(() => {
       window.location.href = 'index.html';
@@ -44,6 +47,9 @@ form.addEventListener('submit', async (evt) => {
   } catch (e) {
     dialogFail.innerHTML = e.message;
     dialogFail.showModal();
+    setTimeout(() => {
+      dialogFail.close();
+    } , 500);
     localStorage.removeItem('userInfo');
     console.log(e.message);
   }
@@ -54,5 +60,8 @@ form.addEventListener('submit', async (evt) => {
       console.log('unauthorizedMessage', unauthorizedMessage);
       dialogFail.innerHTML = unauthorizedMessage;
       dialogFail.showModal();
+      setTimeout(() => {
+        dialogFail.close();
+      } , 500);
       localStorage.removeItem('unauthorizedMessage');
   };
