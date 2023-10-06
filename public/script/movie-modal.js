@@ -2,11 +2,9 @@
 
 //loop through all listings
 const loopListings = () => {
-    console.log('called');
     const listing = document.querySelectorAll('.movie-listing');
     listing.forEach((element) => {
         element.addEventListener('click', () => {
-            console.log('clicked')
             //get clicked movie ID
             const movieID = element.id.split('-');
             renderModal(movieID[1]);
@@ -42,4 +40,3 @@ const renderModal = (movieID) => {
 };
 
 // init
-loopListings();

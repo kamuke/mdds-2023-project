@@ -6,72 +6,10 @@ const filteredGenre = document.getElementById('list-genre');
 
 let activeGenreSelected = document.getElementById('active-genre');
 
-// Genre array, get from database?
-const genres = ['Romance', 'Drama', 'Comedy'];
-
-// Movie json temp
-const jsonData = {
-    "movies": [
-        {
-            "name": "Love on Cloud Nine",
-            "time": '10/04/2023 14:00',
-            "endTime": '10/04/2023 14:40',
-            "length": '40',
-            "rating": '12',
-            "genre": "Romance",
-            "summary": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            "director": "Olivia Anderson",
-            "id": 0
-        },
-        {
-            "name": "Heartstrings and Harmony",
-            "time": '10/04/2023 13:15',
-            "endTime": '10/04/2023 13:35',
-            "length": '20',
-            "rating": '12',
-            "genre": "Drama",
-            "summary": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            "director": "Benjamin Carpenter",
-            "id": 1
-        },
-        {
-            "name": "The Great Mix-Up",
-            "time": '10/04/2023 15:00',
-            "endTime": '10/04/2023 15:20',
-            "length": '20',
-            "rating": 'S',
-            "genre": "Comedy",
-            "summary": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            "director": "Sophie Reynolds",
-            "id": 2
-        },
-        {
-            "name": "Tears in the City",
-            "time": '10/04/2023 14:30',
-            "endTime": '10/04/2023 14:50',
-            "length": '20',
-            "rating": '18',
-            "genre": "Drama",
-            "summary": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            "director": "Lucas Mitchell",
-            "id": 3
-        },
-        {
-            "name": "The Quirky Cupid",
-            "time": '10/04/2023 15:30',
-            "endTime": '10/04/2023 15:50',
-            "length": '20',
-            "rating": '16',
-            "genre": "Romance",
-            "summary": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            "director": "Emma Sullivan",
-            "id": 4
-        }
-    ]
-};
-// Movie array, get from database?
-const movies = jsonData.movies;
-//console.log(movies);
+// movie data variables and empty genres array
+let movieData;
+let movies;
+let genres = [];
 
 // Filter by genre click event, change active gender btn color
 filteredGenre.addEventListener('click', (event) => {
@@ -92,6 +30,13 @@ filteredGenre.addEventListener('click', (event) => {
     event.target.tagName === 'SPAN' && renderMovieByGenre(event.target.textContent);
 });
 
+// Add available genre from movie data list to genre array
+const getGenreList = (movies) => {
+    movies.forEach(movie => {
+        genres.includes(movie.genre) ? null : genres.push(movie.genre);
+    });
+}
+
 // Render out all genre choices
 const renderGenre = (genres) => {
     genres.forEach(genre => {
@@ -108,18 +53,13 @@ const renderGenre = (genres) => {
 
         genreList.appendChild(genreLink);
         genreLink.appendChild(newGenre);
-    
-        /*
-        genreList.appendChild(genreLink);
-        genreLink.appendChild(button);
-        button.appendChild(newGenre);
-        */
     });
 }
 
 // Render movie(s)
 const renderMovie = (movies) => {
     // sort movies by their start time
+    
     const filterMovieByTime = movies.sort((a, b) => {
         const timeA = new Date(a.time);
         const timeB = new Date(b.time);
@@ -209,6 +149,14 @@ const renderMovieByGenre = (genre) => {
     loopListings();
 };
 
-// init
-renderMovie(movies);
-renderGenre(genres);
+//init
+const init = async () => {
+    movieData = await fetchMovieData();
+    movies = movieData.movies;
+    getGenreList(movies);
+    console.log(movies);
+    renderMovie(movies);
+    renderGenre(genres);
+}
+
+init();
