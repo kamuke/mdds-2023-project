@@ -10,7 +10,7 @@ const liveHeading = document.querySelector('#live-heading');
 const waitingParagraph = document.querySelector('#waiting');
 const player = videojs('my-player');
 // TODO: Change right starting time for countdown
-const streamStartTime = new Date('October 11, 2023 12:00:00');
+const streamStartTime = new Date('October 6, 2023 12:00:00');
 const second = 1000;
 const minute = second * 60;
 const hour = minute * 60;
@@ -21,17 +21,21 @@ const getStream = async () => {
   try {
     const response = await fetch(streamURL);
 
-    if (response.status === 200) {
-      changePlayerSource(streamURL, 'application/x-mpegURL', true);
-      renderLiveOnHeading();
-      renderLiveOnButton();
-      waitingParagraph.innerHTML = '';
+    if (response.status === 404) {
+      getRecordedStreamFile();
       return;
     }
 
-    getRecordedStreamFile();
+    if (response.status !== 200) {
+      throw new Error('Network error');
+    }
+
+    changePlayerSource(streamURL, 'application/x-mpegURL', true);
+    renderLiveOnHeading();
+    renderLiveOnButton();
+    waitingParagraph.innerHTML = '';
   } catch (error) {
-    console.log('error', error);
+    console.log(error);
   }
 };
 
@@ -39,17 +43,21 @@ const getRecordedStreamFile = async () => {
   try {
     const response = await fetch(recordedStreamFilePath);
 
-    if (response.status === 200) {
-      liveHeading.innerHTML = 'Live RECORDING';
-      waitingParagraph.innerHTML = `Missed the live event? Don't worry you can still watch the recording of the live event.`;
-      changePlayerSource(recordedStreamFilePath, 'video/mp4', false);
+    if (response.status === 404) {
+      liveHeading.innerHTML = `Live OFFLINE`;
+      waitingParagraph.innerHTML = `Live event is offline. Please come back later.`;
       return;
     }
 
-    liveHeading.innerHTML = `Live OFFLINE`;
-    waitingParagraph.innerHTML = `Live event is offline. Please come back later.`;
+    if (response.status !== 200) {
+      throw new Error('Network error');
+    }
+
+    liveHeading.innerHTML = 'Live RECORDING';
+    waitingParagraph.innerHTML = `Missed the live event? Don't worry you can still watch the recording of the live event.`;
+    changePlayerSource(recordedStreamFilePath, 'video/mp4', false);
   } catch (error) {
-    console.log('error', error);
+    console.log(error);
   }
 };
 
@@ -57,14 +65,17 @@ const checkIsStreamOnline = async () => {
   try {
     const response = await fetch(streamURL);
 
-    if (response.status === 200) {
+    if (response.status === 404) {
+      clearInterval(timer);
+      getRecordedStreamFile();
       return;
     }
 
-    clearInterval(timer);
-    getRecordedStreamFile();
+    if (response.status !== 200) {
+      throw new Error('Network error');
+    }
   } catch (error) {
-    console.log('error', error);
+    console.log(error);
   }
 };
 
