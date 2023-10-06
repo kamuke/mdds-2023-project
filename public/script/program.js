@@ -151,8 +151,7 @@ const renderMovieByGenre = (genre) => {
 
 //init
 const init = async () => {
-    movieData = await fetchMovieData();
-    movies = movieData.movies;
+    movies = await fetchMovieData();
     getGenreList(movies);
     console.log(movies);
     renderMovie(movies);
