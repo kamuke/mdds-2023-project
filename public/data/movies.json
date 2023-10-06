@@ -9,7 +9,7 @@
             "genre": "Romance",
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             "director": "Olivia Anderson",
-            "id": 0
+            "_id": 0
         },
         {
             "name": "Heartstrings and Harmony",
@@ -20,7 +20,7 @@
             "genre": "Drama",
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             "director": "Benjamin Carpenter",
-            "id": 1
+            "_id": 1
         },
         {
             "name": "The Great Mix-Up",
@@ -31,7 +31,7 @@
             "genre": "Comedy",
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             "director": "Sophie Reynolds",
-            "id": 2
+            "_id": 2
         },
         {
             "name": "Tears in the City",
@@ -42,7 +42,7 @@
             "genre": "Drama",
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             "director": "Lucas Mitchell",
-            "id": 3
+            "_id": 3
         },
         {
             "name": "The Quirky Cupid",
@@ -53,7 +53,7 @@
             "genre": "Romance",
             "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             "director": "Emma Sullivan",
-            "id": 4
+            "_id": 4
         }
     ]
 }

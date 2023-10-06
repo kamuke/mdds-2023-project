@@ -28,7 +28,7 @@ const renderModal = (movieID) => {
 
     // loop through movies, get the clicked one's info
     movies.forEach(movie => {
-        if(movieID === movie.id.toString()){
+        if(movieID === movie._id.toString()){
             genre.innerText = movie.genre;
             name.innerText = movie.name;
             director.innerText = movie.director;

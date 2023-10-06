@@ -97,10 +97,8 @@ const renderMovie = (movies) => {
         const summary = document.createElement('div');
     
         //add listing's own id
-        linkWrapper.id = 'listing-'+movie.id;
+        linkWrapper.id = 'listing-'+movie._id;
         linkWrapper.classList = 'movie-listing animate-loadListing lg:w-[500px] rounded-lg col-[span_11] lg:col-span-2 lg:col-start-3 lg:col-end-13 group cursor-pointer';
-        //linkWrapper.setAttribute('data-modal-target', 'defaultModal');
-        //linkWrapper.setAttribute('data-modal-toggle', 'defaultModal');
         divHoverElement.classList = 'group-hover:bg-secondary rounded-lg';
         container.classList = 'bg-gray-900 rounded-lg shadow-xl hover:-translate-x-3 hover:-translate-y-3 flex flex-row md:flex-col';
         poster.classList = 'rounded-lg h-64 md:h-56 w-1/2 md:w-full object-cover';
