@@ -20,7 +20,6 @@ if (userInfo) {
   document.getElementById('messageForm').classList.remove('hidden');
   document.getElementById('messageForm').classList.add('flex');
   usersButton.classList.remove('invisible');
-  document.getElementById('messageInput').focus();
 }
 
 joinForm.addEventListener('submit', (event) => {
