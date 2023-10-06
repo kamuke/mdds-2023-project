@@ -5,6 +5,7 @@ module.exports = router;
 const commentModel = require('../models/comment-model');
 const registerModel = require('../models/register-model');
 const loginModel = require('../models/login-model');
+const movieModel = require('../models/movie-model');
 
 router.post('/post', async (req, res) => {
   const data = new commentModel({
@@ -84,6 +85,42 @@ router.post('/authUser', async (req, res) => {
       res.status(200).json(userWithoutPassword);
     }
   } catch (error) {
+    res.status(400).json({message: error.message});
+  }
+});
+
+router.get('/getMovies', async (req, res) => {
+  try {
+    const movies = await movieModel.find();
+    movies.reverse();
+    console.log('movie-list', movies);
+    if (!movies) {
+      res.status(500).json({message: error.message});
+    } else {
+      res.status(200).json(movies);
+    }
+  } catch (error) {
+    res.status(400).json({message: error.message});
+  }
+});
+
+router.post('/addMovie', async (req, res) => {
+  const data = new movieModel({
+    name: req.body.name,
+    time: req.body.time,
+    endTime: req.body.endTime,
+    length: req.body.length,
+    rating: req.body.rating,
+    genre: req.body.genre,
+    summary: req.body.summary,
+    director: req.body.director,
+  });
+
+  try {
+    const dataToSave = await data.save();
+    res.status(200).json(dataToSave);
+  }
+  catch (error) {
     res.status(400).json({message: error.message});
   }
 });
