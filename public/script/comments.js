@@ -1,14 +1,30 @@
-'use strict';
+"use strict";
 
-const url = 'http://localhost:3010';
+const url = 'http://localhost:3000';
 const form = document.getElementById('commentForm');
 const commentInput = document.getElementById('commentInput');
 const nameInput = document.getElementById('nameInput');
 
+const dialogSuccess = document.getElementById("modal1");
+dialogSuccess.classList.add('bg-tetriary', 'text-xl', 'w-max-fit', 'text-gray-950', 'text-center', 'rounded-lg', 'p-4', 'm-auto', 'focus:outline-none');
+dialogSuccess.addEventListener("click", () => {
+  dialogSuccess.close();
+});
+const dialogFail = document.getElementById("modal2");
+dialogFail.classList.add('bg-red-500', 'text-xl', 'w-max-fit', 'text-gray-950', 'text-center', 'rounded-lg', 'p-4', 'm-auto', 'focus:outline-none');
+dialogFail.addEventListener("click", () => {
+  dialogFail.close();
+});
+
+const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+if (userInfo) {
+  nameInput.classList.add('hidden');
+  nameInput.value = userInfo.name;
+}
+
 form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
   const data = serializeJson(form);
-  console.log('comment', data);
   const fetchOptions = {
     method: 'POST',
     headers: {
@@ -17,12 +33,33 @@ form.addEventListener('submit', async (evt) => {
     body: JSON.stringify(data),
   };
   
+  try {
   const response = await fetch(url + '/api/post', fetchOptions);
   const json = await response.json();
-  console.log('comment post response', json);
+  if (!response.ok) {
+    const message = json.error
+      ? `${json.message}: ${json.error}`
+      : json.message;
+      alert(message);
+    throw new Error(message || response.statusText);
+  }
+  titleInput.value = '';
   commentInput.value = '';
   nameInput.value = '';
   getMessages();
+  dialogSuccess.innerHTML = "Message sent";
+  dialogSuccess.showModal();
+  setTimeout(() => {
+    dialogSuccess.close();
+  } , 500);
+  } catch (e) {
+    console.log(e.message);
+    dialogFail.innerHTML = e.message;
+    dialogFail.showModal();
+    setTimeout(() => {
+      dialogFail.close();
+    } , 500);
+  }
 });
 
 const getMessages = async () => {
@@ -32,12 +69,21 @@ const getMessages = async () => {
     };
     const response = await fetch(url + '/api/getPosts', fetchOptions);
     const messages = await response.json();
-    console.log('comment fetch', messages);
+    if (!response.ok) {
+      const message = json.error
+        ? `${json.message}: ${json.error}`
+        : json.message;
+      throw new Error(message || response.statusText);
+    }
     showMessages(messages);
     calcurateRatings(messages);
-
   } catch (e) {
     console.log(e.message);
+    dialogFail.innerHTML = e.message;
+    dialogFail.showModal();
+    setTimeout(() => {
+      dialogFail.close();
+    } , 500);
   }
 };
 

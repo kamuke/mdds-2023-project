@@ -1,12 +1,17 @@
-'use strict';
+"use strict";
 
 require ('dotenv').config();
 const port = process.env.PORT || 3000;
+const mongoose = require('mongoose');
+const routes = require('./database/routes/routes');
 const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
 const cors = require('cors');
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use('/api', routes);
 const io = require("socket.io")(http, {
   cors: {
     origin: "*",
@@ -16,6 +21,20 @@ const io = require("socket.io")(http, {
 
 app.use(express.static('public'));
 
+// MongoDB section
+const mongoString = process.env.DATABASE_URL
+mongoose.connect(mongoString);
+const database = mongoose.connection;
+
+database.on('error', (error) => {
+  console.log(error);
+});
+
+database.once('connected', () => {
+  console.log('Database Connected');
+});
+
+// Socket.io section
 const rooms = {
   1: [],
   2: [],

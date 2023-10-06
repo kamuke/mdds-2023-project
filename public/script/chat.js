@@ -1,3 +1,5 @@
+"use strict";
+
 const socket = io('http://localhost:3000');
 
 const messages = document.getElementById('messages');
@@ -10,6 +12,16 @@ const usersButton = document.getElementById('getUserListBtn');
 const usersList = document.getElementById('userList');
 
 let selectedRoom = roomSelect.value;
+
+const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+if (userInfo) {
+  socket.emit('join', userInfo.name);
+  document.getElementById('login').classList.add('hidden');
+  document.getElementById('messageForm').classList.remove('hidden');
+  document.getElementById('messageForm').classList.add('flex');
+  usersButton.classList.remove('invisible');
+}
+
 joinForm.addEventListener('submit', (event) => {
   event.preventDefault();
   if (nicknameInput.value) {

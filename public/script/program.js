@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const genreList = document.getElementById('list-genre');
 const movieList = document.getElementById('list-program');

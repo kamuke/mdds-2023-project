@@ -1,9 +1,10 @@
-let myPlayer = document.querySelector('.video-js');
+const myPlayer = document.querySelector('.video-js');
 
-videojs(myPlayer, {
-  controls: true,
-  autoplay: false,
-  fluid: true,
-  preload: 'auto',
-  fullscreen: { options: { navigationUI: 'hide' } },
-});
+ videojs(myPlayer, {
+    controls: true,
+    autoplay: false,
+    fluid: true,
+    preload: 'auto',
+    fullscreen: { options: { navigationUI: 'hide' } },
+  });
+  
