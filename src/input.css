@@ -116,3 +116,6 @@
 .vjs-theme-custom .vjs-remaining-time {
   display: none;
 }
+dialog::backdrop {
+  background-color: rgb(0, 0,0, 0.7);
+}
