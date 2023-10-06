@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const genreList = document.getElementById('list-genre');
 const movieList = document.getElementById('list-program');
@@ -99,8 +99,8 @@ const renderMovie = (movies) => {
         //add listing's own id
         linkWrapper.id = 'listing-'+movie.id;
         linkWrapper.classList = 'movie-listing animate-loadListing lg:w-[500px] rounded-lg col-[span_11] lg:col-span-2 lg:col-start-3 lg:col-end-13 group cursor-pointer';
-        linkWrapper.setAttribute('data-modal-target', 'movieModal');
-        linkWrapper.setAttribute('data-modal-toggle', 'movieModal');
+        //linkWrapper.setAttribute('data-modal-target', 'defaultModal');
+        //linkWrapper.setAttribute('data-modal-toggle', 'defaultModal');
         divHoverElement.classList = 'group-hover:bg-secondary rounded-lg';
         container.classList = 'bg-gray-900 rounded-lg shadow-xl hover:-translate-x-3 hover:-translate-y-3 flex flex-row md:flex-col';
         poster.classList = 'rounded-lg h-64 md:h-56 w-1/2 md:w-full object-cover';
@@ -131,6 +131,8 @@ const renderMovie = (movies) => {
     
         movieList.appendChild(linkWrapper);
     });
+    //open up movie info modal on click (check movie-modal.js)
+    openModal();
 };
 
 // Render and filter movies by genre
@@ -145,15 +147,12 @@ const renderMovieByGenre = (genre) => {
     }
 
     renderMovie(filteredMovies);
-    //call for looping listings again for modal
-    loopListings();
 };
 
 //init
 const init = async () => {
     movies = await fetchMovieData();
     getGenreList(movies);
-    console.log(movies);
     renderMovie(movies);
     renderGenre(genres);
 }
