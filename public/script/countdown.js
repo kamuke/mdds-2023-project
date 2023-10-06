@@ -8,10 +8,9 @@ const recordedStreamFilePath = './video/placeholder_stream_record.mp4';
 const heroButtonsContainer = document.querySelector('#hero-buttons');
 const liveHeading = document.querySelector('#live-heading');
 const waitingParagraph = document.querySelector('#waiting');
-const countdown = document.querySelector('#countdown');
 const player = videojs('my-player');
 // TODO: Change right starting time for countdown
-const streamStartTime = new Date('October 11, 2023 13:00:00');
+const streamStartTime = new Date('October 11, 2023 12:00:00');
 const second = 1000;
 const minute = second * 60;
 const hour = minute * 60;
@@ -31,7 +30,9 @@ const getStream = async () => {
     }
 
     getRecordedStreamFile();
-  } catch (error) {}
+  } catch (error) {
+    console.log('error', error);
+  }
 };
 
 const getRecordedStreamFile = async () => {
@@ -46,7 +47,7 @@ const getRecordedStreamFile = async () => {
     }
 
     liveHeading.innerHTML = `Live OFFLINE`;
-    waitingParagraph.innerHTML = `Live event is offline. Please come back later to check out the recording from the live event.`;
+    waitingParagraph.innerHTML = `Live event is offline. Please come back later.`;
   } catch (error) {
     console.log('error', error);
   }
@@ -110,10 +111,11 @@ const renderCountdown = (distance) => {
   const hourOrHoursString = hours === 1 ? 'hour ' : 'hours ';
   const minuteOrMinutesString = minutes === 1 ? 'minute ' : 'minutes ';
 
-  countdown.innerHTML = days > 0 ? days + dayOrDaysString : '';
-  countdown.innerHTML += hours > 0 ? hours + hourOrHoursString : '';
-  countdown.innerHTML += minutes > 0 ? minutes + minuteOrMinutesString : '';
-  countdown.innerHTML += seconds + 'secs';
+  liveHeading.innerHTML =
+    days > 0 ? 'Live starts in ' + days + dayOrDaysString : 'Live starts in ';
+  liveHeading.innerHTML += hours > 0 ? hours + hourOrHoursString : '';
+  liveHeading.innerHTML += minutes > 0 ? minutes + minuteOrMinutesString : '';
+  liveHeading.innerHTML += seconds + 'secs';
 };
 
 const changePlayerSource = (URL, type, autoplay) => {
