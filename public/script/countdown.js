@@ -10,7 +10,7 @@ const liveHeading = document.querySelector('#live-heading');
 const waitingParagraph = document.querySelector('#waiting');
 const player = videojs('my-player');
 // TODO: Change right starting time for countdown
-const streamStartTime = new Date('October 6, 2023 12:00:00');
+const streamStartTime = new Date('October 11, 2023 12:00:00');
 const second = 1000;
 const minute = second * 60;
 const hour = minute * 60;
