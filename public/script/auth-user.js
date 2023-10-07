@@ -9,14 +9,12 @@ const authUser = async () => {
   const fetchOptions = {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'x-access-token': userInfo ? userInfo.token : null,
     },
-    body: JSON.stringify(userInfo),
   };
-
   try {
     const response = await fetch(url + '/api/authUser', fetchOptions);
-    await response.json();
+    const json = await response.json();
     if (!response.ok) {
       const message = json.error
         ? `${json.message}: ${json.error}`
