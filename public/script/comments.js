@@ -164,13 +164,16 @@ const showMessages = (messages) => {
   messages.forEach((message) => {
     const commentDiv = document.createElement('div');
     commentDiv.classList.add(
+      '-translate-x-2',
+      '-translate-y-2',
       'p-4',
       'text-sm',
       'rounded-lg',
       'mb-4',
       'w-full',
       'shadow',
-      'bg-secondary-100',
+      'bg-gray-50',
+      'shadow'
     );
 
     const header = document.createElement('div');
@@ -201,7 +204,7 @@ const showMessages = (messages) => {
     rating.classList.add('flex', 'justify-start', 'items-center', 'py-1');
     for (let i = 0; i < message.rating; i++) {
         const star = document.createElement('img');
-        star.classList.add('w-5', 'h-5');
+        star.classList.add('w-4', 'h-4');
         star.src = 'img/star.svg';
         rating.appendChild(star);
     }
@@ -213,10 +216,14 @@ const showMessages = (messages) => {
     comment.classList.add('text-md');
     comment.innerText = message.comment;
 
+    const commentDivBackground = document.createElement('div');
+    commentDivBackground.classList.add('bg-gradient-to-br', 'from-secondary-800', 'to-secondary', 'rounded-lg', 'ml-2', 'mb-6');
+
     commentDiv.appendChild(header);
     commentDiv.appendChild(titleBar);
     commentDiv.appendChild(comment);
-    commentContainer.appendChild(commentDiv);
+    commentDivBackground.appendChild(commentDiv);
+    commentContainer.appendChild(commentDivBackground);
   });
 
 };

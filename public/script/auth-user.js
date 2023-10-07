@@ -46,10 +46,8 @@ loginLink.addEventListener('click', (event) => {
     localStorage.removeItem('userInfo');
     localStorage.setItem('logoutMessage', 'Logged out successfully');
     window.location.href = 'index.html';
-    console.log('index');
   } else {
     window.location.href = 'login.html';
-    console.log('login');
   }
 });
 

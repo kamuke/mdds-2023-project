@@ -34,11 +34,8 @@ form.addEventListener('submit', async (evt) => {
       : json.message;
     throw new Error(message || response.statusText);
   }
-  dialogSuccess.innerHTML = "Registered successfully";
-  dialogSuccess.showModal();
-  setTimeout(() => {
-    window.location.href = 'login.html';
-    } , 500);
+  localStorage.setItem('registerMessage', 'Registered successfully');
+  window.location.href = 'login.html';
   } catch (e) {
     dialogFail.innerHTML = e.message;
     dialogFail.showModal();
