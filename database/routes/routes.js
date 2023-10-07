@@ -29,9 +29,34 @@ router.post('/post', async (req, res) => {
   }
 });
 
+/* WIP delete post
+router.delete('/post', async (req, res) => {
+  const data = new commentModel({
+    name: req.body.name,
+    title: req.body.title,
+    rating: req.body.rating,
+    comment: req.body.comment,
+    senderID: req.body.senderID
+  });
+
+  try {
+    const user = await registerModel.findById(req.body.senderID);
+    if (!user) {
+      res.status(500).json({message: 'Invalid credentials'});
+    } else {
+      const dataToSave = await data.save();
+      res.status(200).json(dataToSave)
+    }
+  } catch (error) {
+    res.status(400).json({message: error.message});
+  }
+});
+*/
+
 router.get('/getPosts', async (req, res) => {
   try {
     const data = await commentModel.find();
+    console.log('data', data);
     res.status(200).json(data);
   } catch (error) {
     res.status(400).json({message: error.message});

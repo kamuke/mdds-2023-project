@@ -17,16 +17,12 @@ dialogFail.addEventListener("click", () => {
   dialogFail.close();
 });
 
-const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-if (userInfo) {
-  nameInput.classList.add('hidden');
-  nameInput.value = userInfo.name;
-}
-
 form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  nameInput.value = userInfo ? userInfo.name : 'hacker';
   const data = serializeJson(form);
-  data.senderID = userInfo ? userInfo._id : '';
+  data.senderID = userInfo ? userInfo._id : 'hacker';
   const fetchOptions = {
     method: 'POST',
     headers: {
@@ -123,6 +119,7 @@ const calcurateRatings = (messages) => {
     const ratingText = document.createElement('p');
     ratingText.classList.add('text-sm', 'text-gray-100', 'mr-1', 'min-w-fit', 'h-5', 'w-8', 'align-middle');
     if (totalRatings > 9) {
+      ratingText.classList.remove('w-8');
       ratingText.classList.add('w-12');
     }
     ratingText.innerText = `${i} (${ratingsCount[i - 1]})`;
