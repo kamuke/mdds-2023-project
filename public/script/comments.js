@@ -20,17 +20,18 @@ dialogFail.addEventListener("click", () => {
 form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-  nameInput.value = userInfo ? userInfo.name : 'hacker';
+  nameInput.value = userInfo ? userInfo.name : 'Hackerman';
   const data = serializeJson(form);
-  data.senderID = userInfo ? userInfo._id : 'hacker';
+  console.log('data', data);
+
   const fetchOptions = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'x-access-token': userInfo ? userInfo.token : null,
     },
     body: JSON.stringify(data),
   };
-  
   try {
   const response = await fetch(url + '/api/post', fetchOptions);
   const json = await response.json();

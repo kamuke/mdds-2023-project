@@ -17,10 +17,10 @@ form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   const data = serializeJson(form);
-  data.senderID = userInfo ? userInfo._id : 'hacker';
   const fetchOptions = {
     method: 'POST',
     headers: {
+      'x-access-token': userInfo ? userInfo.token : null,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
