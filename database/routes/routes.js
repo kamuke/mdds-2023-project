@@ -12,23 +12,53 @@ router.post('/post', async (req, res) => {
     name: req.body.name,
     title: req.body.title,
     rating: req.body.rating,
-    comment: req.body.comment
+    comment: req.body.comment,
+    senderID: req.body.senderID
   });
+
   try {
-    const dataToSave = await data.save();
-    res.status(200).json(dataToSave)
-  }
-  catch (error) {
+    const user = await registerModel.findById(req.body.senderID);
+    if (!user) {
+      res.status(500).json({message: 'Invalid credentials'});
+    } else {
+      const dataToSave = await data.save();
+      res.status(200).json(dataToSave)
+    }
+  } catch (error) {
     res.status(400).json({message: error.message});
   }
 });
 
+/* WIP delete post
+router.delete('/post', async (req, res) => {
+  const data = new commentModel({
+    name: req.body.name,
+    title: req.body.title,
+    rating: req.body.rating,
+    comment: req.body.comment,
+    senderID: req.body.senderID
+  });
+
+  try {
+    const user = await registerModel.findById(req.body.senderID);
+    if (!user) {
+      res.status(500).json({message: 'Invalid credentials'});
+    } else {
+      const dataToSave = await data.save();
+      res.status(200).json(dataToSave)
+    }
+  } catch (error) {
+    res.status(400).json({message: error.message});
+  }
+});
+*/
+
 router.get('/getPosts', async (req, res) => {
   try {
     const data = await commentModel.find();
+    console.log('data', data);
     res.status(200).json(data);
-  }
-  catch (error) {
+  } catch (error) {
     res.status(400).json({message: error.message});
   }
 });
@@ -39,11 +69,11 @@ router.post('/register', async (req, res) => {
     name: req.body.name,
     password: req.body.password
   });
+
   try {
     const dataToSave = await data.save();
     res.status(200).json(dataToSave);
-  }
-  catch (error) {
+  } catch (error) {
     if (error.message.includes('E11000')) {
       res.status(400).json({message: 'Use unique email address'});
     } else {
@@ -57,18 +87,18 @@ router.post('/login', async (req, res) => {
     email: req.body.email,
     password: req.body.password
   });
+
   try {
     const user = await loginModel.findOne({ 'email': data.email, 'password': data.password });
     console.log('user login', user);
     if (!user) {
       res.status(500).json({message: 'Invalid credentials'});
-    }  else {
+    } else {
       const userWithoutPassword = { ...user._doc };
       delete userWithoutPassword.password; 
       res.status(200).json(userWithoutPassword);
     }
-  }
-  catch (error) {
+  } catch (error) {
     res.status(400).json({message: error.message});
   }
 });
@@ -76,7 +106,6 @@ router.post('/login', async (req, res) => {
 router.post('/authUser', async (req, res) => {
   try {
     const user = await registerModel.findById(req.body._id);
-    console.log('user auth', user);
     if (!user) {
       res.status(500).json({message: 'Invalid credentials'});
     } else {
@@ -114,13 +143,18 @@ router.post('/addMovie', async (req, res) => {
     genre: req.body.genre,
     summary: req.body.summary,
     director: req.body.director,
+    senderID: req.body.senderID
   });
 
   try {
+    const user = await registerModel.findById(req.body.senderID);
+    if (!user) {
+      res.status(500).json({message: 'Invalid credentials'});
+    } else {
     const dataToSave = await data.save();
     res.status(200).json(dataToSave);
-  }
-  catch (error) {
+    }
+  } catch (error) {
     res.status(400).json({message: error.message});
   }
 });

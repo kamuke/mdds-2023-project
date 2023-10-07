@@ -118,68 +118,61 @@
           </p>
           <div id="ratingCard" class="max-w-fit mt-8 sm:mt-0"></div>
         </div>
-        <form
-          id="commentForm"
-          class="items-center gap-4 p-4 bg-gray-800 max-w-lg mx-auto mb-8"
-        >
-          <label for="comments" class="sr-only">Comment</label>
-            <input
-            id="nameInput"
-            type="text"
-            autocomplete="off"
-            required
-            name="name"
-            class="block mr-4 mb-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
-            placeholder="Name"
-          />
-          <input
-          id="titleInput"
-          type="text"
-          autocomplete="off"
-          required
-          name="title"
-          class="block mr-4 mb-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
-          placeholder="Title"
-        />
-            <input
-            type="text"
-            autocomplete="off"
-            required
-            id="commentInput"
-            name="comment"
-            class="block mb-4 mr-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
-            placeholder="Message..."
-            />
-            <div class="flex">
-            <select
-            class="w-full mr-4 rounded-lg bg-gray-800 border-gray-700 text-gray-100 focus:ring-secondary focus:border-secondary font-sans"
-            name="rating"
-            type="number"
+        <div class="bg-gradient-to-br from-secondary-800 to-secondary rounded-lg ml-3 mb-12">
+          <form
+            id="commentForm"
+            class="items-center gap-4 p-8 bg-gray-800 mx-auto mb-8 rounded-lg -translate-x-3 -translate-y-3"
           >
-            <option value="1" selected>1 Star</option>
-            <option value="2">2 Stars</option>
-            <option value="3">3 Stars</option>
-            <option value="4">4 Stars</option>
-            <option value="5">5 Stars</option>
-          </select>
-            <button
-              type="submit"
-              class="w-32 inline-flex justify-center p-2.5 text-gray-950 rounded-lg cursor-pointer bg-primary hover:bg-gradient-to-tr from-primary to-tetriary"
-            >
-              <svg
-                class="w-6 h-6 rotate-90"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
+            <input
+              id="nameInput"
+              type="hidden"
+              autocomplete="off"
+              required
+              name="name"
+              class="block mr-4 mb-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+            />
+            <label for="titleInput" class="text-sm text-gray-100">Title</label>
+            <input
+              id="titleInput"
+              type="text"
+              autocomplete="off"
+              required
+              name="title"
+              class="block mr-6 mb-4 mt-2.5 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+              placeholder="Title"
+            />
+            <label for="commentInput" class="text-sm text-gray-100">Message</label>
+            <input
+              type="text"
+              autocomplete="off"
+              required
+              id="commentInput"
+              name="comment"
+              class="block mb-4 mr-4 mt-2.5 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+              placeholder="Message..."
+            />
+            <label for="ratingSelect" class="text-sm text-gray-100">Rating</label>
+              <select
+                class="w-full mr-4 mt-2.5 mb-6 rounded-lg bg-gray-700 border-gray-700 text-gray-100 focus:ring-secondary focus:border-secondary text-md"
+                name="rating"
+                type="number"
+                id="ratingSelect"
               >
-                <path
-                  d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </form>
-        <div id="comments" class="p-4"></div>
+                <option value="1" selected>1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+              </select>
+              <button
+                type="submit"
+                class="w-full transition-all inline-flex items-center justify-center rounded-lg py-2 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
+              >
+                SEND YOUR MESSAGE
+              </button>
+          </form>
+        </div>
+        <div id="comments" class=""></div>
       </div>
       </section>
       <!-- comments section ends -->

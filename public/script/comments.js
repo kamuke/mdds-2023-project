@@ -4,6 +4,7 @@ const url = 'http://localhost:3000';
 const form = document.getElementById('commentForm');
 const commentInput = document.getElementById('commentInput');
 const nameInput = document.getElementById('nameInput');
+const titleInput = document.getElementById('titleInput');
 
 const dialogSuccess = document.getElementById("modal1");
 dialogSuccess.classList.add('bg-tetriary', 'text-xl', 'w-max-fit', 'text-gray-950', 'text-center', 'rounded-lg', 'p-4', 'm-auto', 'focus:outline-none');
@@ -16,15 +17,12 @@ dialogFail.addEventListener("click", () => {
   dialogFail.close();
 });
 
-const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-if (userInfo) {
-  nameInput.classList.add('hidden');
-  nameInput.value = userInfo.name;
-}
-
 form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  nameInput.value = userInfo ? userInfo.name : 'hacker';
   const data = serializeJson(form);
+  data.senderID = userInfo ? userInfo._id : 'hacker';
   const fetchOptions = {
     method: 'POST',
     headers: {
@@ -40,7 +38,6 @@ form.addEventListener('submit', async (evt) => {
     const message = json.error
       ? `${json.message}: ${json.error}`
       : json.message;
-      alert(message);
     throw new Error(message || response.statusText);
   }
   titleInput.value = '';
@@ -122,6 +119,7 @@ const calcurateRatings = (messages) => {
     const ratingText = document.createElement('p');
     ratingText.classList.add('text-sm', 'text-gray-100', 'mr-1', 'min-w-fit', 'h-5', 'w-8', 'align-middle');
     if (totalRatings > 9) {
+      ratingText.classList.remove('w-8');
       ratingText.classList.add('w-12');
     }
     ratingText.innerText = `${i} (${ratingsCount[i - 1]})`;
@@ -163,13 +161,16 @@ const showMessages = (messages) => {
   messages.forEach((message) => {
     const commentDiv = document.createElement('div');
     commentDiv.classList.add(
+      '-translate-x-2',
+      '-translate-y-2',
       'p-4',
       'text-sm',
       'rounded-lg',
       'mb-4',
       'w-full',
       'shadow',
-      'bg-secondary-100',
+      'bg-gray-50',
+      'shadow'
     );
 
     const header = document.createElement('div');
@@ -200,7 +201,7 @@ const showMessages = (messages) => {
     rating.classList.add('flex', 'justify-start', 'items-center', 'py-1');
     for (let i = 0; i < message.rating; i++) {
         const star = document.createElement('img');
-        star.classList.add('w-5', 'h-5');
+        star.classList.add('w-4', 'h-4');
         star.src = 'img/star.svg';
         rating.appendChild(star);
     }
@@ -212,10 +213,14 @@ const showMessages = (messages) => {
     comment.classList.add('text-md');
     comment.innerText = message.comment;
 
+    const commentDivBackground = document.createElement('div');
+    commentDivBackground.classList.add('bg-gradient-to-br', 'from-secondary-800', 'to-secondary', 'rounded-lg', 'ml-2', 'mb-6');
+
     commentDiv.appendChild(header);
     commentDiv.appendChild(titleBar);
     commentDiv.appendChild(comment);
-    commentContainer.appendChild(commentDiv);
+    commentDivBackground.appendChild(commentDiv);
+    commentContainer.appendChild(commentDivBackground);
   });
 
 };

@@ -8,10 +8,29 @@ dialog.addEventListener("click", () => {
 
 const logoutMessage = localStorage.getItem('logoutMessage');
 if (logoutMessage) {
-    console.log('logoutMessage', logoutMessage);
     dialog.innerHTML = logoutMessage;
     dialog.showModal();
     localStorage.removeItem('logoutMessage');
+    setTimeout(() => {
+        dialog.close();
+    } , 500);
+};
+
+const loginMessage = localStorage.getItem('loginMessage');
+if (loginMessage) {
+    dialog.innerHTML = loginMessage;
+    dialog.showModal();
+    localStorage.removeItem('loginMessage');
+    setTimeout(() => {
+        dialog.close();
+    } , 500);
+};
+
+const registerMessage = localStorage.getItem('registerMessage');
+if (registerMessage) {
+    dialog.innerHTML = registerMessage;
+    dialog.showModal();
+    localStorage.removeItem('registerMessage');
     setTimeout(() => {
         dialog.close();
     } , 500);

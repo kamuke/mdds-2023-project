@@ -35,6 +35,10 @@ const dataSchema = new mongoose.Schema({
             type: String,
             required: true
         },
+        senderID: {
+            type: String,
+            required: true
+        }
 }, { timestamps: true, versionKey: false, collection: 'Movies'  });
 
 module.exports = mongoose.model('movies', dataSchema);

@@ -12,9 +12,12 @@ dialogFail.addEventListener("click", () => {
   dialogFail.close();
 });
 
+
 form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   const data = serializeJson(form);
+  data.senderID = userInfo ? userInfo._id : 'hacker';
   const fetchOptions = {
     method: 'POST',
     headers: {

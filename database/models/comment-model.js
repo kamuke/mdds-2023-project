@@ -18,6 +18,10 @@ const dataSchema = new mongoose.Schema({
   comment: {
     required: true,
     type: String
+  },
+  senderID: {
+    required: true,
+    type: String
   }
 }, { timestamps: true, versionKey: false, collection: 'comments' });
 
