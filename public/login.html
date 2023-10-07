@@ -106,46 +106,49 @@
       </nav>
     </div>
   </header>
-  <section class="mx-auto px-4 pt-12 max-w-md">
-  <div class="p-4 text-2xl text-gray-100 max-w-fit mx-auto"> Login</div>
+  <section class="mx-auto px-4 pt-12 max-w-lg">
+    <div class="p-8 text-2xl text-gray-100 uppercase font-display tracking-widest max-w-fit mx-auto"> Login</div>
+    <div class="bg-gradient-to-br from-tetriary-800 to-tetriary rounded-lg">
     <form
           id="loginForm"
-          class="items-center p-6 bg-gray-800 w-full rounded-lg"
+          class="items-center p-8 bg-gray-800 w-full rounded-lg -translate-x-3 -translate-y-3"
+    >
+      <label for="nameInput" class="text-sm text-gray-100">Email</label>
+      <input
+        id="nameInput"
+        type="email"
+        autocomplete="off"
+        required
+        name="email"
+        class="block mb-4 mt-2.5 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+        placeholder="Email"
+      />
+      <label for="loginPassword" class="text-sm text-gray-100">Password</label>
+      <input
+        id="loginPassword"
+        type="password"
+        autocomplete="off"
+        required
+        name="password"
+        class="block mt-2.5 mb-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+        placeholder="Password"
+      />
+      <div class="flex flex-col">
+        <button
+          type="submit"
+          class="inline-flex justify-center mb-4 mt-2.5 p-2.5 text-gray-950 rounded-lg cursor-pointer bg-primary hover:bg-gradient-to-tr from-primary to-tetriary"
         >
-          <label for="login" class="sr-only">Login</label>
-            <input
-              id="loginEmail"
-              type="email"
-              autocomplete="off"
-              required
-              name="email"
-              class="block  mb-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
-              placeholder="Email"
-            />
-            <input
-            id="loginPassword"
-            type="password"
-            autocomplete="off"
-            required
-            name="password"
-            class="block  mb-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
-            placeholder="Password"
-            />
-            <div class="flex flex-col">
-            <button
-              type="submit"
-              class="inline-flex justify-center mb-4 p-2.5 text-gray-950 rounded-lg cursor-pointer bg-primary hover:bg-gradient-to-tr from-primary to-tetriary"
-            >
-            Login
-            </button>
-            <a
-            href="register.html"
-            class="block text-center text-gray-100 rounded-lg lg:rounded-full hover:text-primary"
-            aria-current="page"
-            >Don't have an account? Register</a
-            >
-          </div>
-        </form>
+        Login
+        </button>
+        <a
+        href="register.html"
+        class="block text-center text-gray-100 rounded-lg lg:rounded-full hover:text-primary"
+        aria-current="page"
+        >Don't have an account? Register</a
+        >
+      </div>
+    </form>
+  </div>
   </section>
   <dialog id="modal1"></dialog>
   <dialog id="modal2"></dialog>

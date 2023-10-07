@@ -118,12 +118,12 @@
           </p>
           <div id="ratingCard" class="max-w-fit mt-8 sm:mt-0"></div>
         </div>
+        <div class="bg-gradient-to-br max-w-lg from-tetriary-800 to-tetriary rounded-lg col-span-12 md:col-span-4">
         <form
           id="commentForm"
-          class="items-center gap-4 p-4 bg-gray-800 max-w-lg mx-auto mb-8"
+          class="items-center gap-4 p-4 bg-gray-800 max-w-lg mx-auto mb-8 rounded-lg -translate-x-3 -translate-y-3"
         >
-          <label for="comments" class="sr-only">Comment</label>
-            <input
+          <input
             id="nameInput"
             type="text"
             autocomplete="off"
@@ -132,39 +132,43 @@
             class="block mr-4 mb-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
             placeholder="Name"
           />
+          <label for="titleInput" class="text-sm text-gray-100">Title</label>
           <input
-          id="titleInput"
-          type="text"
-          autocomplete="off"
-          required
-          name="title"
-          class="block mr-4 mb-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
-          placeholder="Title"
-        />
-            <input
+            id="titleInput"
+            type="text"
+            autocomplete="off"
+            required
+            name="title"
+            class="block mr-6 mb-4 mt-2.5 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+            placeholder="Title"
+          />
+          <label for="commentInput" class="text-sm text-gray-100">Message</label>
+          <input
             type="text"
             autocomplete="off"
             required
             id="commentInput"
             name="comment"
-            class="block mb-4 mr-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
+            class="block mb-4 mr-4 mt-2.5 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-secondary focus:border-secondary"
             placeholder="Message..."
-            />
-            <div class="flex">
+          />
+          <label for="ratingSelect" class="text-sm text-gray-100">Rating</label>
+          <div class="flex">
             <select
-            class="w-full mr-4 rounded-lg bg-gray-800 border-gray-700 text-gray-100 focus:ring-secondary focus:border-secondary font-sans"
-            name="rating"
-            type="number"
-          >
-            <option value="1" selected>1 Star</option>
-            <option value="2">2 Stars</option>
-            <option value="3">3 Stars</option>
-            <option value="4">4 Stars</option>
-            <option value="5">5 Stars</option>
-          </select>
+              class="w-full mr-4 mt-2.5 rounded-lg bg-gray-800 border-gray-700 text-gray-100 focus:ring-secondary focus:border-secondary font-sans"
+              name="rating"
+              type="number"
+              id="ratingSelect"
+            >
+              <option value="1" selected>1 Star</option>
+              <option value="2">2 Stars</option>
+              <option value="3">3 Stars</option>
+              <option value="4">4 Stars</option>
+              <option value="5">5 Stars</option>
+            </select>
             <button
               type="submit"
-              class="w-32 inline-flex justify-center p-2.5 text-gray-950 rounded-lg cursor-pointer bg-primary hover:bg-gradient-to-tr from-primary to-tetriary"
+              class="w-32 mt-2.5 inline-flex justify-center p-2.5 text-gray-950 rounded-lg cursor-pointer bg-primary hover:bg-gradient-to-tr from-primary to-tetriary"
             >
               <svg
                 class="w-6 h-6 rotate-90"
@@ -179,6 +183,7 @@
             </button>
           </div>
         </form>
+      </div>
         <div id="comments" class="p-4"></div>
       </div>
       </section>

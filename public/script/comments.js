@@ -4,6 +4,7 @@ const url = 'http://localhost:3000';
 const form = document.getElementById('commentForm');
 const commentInput = document.getElementById('commentInput');
 const nameInput = document.getElementById('nameInput');
+const titleInput = document.getElementById('titleInput');
 
 const dialogSuccess = document.getElementById("modal1");
 dialogSuccess.classList.add('bg-tetriary', 'text-xl', 'w-max-fit', 'text-gray-950', 'text-center', 'rounded-lg', 'p-4', 'm-auto', 'focus:outline-none');
@@ -25,6 +26,7 @@ if (userInfo) {
 form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
   const data = serializeJson(form);
+  data.senderID = userInfo ? userInfo._id : '';
   const fetchOptions = {
     method: 'POST',
     headers: {
@@ -40,7 +42,6 @@ form.addEventListener('submit', async (evt) => {
     const message = json.error
       ? `${json.message}: ${json.error}`
       : json.message;
-      alert(message);
     throw new Error(message || response.statusText);
   }
   titleInput.value = '';
