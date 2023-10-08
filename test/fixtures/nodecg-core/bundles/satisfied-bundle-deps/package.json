@@ -1,0 +1,10 @@
+{
+  "name": "satisfied-bundle-deps",
+  "version": "0.0.0",
+  "nodecg": {
+    "compatibleRange": "*",
+    "bundleDependencies": {
+      "test-bundle": "~0.0.1"
+    }
+  }
+}
