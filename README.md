@@ -53,7 +53,7 @@ HTTP/1.1 200 OK
 
 **Error Response:**
 ```json 
-HTTP/1.1 400 Bad Request 
+HTTP/1.1 400 Bad Request
 
 {
   "message": "Email already exists"
@@ -93,7 +93,7 @@ HTTP/1.1 200 OK
 
 **Error Response:**
 ```json 
-HTTP/1.1 400 Bad Request 
+HTTP/1.1 400 Bad Request
 
 {
   "message": "User not found"
@@ -101,7 +101,7 @@ HTTP/1.1 400 Bad Request
 ```
 
 ```json 
-HTTP/1.1 400 Bad Request 
+HTTP/1.1 400 Bad Request
 
 {
   "message": "Invalid password"
@@ -124,7 +124,7 @@ HTTP/1.1 500 Internal Server Error
 **Header**
 | Field                | Type     | Required | Description           |
 |----------------------|----------|----------|-----------------------|
-| `x-access-token`     | String   | Yes      | Authentication token. |
+| `x-access-token`     | String   | Yes      | Authentication token  |
 
 **Parameter**
 | Field                | Type     | Required | Description           |
@@ -145,7 +145,7 @@ HTTP/1.1 200 OK
 ```
 **Error Response:**
 ```json 
-HTTP/1.1 400 Bad Request 
+HTTP/1.1 400 Bad Request
 
 {
   "message": "Invalid credentials"
@@ -166,7 +166,7 @@ HTTP/1.1 500 Internal Server Error
 **Header**
 | Field                | Type     | Required | Description           |
 |----------------------|----------|----------|-----------------------|
-| `x-access-token`     | String   | Yes      | Authentication token. |
+| `x-access-token`     | String   | Yes      | Authentication token  |
 
 **Parameter**
 | Field                | Type     | Required | Description           |
@@ -185,7 +185,7 @@ HTTP/1.1 200 OK
 ```
 **Error Response:**
 ```json 
-HTTP/1.1 400 Bad Request 
+HTTP/1.1 400 Bad Request
 
 {
   "message": "Invalid credentials"
@@ -239,9 +239,9 @@ HTTP/1.1 200 OK
 [
   {
     "name": "Movie Name",
-    "time": "18:00",
-    "endTime": "20:00",
-    "length": "2 hours",
+    "time": "10/04/2023 14:00",
+    "endTime": "10/04/2023 14:40",
+    "length": "125",
     "rating": 4.5,
     "genre": "Action",
     "summary": "Movie summary",
@@ -266,7 +266,7 @@ HTTP/1.1 500 Internal Server Error
 **Header**
 | Field                | Type     | Required | Description           |
 |----------------------|----------|----------|-----------------------|
-| `x-access-token`     | String   | Yes      | Authentication token. |
+| `x-access-token`     | String   | Yes      | Authentication token  |
 
 **Parameter**
 | Field                | Type     | Required | Description               |
@@ -290,7 +290,7 @@ HTTP/1.1 200 OK
 ```
 **Error Response:**
 ```json 
-HTTP/1.1 400 Bad Request 
+HTTP/1.1 400 Bad Request
 
 {
   "message": "Invalid credentials"
