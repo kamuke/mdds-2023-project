@@ -7,6 +7,7 @@ const nameInput = document.getElementById('nameInput');
 const titleInput = document.getElementById('titleInput');
 const senderEmailInput = document.getElementById('senderEmailInput');
 const senderIdInput = document.getElementById('senderIdInput');
+const showForm = document.getElementById('showForm');
 
 const dialogSuccess = document.getElementById("modal1");
 dialogSuccess.classList.add('bg-tetriary', 'text-xl', 'w-max-fit', 'text-gray-950', 'text-center', 'rounded-lg', 'p-4', 'm-auto', 'focus:outline-none');
@@ -19,8 +20,15 @@ dialogFail.addEventListener("click", () => {
   dialogFail.close();
 });
 
+showForm.addEventListener('click', () => {
+  formContainer.classList.toggle("max-h-screen");
+  showForm.classList.toggle("hidden");
+});
+
 form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
+  formContainer.classList.toggle("max-h-screen");
+  showForm.classList.toggle("hidden");
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   nameInput.value = userInfo ? userInfo.name : 'Hackerman';
   senderEmailInput.value = userInfo ? userInfo.email : 'Hackerman';
@@ -228,7 +236,7 @@ const showMessages = (messages) => {
 
     if (userInfo && userInfo.email === message.senderEmail) {
       const deleteButton = document.createElement('button');
-      deleteButton.classList.add('float-right' ,'bg-red-500', 'text-gray-100', 'rounded-3xl', 'px-3', 'py-1', 'text-sm', 'focus:outline-none', 'hover:bg-red-600', 'transition', 'duration-100', 'ease-in-out');
+      deleteButton.classList.add('float-right', 'shadow', 'bg-red-500', 'text-gray-100', 'rounded-3xl', 'px-3', 'py-1', 'text-sm', 'focus:outline-none', 'hover:bg-red-600', 'transition', 'duration-100', 'ease-in-out');
       deleteButton.innerText = 'Delete';
 
       deleteButton.addEventListener('click', async () => {
