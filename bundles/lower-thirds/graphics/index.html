@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+		<style>
+			:root {
+				--maize: #f1e25c;
+				--lilac: #8e5aff;
+				--lime: #9fd75a;
+				--turquoise: #02cdbc;
+				--white: #f3f4f6;
+  				--black: #111827;
+			}
+
+			body {
+				font-family: 'Lexend', sans-serif;
+				font-weight: 700;
+			}
+
+			h1 {
+				margin: 0;
+				color: var(--black);
+			}
+
+			p {
+				margin: 0;
+				color: var(--maize);
+			}
+
+			.eye-container {
+				background-color: var(--maize);
+				padding: 8px 12px;
+				border-radius: 8px 0 0 0;
+			}
+
+			.eye {
+				width: 48px;
+			}
+
+			.name-container-wrapper {
+				background-color: var(--lilac);
+				border-radius: 8px;
+				display: inline-block;
+				margin: 16px 16px 8px 60px;
+				position: relative;
+  				left: -100%;
+			}
+
+			.name-container {
+				background-color: var(--white);
+				border-radius: 8px 8px 8px 0;
+				border: solid 2px var(--black);
+				display: flex;
+				align-items: center;
+				gap: 16px;
+				padding-right: 32px;
+			}
+
+			.title-container-wrapper {
+				background-color: var(--lilac);
+				border-radius: 0 0 8px 8px;
+				margin-left: 60px;
+				margin-top: 8px;
+				top: -16px;
+  				position: relative;
+  				left: 0px;
+				width: fit-content;
+				position: relative;
+  				left: -100%;
+			}
+
+			.title-container {
+				background-color: var(--black);
+				padding: 8px 16px;
+				border-radius: 0 0 8px 8px;
+			}
+
+			.shadow-animation {
+				animation : shadow-anim 0.2s 1.2s ease-in forwards;
+			}
+
+			.left-to-right-animation-in {
+				animation: left-to-right-anim-in 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+			}
+
+			.right-to-left-animation-out {
+				animation: right-to-left-anim-out 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+			}
+
+			@keyframes shadow-anim {
+				0% {
+					transform: translate(0px, 0px);
+				}
+				100% {
+					transform: translate(-8px, -8px);
+				}
+			}
+
+			@keyframes left-to-right-anim-in {
+				0% {
+					left: -100%;
+				}
+				100% {
+					left: 0px;
+				}
+			}
+
+			@keyframes right-to-left-anim-out {
+				0% {
+					left: 0;
+				}
+				100% {
+					left: -100%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="name-container-wrapper">
+			<div class="name-container">
+				<div class="eye-container">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="eye">
+						<path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+						<path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+					</svg>
+				</div>
+				<h1 id="speaker"></h1>
+			</div>
+		</div>
+
+		<div class="title-container-wrapper">
+			<div class="title-container">
+				<p id="title"></p>
+			</div>
+		</div>
+
+
+		<script type="module" src="./index.js"></script>
+		<script>
+			const animateInRep = nodecg.Replicant('animateInReplicant');
+			const animateOutRep = nodecg.Replicant('animateOutReplicant');
+			const speakerRep = nodecg.Replicant('speakerReplicant');
+			const titleRep = nodecg.Replicant('titleReplicant');
+
+			const speaker = document.getElementById('speaker');
+			const title = document.getElementById('title');
+			const nameContainerWrapper = document.querySelector('.name-container-wrapper');
+			const nameContainer = document.querySelector('.name-container');
+			const titleContainerWrapper = document.querySelector('.title-container-wrapper');
+			const titleContainer = document.querySelector('.title-container');
+
+			animateInRep.value = false;
+			animateOutRep.value = false;
+
+			const removeClasses = () => {
+				nameContainerWrapper.classList.remove('right-to-left-animation-out');
+				titleContainerWrapper.classList.remove('right-to-left-animation-out');
+
+				nameContainerWrapper.classList.remove('left-to-right-animation-in');
+				nameContainer.classList.remove('shadow-animation');
+				titleContainerWrapper.classList.remove('left-to-right-animation-in');
+				titleContainer.classList.remove('shadow-animation');
+
+				nameContainerWrapper.offsetWidth;
+				nameContainer.offsetWidth;
+				titleContainerWrapper.offsetWidth;
+				titleContainer.offsetWidth;
+			};
+
+			const animateIn = () => {
+				removeClasses();
+
+				nameContainerWrapper.classList.add('left-to-right-animation-in');
+				nameContainer.classList.add('shadow-animation');
+				titleContainerWrapper.classList.add('left-to-right-animation-in');
+				titleContainer.classList.add('shadow-animation');
+			};
+
+			const animateOut = () => {
+				removeClasses();
+				nameContainerWrapper.classList.add('right-to-left-animation-out');
+				titleContainerWrapper.classList.add('right-to-left-animation-out');
+			};
+
+			animateInRep.on('change', () => {
+				if (animateInRep.value === true) {
+					animateIn();
+					animateInRep.value = false;
+				}
+			});
+
+			animateOutRep.on('change', () => {
+				if (animateOutRep.value === true) {
+					animateOut();
+					animateOutRep.value = false;
+				}
+			});
+
+			speakerRep.on('change', (newValue, oldValue) => {
+				console.log(`speakerRep from ${oldValue} to ${newValue}`);
+				speaker.innerHTML = newValue;
+			});
+
+			titleRep.on('change', (newValue, oldValue) => {
+				console.log(`titleRep from ${oldValue} to ${newValue}`);
+				title.innerHTML = newValue;
+			});
+		</script>
+	</body>
+</html>

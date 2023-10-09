@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<style>
+			input {
+				margin-top: 8px;
+			}
+
+			button {
+				width: 100%;
+			}
+
+			.monospace {
+				font-family: monospace;
+			}
+
+			.input-group, #speakerForm {
+				margin-bottom: 16px;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>Lower thirds graphics:</h3>
+		<form id="speakerForm">
+			<div class="input-group">
+				<label for="speaker">Speaker's name:</label>
+				<input type="text" id="speakerInput" />
+			</div>
+			<div class="input-group">
+				<label for="title">Speaker's title:</label>
+				<input type="text" id="titleInput" />
+			</div>
+			<button type="submit">Animate in</button>
+		</form>
+		<button id="animateOut">Animate out</button>
+
+		<script>
+			const animateInRep = nodecg.Replicant('animateInReplicant');
+			const animateOutRep = nodecg.Replicant('animateOutReplicant');
+			const speakerRep = nodecg.Replicant('speakerReplicant');
+			const titleRep = nodecg.Replicant('titleReplicant');
+			const speakerInput = document.getElementById('speakerInput');
+			const titleInput = document.getElementById('titleInput');
+			const speakerForm = document.getElementById('speakerForm');
+			const animateOutBtn = document.getElementById('animateOut');
+
+			animateInRep.value = false;
+			animateOutRep.value = false;
+
+			speakerRep.on('change', (newValue, oldValue) => {
+				console.log(`speakerRep speaker changed from ${oldValue} to ${newValue}`);
+				speakerInput.value = newValue;
+			});
+
+			titleRep.on('change', (newValue, oldValue) => {
+				console.log(`titleRep title changed from ${oldValue} to ${newValue}`);
+				titleInput.value = newValue;
+			});
+
+			speakerForm.addEventListener('submit', (event) => {
+				event.preventDefault;
+				speakerRep.value = speakerInput.value;
+				titleRep.value = titleInput.value;
+				animateInRep.value = true;
+			});
+
+			animateOutBtn.addEventListener('click', () => {
+				animateOutRep.value = true;
+			});
+		</script>
+	</body>
+</html>

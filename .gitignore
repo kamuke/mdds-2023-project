@@ -4,9 +4,6 @@
 npm-debug.log
 yarn-error.log
 
-# Local bundles
-/bundles/**
-
 # Datastores
 /db/**
 

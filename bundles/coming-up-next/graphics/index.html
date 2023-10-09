@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+		<style>
+			:root {
+				--maize: #f1e25c;
+				--lilac: #8e5aff;
+				--lime: #9fd75a;
+				--turquoise: #02cdbc;
+				--white: #f3f4f6;
+  				--black: #111827;
+			}
+
+			body {
+				font-family: 'Lexend', sans-serif;
+				font-weight: 700;
+				margin: 0;
+			}
+
+			.container {
+				min-height: 100vh;
+				width: 0%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				background: linear-gradient(235deg, var(--lilac), #562aed);
+				background-size: 400% 400%;
+			}
+
+			.heading {
+				margin: 0;
+				color: var(--white);
+				font-size: 32px;
+				text-align: center;
+				opacity: 0%;
+			}
+
+			.heading-container {
+				position: relative;
+				top: -24px;
+				left: -8px;
+			}
+
+			.title {
+				margin: 0 24px;
+				color: var(--white);
+				text-align: center;
+				font-size: 60px;
+				opacity: 0%;
+			}
+
+			.title-wrapper {
+				background-color: var(--lime);
+				height: 96px;
+				justify-content: center;
+				align-items: center;
+				padding: 0;
+				border-radius: 10px;
+				width: 0%;
+			}
+
+			.title-container {
+				background-color: var(--black);
+				height: 96px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0;
+				border-radius: 10px;
+				width: 100%;
+				position: relative;
+			}
+
+			.container-in {
+				animation:	background-gradient-animation 20s ease infinite,
+							width-animation-in 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+			}
+
+			.heading-in {
+				animation: opacity-animation-in 0.25s 1s linear forwards;
+			}
+
+			.title-wrapper-in {
+				animation: width-animation-in 1s 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+			}
+
+			.title-container-in {
+				animation: shadow-animation-in 0.2s 1.5s ease forwards;
+			}
+
+			.title-in {
+				animation: opacity-animation-in 0.25s 1.5s linear forwards;
+			}
+
+			.container-out {
+				animation:	background-gradient-animation 20s ease infinite,
+							width-animation-out 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+				width: 100%;
+			}
+
+			.opacity-out {
+				animation: opacity-animation-out 0.25s linear forwards;
+				opacity: 100%;
+				width: 100%;
+			}
+
+			@keyframes opacity-animation-in {
+				0% {opacity: 0%;}
+				100% {opacity: 100%;}
+			}
+			@keyframes opacity-animation-out {
+				0% {opacity: 100%;}
+				100% {opacity: 0%;}
+			}
+			@keyframes shadow-animation-in {
+				0% {transform: translate(0px, 0px);}
+				100% {transform: translate(-8px, -8px);}
+			}
+			@keyframes width-animation-in {
+				0% {
+					left: 0;
+					width: 0%;
+				}
+				100% {
+					left: 0;
+					width: 100%;
+				}
+			}
+			@keyframes width-animation-out {
+				0% {
+					right: 0;
+					width: 100%;
+				}
+				100% {
+					right: 0;
+					width: 0%;
+				}
+			}
+			@keyframes background-gradient-animation {
+				0%{background-position:0% 75%}
+				50%{background-position:100% 26%}
+				100%{background-position:0% 75%}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="wrapper">
+				<div class="heading-container">
+					<h1 class="heading">Coming up next</h1>
+				</div>
+				<div class="title-wrapper">
+					<div class="title-container">
+						<p id="title" class="title">Movie's title</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="module" src="./index.js"></script>
+		<script>
+			const animateInRep = nodecg.Replicant('animateInReplicant');
+			const animateOutRep = nodecg.Replicant('animateOutReplicant');
+			const titleRep = nodecg.Replicant('titleReplicant');
+			const heading = document.querySelector('.heading');
+			const title = document.getElementById('title');
+			const titleWrapper = document.querySelector('.title-wrapper');
+			const titleContainer = document.querySelector('.title-container');
+			const container = document.querySelector('.container');
+
+			animateInRep.value = false;
+			animateOutRep.value = false;
+
+			const removeClasses = () => {
+				heading.classList.remove('opacity-out');
+				title.classList.remove('opacity-out');
+				titleWrapper.classList.remove('opacity-out');
+				titleContainer.classList.remove('opacity-out');
+				container.classList.remove('container-out');
+
+				heading.classList.remove('heading-in');
+				title.classList.remove('title-in');
+				titleWrapper.classList.remove('title-wrapper-in');
+				titleContainer.classList.remove('title-container-in');
+				container.classList.remove('container-in');
+
+				heading.offsetWidth;
+				title.offsetWidth;
+				titleWrapper.offsetWidth;
+				titleContainer.offsetWidth;
+				container.offsetWidth;
+			};
+
+			const animateIn = () => {
+				removeClasses();
+
+				heading.classList.add('heading-in');
+				title.classList.add('title-in');
+				titleWrapper.classList.add('title-wrapper-in');
+				titleContainer.classList.add('title-container-in');
+				container.classList.add('container-in');
+			};
+
+			const animateOut = () => {
+				removeClasses();
+				container.classList.add('container-out');
+			};
+
+			animateOutRep.on('change', () => {
+				if (animateOutRep.value === true) {
+					animateOut();
+					animateOutRep.value = false;
+				}
+			});
+
+			animateInRep.on('change', () => {
+				if (animateInRep.value === true) {
+					animateIn();
+					animateInRep.value = false;
+				}
+			});
+
+			titleRep.on('change', (newValue, oldValue) => {
+				console.log(`titleRep from ${oldValue} to ${newValue}`);
+				title.innerHTML = newValue;
+			});
+		</script>
+	</body>
+</html>
