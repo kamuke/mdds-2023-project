@@ -44,7 +44,7 @@ router.post('/register', async (req, res) => {
     if (error.message.includes('E11000')) {
       return res.status(400).json({message: 'Email already exists'});
     }
-    res.status(500).json({message: error.message});
+    res.status(500).json({message: "Network error"});
   }
 });
 
@@ -62,7 +62,7 @@ router.post('/login', async (req, res) => {
     const token = generateToken(user);
     res.status(200).json({ id:user._id, name: user.name, email: user.email, token: token });
   } catch (error) {
-    res.status(500).json({message: error.message});
+    res.status(500).json({message: "Network error"});
   }
 });
 
@@ -85,7 +85,7 @@ router.post('/postMessage', async (req, res) => {
     await data.save();
     res.status(200).json({message: 'Message sent successfully'});
   } catch (error) {
-    res.status(500).json({message: error.message});
+    res.status(500).json({message: "Network error"});
   }
 });
 
@@ -104,7 +104,7 @@ router.delete('/deleteMessage', async (req, res) => {
     await commentModel.deleteOne({ _id: req.body.messageId });
     res.status(200).json({message: 'Message deleted successfully'})
   } catch (error) {
-    res.status(500).json({message: error.message});
+    res.status(500).json({message: "Network error"});
   }
 });
 
@@ -114,7 +114,7 @@ router.get('/getAllMessages', async (req, res) => {
     const messages = await commentModel.find();
     res.status(200).json(messages);
   } catch (error) {
-    res.status(500).json({message: error.message});
+    res.status(500).json({message: "Network error"});
   }
 });
 
@@ -125,7 +125,7 @@ router.get('/getMovies', async (req, res) => {
     movies.reverse();
     res.status(200).json(movies);
   } catch (error) {
-    res.status(500).json({message: error.message});
+    res.status(500).json({message: "Network error"});
   }
 });
 
@@ -150,6 +150,6 @@ router.post('/addMovie', async (req, res) => {
     await data.save();
     res.status(200).json({message: 'Movie added successfully'});
   } catch (error) {
-    res.status(500).json({message: error.message});
+    res.status(500).json({message: "Network error"});
   }
 });
