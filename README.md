@@ -2,19 +2,29 @@
 
 **Members:** Catrina Koskinen, Kerttu Kamula, Veli-Matti Heino
 
-**Stack:** Express, Socket.IO, Tailwind CSS, Flowbite, MongoDB 
+**Stack:** Express, Socket.IO, Tailwind CSS, Flowbite, MongoDB
 
-**Start BE**
+**Install dependencies:**
 
-`npm run start`
+`npm install`
+
+**Start Backend:**
+
+`npm run start / nodemon index.js`
 
 **Start the Tailwind CLI build process:**
 
 `npx tailwindcss -i ./src/input.css -o ./public/css/output.css --full --watch`
 
+**Project website** 
+
+https://mediapalvelin.northeurope.cloudapp.azure.com/
+
 ## API Endpoint Documentation
 
 This document provides details about the various endpoints available in the API and how to use them.
+
+>:warning: Requires access to MongoDB
 
 ## Table of Contents
 - [Authentication](#authentication)
