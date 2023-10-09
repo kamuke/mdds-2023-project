@@ -42,7 +42,7 @@ This document provides details about the various endpoints available in the API 
 | `password`               | String   | Yes      | user password         |
 
 **Success Response:**
-```json 
+```javascript 
 HTTP/1.1 200 OK
 
 {
@@ -52,7 +52,7 @@ HTTP/1.1 200 OK
 
 
 **Error Response:**
-```json 
+```javascript 
 HTTP/1.1 400 Bad Request
 
 {
@@ -60,7 +60,7 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-```json
+```javascript
 HTTP/1.1 500 Internal Server Error
 
 {
@@ -80,7 +80,7 @@ HTTP/1.1 500 Internal Server Error
 | `password`               | String   | Yes      | user password         |
 
 **Success Response:**
-```json
+```javascript
 HTTP/1.1 200 OK
 
 {
@@ -92,7 +92,7 @@ HTTP/1.1 200 OK
 ```
 
 **Error Response:**
-```json 
+```javascript 
 HTTP/1.1 400 Bad Request
 
 {
@@ -100,7 +100,7 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-```json 
+```javascript 
 HTTP/1.1 400 Bad Request
 
 {
@@ -108,7 +108,7 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-```json
+```javascript
 HTTP/1.1 500 Internal Server Error
 
 {
@@ -136,7 +136,7 @@ HTTP/1.1 500 Internal Server Error
 | `senderEmail`        | String   | Yes      | message sender email  |
 
 **Success Response:**
-```json
+```javascript
 HTTP/1.1 200 OK
 
 {
@@ -144,14 +144,14 @@ HTTP/1.1 200 OK
 }
 ```
 **Error Response:**
-```json 
+```javascript 
 HTTP/1.1 400 Bad Request
 
 {
   "message": "Invalid credentials"
 }
 ```
-```json
+```javascript
 HTTP/1.1 500 Internal Server Error
 
 {
@@ -176,7 +176,7 @@ HTTP/1.1 500 Internal Server Error
 | `senderEmail`        | String   | Yes      | message owner email   |
 
 **Success Response:**
-```json
+```javascript
 HTTP/1.1 200 OK
 
 {
@@ -184,14 +184,14 @@ HTTP/1.1 200 OK
 }
 ```
 **Error Response:**
-```json 
+```javascript 
 HTTP/1.1 400 Bad Request
 
 {
   "message": "Invalid credentials"
 }
 ```
-```json
+```javascript
 HTTP/1.1 500 Internal Server Error
 
 {
@@ -204,7 +204,7 @@ HTTP/1.1 500 Internal Server Error
 **Description:** Retrieves all messages from the database.
 
 **Success Response:**
-```json
+```javascript
 HTTP/1.1 200 OK
 
 [
@@ -219,7 +219,7 @@ HTTP/1.1 200 OK
 ]
 ```
 **Error Response:**
-```json
+```javascript
 HTTP/1.1 500 Internal Server Error
 
 {
@@ -233,7 +233,7 @@ HTTP/1.1 500 Internal Server Error
 **Description:** Retrieves all movies from the database.
 
 **Success Response:**
-```json
+```javascript
 HTTP/1.1 200 OK
 
 [
@@ -251,7 +251,7 @@ HTTP/1.1 200 OK
 ]
 ```
 **Error Response:**
-```json
+```javascript
 HTTP/1.1 500 Internal Server Error
 
 {
@@ -281,7 +281,7 @@ HTTP/1.1 500 Internal Server Error
 | `director`           | String   | Yes      | movie director            |
 
 **Success Response:**
-```json
+```javascript
 HTTP/1.1 200 OK
 
 {
@@ -289,14 +289,14 @@ HTTP/1.1 200 OK
 }
 ```
 **Error Response:**
-```json 
+```javascript 
 HTTP/1.1 400 Bad Request
 
 {
   "message": "Invalid credentials"
 }
 ```
-```json
+```javascript
 HTTP/1.1 500 Internal Server Error
 
 {
