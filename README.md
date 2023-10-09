@@ -2,7 +2,7 @@
 
 **Members:** Catrina Koskinen, Kerttu Kamula, Veli-Matti Heino
 
-**Stack:** Express, Socket.IO, Tailwind CSS, Flowbite, MongoDB
+**Stack:** Express, Socket.IO, Tailwind CSS, Flowbite, MongoDB, EmailJS
 
 **Install dependencies:**
 
