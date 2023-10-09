@@ -83,8 +83,8 @@ router.post('/postMessage', async (req, res) => {
     return res.status(500).json({message: 'Invalid credentials'});
   }
   try {
-    const dataToSave = await data.save();
-    res.status(200).json(dataToSave)
+    await data.save();
+    res.status(200).json({message: 'Message sent successfully'});
   } catch (error) {
     res.status(400).json({message: error.message});
   }
@@ -106,7 +106,7 @@ router.delete('/deleteMessage', async (req, res) => {
     if (user._id.toString() !== req.body.userId) {
       return res.status(500).json({message: 'Invalid credentials'});
     }
-    const response = await commentModel.deleteOne({ _id: req.body.messageId });
+    await commentModel.deleteOne({ _id: req.body.messageId });
     res.status(200).json({message: 'Message deleted successfully'})
   } catch (error) {
     res.status(400).json({message: error.message});
@@ -116,8 +116,8 @@ router.delete('/deleteMessage', async (req, res) => {
 
 router.get('/getAllMessages', async (req, res) => {
   try {
-    const data = await commentModel.find();
-    res.status(200).json(data);
+    const messages = await commentModel.find();
+    res.status(200).json(messages);
   } catch (error) {
     res.status(500).json({message: error.message});
   }
@@ -150,8 +150,8 @@ router.post('/addMovie', async (req, res) => {
     return res.status(500).json({message: 'Invalid credentials'});
   }
   try {
-    const dataToSave = await data.save();
-    res.status(200).json(dataToSave);
+    await data.save();
+    res.status(200).json({message: 'Movie added successfully'});
   } catch (error) {
     res.status(400).json({message: error.message});
   }
