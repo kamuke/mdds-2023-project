@@ -35,17 +35,11 @@ form.addEventListener('submit', async (evt) => {
         : json.message;
       throw new Error(message || response.statusText);
     }
-    dialogSuccess.innerHTML = "Logged in successfully";
-    dialogSuccess.showModal();
-    setTimeout(() => {
-      dialogSuccess.close();
-    } , 500);
+    localStorage.setItem('loginMessage', 'Logged in successfully');
     localStorage.setItem('userInfo', JSON.stringify(json));
-    setTimeout(() => {
-      window.location.href = 'index.html';
-    } , 500);
+    window.location.href = 'index.html';
   } catch (e) {
-    dialogFail.innerHTML = e.message;
+    dialogFail.innerText = e.message;
     dialogFail.showModal();
     setTimeout(() => {
       dialogFail.close();
@@ -58,7 +52,7 @@ form.addEventListener('submit', async (evt) => {
   const unauthorizedMessage = localStorage.getItem('unauthorizedMessage');
   if (unauthorizedMessage) {
       console.log('unauthorizedMessage', unauthorizedMessage);
-      dialogFail.innerHTML = unauthorizedMessage;
+      dialogFail.innerText = unauthorizedMessage;
       dialogFail.showModal();
       setTimeout(() => {
         dialogFail.close();

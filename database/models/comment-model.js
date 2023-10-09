@@ -18,7 +18,11 @@ const dataSchema = new mongoose.Schema({
   comment: {
     required: true,
     type: String
-  }
-}, { timestamps: true, versionKey: false, collection: 'comments' });
+  },
+  senderEmail: {
+    required: true,
+    type: String
+  },
+}, { timestamps: true, versionKey: false, collection: 'Comments' });
 
 module.exports = mongoose.model('comments', dataSchema);

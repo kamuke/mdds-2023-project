@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/x-icon" href="img/favicon.png" />
     <script type="module" src="script/contact.js" defer></script>
     <script src="script/auth-user.js" defer></script>
   </head>
@@ -69,6 +70,14 @@
           >
             <li>
               <a
+                href="index.html"
+                class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
                 id="social-link"
                 href="comments.html"
                 class="hidden py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 lg:rounded-full"
@@ -94,12 +103,12 @@
             </li>
             <li>
               <a
-              id="login-link"
-              href="login.html"
-              class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
-              aria-current="page"
-              >Login/Register</a
-            >
+                id="login-link"
+                href="login.html"
+                class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
+                aria-current="page"
+                >Login/Register</a
+              >
             </li>
           </ul>
         </nav>
@@ -114,30 +123,38 @@
           >
             <div class="max-w-screen-lg mx-auto px-4">
               <h1
-                class="text-2xl md:text-6xl text-gray-100 font-display tracking-wider leading-tight mb-8 text-center"
+                class="text-3xl md:text-6xl text-gray-100 font-display tracking-wider leading-tight mb-8 text-center"
               >
                 About
                 <span class="text-gray-950">Metropolia Ciné</span>
               </h1>
               <div class="text-white font-light text-center md:text-xl mb-10">
                 <p class="mb-6">
-                  Experience the magic of cinema from the comfort of your own
-                  screen. Our festival kicks off with an exciting opening stream
-                  on
-                  <span class="font-semibold"> October 11th at 1:00 PM.</span>
-                  The stream can be viewed from
+                  Experience the magic of short films from the comfort of your
+                  own screen. Our online festival kicks off with an exciting
+                  opening live event on
+                  <span class="font-semibold">
+                    October 11th at 12 o'clock.</span
+                  >
+                  And after our opening show the stream will showcase five
+                  captivating short films. The live event can be viewed from
                   <a href="index.html#live" class="underline">home page</a>.
-                </p>
-                <p>
                   Join us for an unforgettable week of film exploration,
                   artistic expression, and community engagement.
                 </p>
+                <p>
+                  Can't make it to the live event? No worries! We've got you
+                  covered. The entire live event will be recorded, so you can
+                  watch it at your convenience. And that's not all – the five
+                  short films showcased during the event will be available for
+                  viewing on our website, ensuring you can relive the magic
+                  whenever you want.
+                </p>
               </div>
-              <!-- TODO: Add link to program site -->
               <div class="flex justify-center">
                 <a
-                  href="#"
-                  class="transition-all inline-flex items-center justify-center rounded-lg py-2 px-4 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
+                  href="program.html"
+                  class="w-full sm:w-auto transition-all inline-flex items-center justify-center rounded-lg py-2 px-4 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
                 >
                   Check out our program
                   <svg
@@ -180,12 +197,12 @@
                   </div>
                   <div class="text-gray-950">
                     <h3 class="text-2xl font-semibold text-center mb-4">
-                      Opening stream
+                      Opening live event
                     </h3>
                     <p class="text-center">
                       Be part of the grand opening on October 11th, where we'll
-                      set the stage for an amazing week of cinematic delights.
-                      Tune in at 1:00 PM to kickstart the online festival!
+                      set the stage for the amazing short films. Tune in at 12
+                      to kickstart the online festival!
                     </p>
                   </div>
                 </div>
@@ -264,12 +281,14 @@
           <div class="grid grid-cols-12 gap-x-0 gap-y-8 md:gap-16">
             <div class="col-span-12 lg:col-span-6 flex flex-col justify-center">
               <h2
-                class="text-2xl md:text-5xl text-gray-100 font-display tracking-wider leading-tight mb-8"
+                class="text-3xl md:text-5xl text-center lg:text-left text-gray-100 font-display tracking-wider leading-tight mb-8"
               >
                 Questions? Ideas?
                 <span class="text-secondary">Contact us!</span>
               </h2>
-              <p class="mb-4 font-light text-gray-300 md:text-xl">
+              <p
+                class="mb-4 font-light text-gray-300 md:text-xl text-center lg:text-left"
+              >
                 Feel free to reach out to us for any inquiries, suggestions, or
                 feedback you may have. We value your input and are here to
                 assist you. Please fill out the form. Thank you for connecting
@@ -386,8 +405,18 @@
         </div>
       </footer>
     </div>
-    <dialog id="modal1"></dialog>
-    <dialog id="modal2"></dialog>
+    <dialog
+      id="modalSuccess"
+      class="bg-tetriary text-xl w-max-fit text-gray-950 text-center rounded-lg p-4 m-auto focus:outline-none"
+    >
+      <p id="modalSuccessParagraph" class="mb-4"></p>
+    </dialog>
+    <dialog
+      id="modalFail"
+      class="bg-red-500 text-xl w-max-fit text-gray-950 text-center rounded-lg p-4 m-auto focus:outline-none"
+    >
+      <p id="modalFailParagraph" class="mb-4"></p>
+    </dialog>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
     <script
       type="text/javascript"

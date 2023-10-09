@@ -13,6 +13,8 @@ const usersList = document.getElementById('userList');
 
 let selectedRoom = roomSelect.value;
 
+
+// check for user info in local storage and joins the chat with username if found and hides join form
 const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 if (userInfo) {
   socket.emit('join', userInfo.name);
@@ -22,6 +24,7 @@ if (userInfo) {
   usersButton.classList.remove('invisible');
 }
 
+// manually joins chat with inputted nickname and hides join form
 joinForm.addEventListener('submit', (event) => {
   event.preventDefault();
   if (nicknameInput.value) {
@@ -35,6 +38,7 @@ joinForm.addEventListener('submit', (event) => {
   }
 });
 
+// sends message to server and clears input field
 messageForm.addEventListener('submit', (event) => {
   event.preventDefault();
   if (messageInput.value) {
@@ -47,6 +51,7 @@ messageForm.addEventListener('submit', (event) => {
   }
 });
 
+// selects room from dropdown menu
 roomSelect.addEventListener('change', () => {
   messages.innerHTML = '';
   selectedRoom = roomSelect.value;
@@ -54,6 +59,7 @@ roomSelect.addEventListener('change', () => {
   console.log('joining room ' + selectedRoom);
 });
 
+// toggles user list and message view
 usersButton.addEventListener('click', () => {
   usersList.classList.toggle('hidden');
   messages.classList.toggle('hidden');
@@ -64,12 +70,14 @@ usersButton.addEventListener('click', () => {
   usersButton.classList.toggle('text-gray-900');
 });
 
+// joins chat on page load
 socket.on('connect', () => {
   console.log('user is connected', socket.id);
   socket.emit('join room', selectedRoom);
   console.log('joining room ' + selectedRoom);
 });
 
+// updates user list with name and socket.id
 socket.on('user list', (users) => {
   usersButton.innerText = `Users (${users.length})`;
   usersList.innerText = '';
@@ -99,6 +107,7 @@ socket.on('user list', (users) => {
   });
 });
 
+// loads chat history on joining a room
 socket.on('chat history', (chatHistory) => {
   messages.innerText = '';
   for (const message of chatHistory) {
@@ -106,11 +115,13 @@ socket.on('chat history', (chatHistory) => {
   }
 });
 
+// displays message on receiving a message
 socket.on('chat message', (msg) => {
   console.log('chat message', msg);
   displayMessage(msg);
 });
 
+// adds a message to the chat window
 function displayMessage(msg) {
   const listItem = document.createElement('li');
   listItem.classList.add(
