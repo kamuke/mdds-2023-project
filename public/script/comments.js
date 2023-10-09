@@ -5,6 +5,8 @@ const form = document.getElementById('commentForm');
 const commentInput = document.getElementById('commentInput');
 const nameInput = document.getElementById('nameInput');
 const titleInput = document.getElementById('titleInput');
+const senderEmailInput = document.getElementById('senderEmailInput');
+const senderIdInput = document.getElementById('senderIdInput');
 
 const dialogSuccess = document.getElementById("modal1");
 dialogSuccess.classList.add('bg-tetriary', 'text-xl', 'w-max-fit', 'text-gray-950', 'text-center', 'rounded-lg', 'p-4', 'm-auto', 'focus:outline-none');
@@ -21,8 +23,9 @@ form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   nameInput.value = userInfo ? userInfo.name : 'Hackerman';
+  senderEmailInput.value = userInfo ? userInfo.email : 'Hackerman';
+  senderIdInput.value = userInfo ? userInfo.id : 'Hackerman';
   const data = serializeJson(form);
-  console.log('data', data);
 
   const fetchOptions = {
     method: 'POST',
@@ -33,7 +36,7 @@ form.addEventListener('submit', async (evt) => {
     body: JSON.stringify(data),
   };
   try {
-  const response = await fetch(url + '/api/post', fetchOptions);
+  const response = await fetch(url + '/api/postMessage', fetchOptions);
   const json = await response.json();
   if (!response.ok) {
     const message = json.error
@@ -45,14 +48,14 @@ form.addEventListener('submit', async (evt) => {
   commentInput.value = '';
   nameInput.value = '';
   getMessages();
-  dialogSuccess.innerHTML = "Message sent";
+  dialogSuccess.innerText = "Message sent";
   dialogSuccess.showModal();
   setTimeout(() => {
     dialogSuccess.close();
   } , 500);
   } catch (e) {
     console.log(e.message);
-    dialogFail.innerHTML = e.message;
+    dialogFail.innerText = e.message;
     dialogFail.showModal();
     setTimeout(() => {
       dialogFail.close();
@@ -65,7 +68,7 @@ const getMessages = async () => {
     const fetchOptions = {
       method: 'GET',
     };
-    const response = await fetch(url + '/api/getPosts', fetchOptions);
+    const response = await fetch(url + '/api/getAllMessages', fetchOptions);
     const messages = await response.json();
     if (!response.ok) {
       const message = json.error
@@ -77,7 +80,7 @@ const getMessages = async () => {
     calcurateRatings(messages);
   } catch (e) {
     console.log(e.message);
-    dialogFail.innerHTML = e.message;
+    dialogFail.innerText = e.message;
     dialogFail.showModal();
     setTimeout(() => {
       dialogFail.close();
@@ -220,6 +223,52 @@ const showMessages = (messages) => {
     commentDiv.appendChild(header);
     commentDiv.appendChild(titleBar);
     commentDiv.appendChild(comment);
+
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+
+    if (userInfo && userInfo.email === message.senderEmail) {
+      const deleteButton = document.createElement('button');
+      deleteButton.classList.add('float-right' ,'bg-red-500', 'text-gray-100', 'rounded-3xl', 'px-3', 'py-1', 'text-sm', 'focus:outline-none', 'hover:bg-red-600', 'transition', 'duration-100', 'ease-in-out');
+      deleteButton.innerText = 'Delete';
+
+      deleteButton.addEventListener('click', async () => {
+        const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+        const senderData = {senderEmail: message.senderEmail, userId: userInfo.id, messageId: message._id};
+        const fetchOptions = {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-access-token': userInfo ? userInfo.token : null,
+          },
+          body: JSON.stringify(senderData),
+        };
+        try {
+          const response = await fetch(url + '/api/deleteMessage', fetchOptions);
+          const json = await response.json();
+          if (!response.ok) {
+            const message = json.error
+              ? `${json.message}: ${json.error}`
+              : json.message;
+            throw new Error(message || response.statusText);
+          }
+          console.log('response', json);
+          getMessages();
+          dialogSuccess.innerText = json.message;
+          dialogSuccess.showModal();
+          setTimeout(() => {
+            dialogSuccess.close();
+          } , 500);
+        } catch (e) {
+          console.log(e.message);
+          dialogFail.innerText = e.message;
+          dialogFail.showModal();
+          setTimeout(() => {
+            dialogFail.close();
+          } , 500);
+        }
+      });
+      commentDiv.appendChild(deleteButton);
+    }
     commentDivBackground.appendChild(commentDiv);
     commentContainer.appendChild(commentDivBackground);
   });

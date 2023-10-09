@@ -40,7 +40,7 @@ form.addEventListener('submit', async (evt) => {
     localStorage.setItem('userInfo', JSON.stringify(json));
     window.location.href = 'index.html';
   } catch (e) {
-    dialogFail.innerHTML = e.message;
+    dialogFail.innerText = e.message;
     dialogFail.showModal();
     setTimeout(() => {
       dialogFail.close();
@@ -53,7 +53,7 @@ form.addEventListener('submit', async (evt) => {
   const unauthorizedMessage = localStorage.getItem('unauthorizedMessage');
   if (unauthorizedMessage) {
       console.log('unauthorizedMessage', unauthorizedMessage);
-      dialogFail.innerHTML = unauthorizedMessage;
+      dialogFail.innerText = unauthorizedMessage;
       dialogFail.showModal();
       setTimeout(() => {
         dialogFail.close();

@@ -1,13 +1,15 @@
+'use strict';
+require('dotenv').config();
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-require('dotenv').config();
 const router = express.Router();
 module.exports = router;
 const commentModel = require('../models/comment-model');
 const registerModel = require('../models/register-model');
 const loginModel = require('../models/login-model');
 const movieModel = require('../models/movie-model');
+const deleteModel = require('../models/delete-model');
 
 const generateToken = (user) => {
   return jwt.sign({ user }, process.env.JWT_SECRET, { expiresIn: '24h' });
@@ -17,7 +19,7 @@ const verifyToken = (token) => {
   return jwt.verify(token, process.env.JWT_SECRET);
 };
 
-router.post('/authUser', async (req, res) => {
+router.post('/authUser', (req, res) => {
   const token = req.headers['x-access-token'];
   const authResult = verifyToken(token);
   if (!authResult) {
@@ -59,20 +61,21 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid password' });
     }
     const token = generateToken(user);
-    res.status(200).json({ name: user.name, email: user.email, token: token });
+    res.status(200).json({ id:user._id, name: user.name, email: user.email, token: token });
   } catch (error) {
     res.status(500).json({message: error.message});
   }
 });
 
 
-router.post('/post', async (req, res) => {
+router.post('/postMessage', async (req, res) => {
   console.log('req.body', req.body);
   const data = new commentModel({
     name: req.body.name,
     title: req.body.title,
     rating: req.body.rating,
     comment: req.body.comment,
+    senderEmail: req.body.senderEmail
   });
   const token = req.headers['x-access-token'];
   const authResult = verifyToken(token);
@@ -80,41 +83,41 @@ router.post('/post', async (req, res) => {
     return res.status(500).json({message: 'Invalid credentials'});
   }
   try {
-    const dataToSave = await data.save();
-    res.status(200).json(dataToSave)
+    await data.save();
+    res.status(200).json({message: 'Message sent successfully'});
   } catch (error) {
     res.status(400).json({message: error.message});
   }
 });
 
-/* WIP delete post
-router.delete('/post', async (req, res) => {
-  const data = new commentModel({
-    name: req.body.name,
-    title: req.body.title,
-    rating: req.body.rating,
-    comment: req.body.comment,
-    senderID: req.body.senderID
+router.delete('/deleteMessage', async (req, res) => {
+  const data = new deleteModel({
+    senderEmail: req.body.senderEmail,
+    userId: req.body.userId,
+    messageId : req.body.messageId
   });
-
+  const token = req.headers['x-access-token'];
+  const authResult = verifyToken(token);
+  if (!authResult) {
+    return res.status(500).json({message: 'Invalid credentials'});
+  }
   try {
-    const user = await registerModel.findById(req.body.senderID);
-    if (!user) {
-      res.status(500).json({message: 'Invalid credentials'});
-    } else {
-      const dataToSave = await data.save();
-      res.status(200).json(dataToSave)
+    const user = await registerModel.findOne({email: req.body.senderEmail});
+    if (user._id.toString() !== req.body.userId) {
+      return res.status(500).json({message: 'Invalid credentials'});
     }
+    await commentModel.deleteOne({ _id: req.body.messageId });
+    res.status(200).json({message: 'Message deleted successfully'})
   } catch (error) {
     res.status(400).json({message: error.message});
   }
 });
-*/
 
-router.get('/getPosts', async (req, res) => {
+
+router.get('/getAllMessages', async (req, res) => {
   try {
-    const data = await commentModel.find();
-    res.status(200).json(data);
+    const messages = await commentModel.find();
+    res.status(200).json(messages);
   } catch (error) {
     res.status(500).json({message: error.message});
   }
@@ -140,7 +143,6 @@ router.post('/addMovie', async (req, res) => {
     genre: req.body.genre,
     summary: req.body.summary,
     director: req.body.director,
-    senderID: req.body.senderID
   });
   const token = req.headers['x-access-token'];
   const authResult = verifyToken(token);
@@ -148,8 +150,8 @@ router.post('/addMovie', async (req, res) => {
     return res.status(500).json({message: 'Invalid credentials'});
   }
   try {
-    const dataToSave = await data.save();
-    res.status(200).json(dataToSave);
+    await data.save();
+    res.status(200).json({message: 'Movie added successfully'});
   } catch (error) {
     res.status(400).json({message: error.message});
   }

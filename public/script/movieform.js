@@ -35,13 +35,13 @@ form.addEventListener('submit', async (evt) => {
       : json.message;
     throw new Error(message || response.statusText);
   }
-  dialogSuccess.innerHTML = "Movie added successfully";
+  dialogSuccess.innerText = "Movie added successfully";
   dialogSuccess.showModal();
   setTimeout(() => {
     dialogSuccess.close();
     } , 500);
   } catch (e) {
-    dialogFail.innerHTML = e.message;
+    dialogFail.innerText = e.message;
     dialogFail.showModal();
     setTimeout(() => {
       dialogFail.close();

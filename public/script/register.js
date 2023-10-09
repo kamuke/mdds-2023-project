@@ -38,7 +38,7 @@ form.addEventListener('submit', async (evt) => {
   localStorage.setItem('registerMessage', 'Registered successfully');
   window.location.href = 'login.html';
   } catch (e) {
-    dialogFail.innerHTML = e.message;
+    dialogFail.innerText = e.message;
     dialogFail.showModal();
     setTimeout(() => {
       dialogFail.close();
