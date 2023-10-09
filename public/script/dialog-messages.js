@@ -8,7 +8,7 @@ dialog.addEventListener("click", () => {
 
 const logoutMessage = localStorage.getItem('logoutMessage');
 if (logoutMessage) {
-    dialog.innerHTML = logoutMessage;
+    dialog.innerText = logoutMessage;
     dialog.showModal();
     localStorage.removeItem('logoutMessage');
     setTimeout(() => {
@@ -18,7 +18,7 @@ if (logoutMessage) {
 
 const loginMessage = localStorage.getItem('loginMessage');
 if (loginMessage) {
-    dialog.innerHTML = loginMessage;
+    dialog.innerText = loginMessage;
     dialog.showModal();
     localStorage.removeItem('loginMessage');
     setTimeout(() => {
@@ -28,7 +28,7 @@ if (loginMessage) {
 
 const registerMessage = localStorage.getItem('registerMessage');
 if (registerMessage) {
-    dialog.innerHTML = registerMessage;
+    dialog.innerText = registerMessage;
     dialog.showModal();
     localStorage.removeItem('registerMessage');
     setTimeout(() => {

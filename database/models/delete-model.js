@@ -3,19 +3,19 @@
 const mongoose = require('mongoose');
 
 const dataSchema = new mongoose.Schema({
-  email: {
+  senderEmail: {
     required: true,
     type: String,
     unique: true
   },
-  name: {
+  userId: {
     required: true,
     type: String
   },
-  password: {
+  messageId: {
     required: true,
     type: String
-  },
+  }
 }, { timestamps: true, versionKey: false, collection: 'Users' });
 
-module.exports = mongoose.model('users', dataSchema);
+module.exports = mongoose.model('deleteMessage', dataSchema);

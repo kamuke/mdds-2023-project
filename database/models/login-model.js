@@ -11,6 +11,6 @@ const dataSchema = new mongoose.Schema({
     required: true,
     type: String
   }
-}, { timestamps: true, versionKey: false, collection: 'users'  });
+}, { timestamps: true, versionKey: false, collection: 'Users'  });
 
 module.exports = mongoose.model('login', dataSchema);
