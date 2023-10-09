@@ -14,6 +14,9 @@ module.exports = {
       fontSize: {
         '5xl': ['3rem', { lineHeight: '1.25' }],
       },
+      fontSize: {
+        '6xl': ['3.75rem', { lineHeight: '1.2' }],
+      },
       colors: {
         primary: {
           DEFAULT: '#f1e25c',
@@ -53,14 +56,14 @@ module.exports = {
         },
       },
       animation: {
-        'loadListing': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1)'
+        loadListing: 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1)',
       },
       keyframes: {
         loadListing: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
-        }
-      }
+        },
+      },
     },
   },
   plugins: [require('flowbite/plugin')],
