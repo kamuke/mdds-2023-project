@@ -4,7 +4,7 @@
 
 **Stack:** Express, Socket.IO, Tailwind CSS, Flowbite, MongoDB 
 
-**Start BE for socket.IO chat:**
+**Start BE**
 
 `npm run start`
 
