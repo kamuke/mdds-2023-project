@@ -3,10 +3,6 @@
 	<head>
 		<meta charset="UTF-8" />
 		<style>
-			input {
-				margin-top: 8px;
-			}
-
 			button {
 				width: 100%;
 			}
@@ -15,41 +11,26 @@
 				font-family: monospace;
 			}
 
-			.input-group, #movieForm {
+			#animateIn {
 				margin-bottom: 16px;
 			}
 		</style>
 	</head>
 	<body>
-		<h3>Coming up next graphics:</h3>
-		<form id="movieForm">
-			<div class="input-group">
-				<label for="title">Movies's title:</label>
-				<input type="text" id="titleInput" />
-			</div>
-			<button type="submit">Animate in</button>
-		</form>
+		<h3>Live event starting soon graphics:</h3>
+		<button id="animateIn">Animate in</button>
 		<button id="animateOut">Animate out</button>
 
 		<script>
 			const animateInRep = nodecg.Replicant('animateInReplicant');
 			const animateOutRep = nodecg.Replicant('animateOutReplicant');
-			const titleRep = nodecg.Replicant('titleReplicant');
-			const titleInput = document.getElementById('titleInput');
-			const movieForm = document.getElementById('movieForm');
+			const animateInBtn = document.getElementById('animateIn');
 			const animateOutBtn = document.getElementById('animateOut');
 
 			animateInRep.value = false;
 			animateOutRep.value = false;
 
-			titleRep.on('change', (newValue, oldValue) => {
-				console.log(`titleRep title changed from ${oldValue} to ${newValue}`);
-				titleInput.value = newValue;
-			});
-
-			movieForm.addEventListener('submit', (event) => {
-				event.preventDefault;
-				titleRep.value = titleInput.value;
+			animateInBtn.addEventListener('click', () => {
 				animateInRep.value = true;
 			});
 

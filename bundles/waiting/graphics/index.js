@@ -2,6 +2,5 @@
 // Or just `nodecg` for short. Like this!:
 nodecg.log.info("Here's an example of using NodeCG's logging API!");
 
-nodecg.Replicant("titleReplicant", { defaultValue: "Movie's title" });
 nodecg.Replicant("animateInReplicant", { defaultValue: false });
 nodecg.Replicant("animateOutReplicant", { defaultValue: false });
