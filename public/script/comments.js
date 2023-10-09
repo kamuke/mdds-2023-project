@@ -23,7 +23,7 @@ dialogFail.addEventListener("click", () => {
   dialogFail.close();
 });
 
-// opening messagefor on button click
+// open messageform on button click
 showForm.addEventListener('click', () => {
   formContainer.classList.toggle("max-h-screen");
   showForm.classList.toggle("hidden");
