@@ -1,5 +1,6 @@
 "use strict";
 
+// verifies user jwt token from backend and returns true/false
 const authUser = async () => {
   const url = 'http://localhost:3000';
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
@@ -31,6 +32,7 @@ const authUser = async () => {
 const socialLink = document.getElementById('social-link');
 const loginLink = document.getElementById('login-link');
 
+//changes login/register button to logout button if user is logged in
 if (localStorage.getItem('userInfo')) {
   socialLink.classList.remove('hidden');
   socialLink.classList.add('block');
@@ -38,6 +40,7 @@ if (localStorage.getItem('userInfo')) {
   loginLink.innerText = 'Logout';
 }
 
+// logs user out if logged in and redirects to login page
 loginLink.addEventListener('click', (event) => {
   event.preventDefault();
   if (localStorage.getItem('userInfo')) {
@@ -49,8 +52,8 @@ loginLink.addEventListener('click', (event) => {
   }
 });
 
+// checks user jwt token with authUser() on page load and redirects to login page if false
 const onPageLoad = async () => {
-
   const currentPagePath = window.location.pathname;
   if (currentPagePath.includes('comments.html')) {
     const isAuthenticated = await authUser();
