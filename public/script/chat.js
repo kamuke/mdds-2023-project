@@ -14,7 +14,7 @@ const usersList = document.getElementById('userList');
 let selectedRoom = roomSelect.value;
 
 const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-if (userInfo.name) {
+if (userInfo) {
   socket.emit('join', userInfo.name);
   document.getElementById('login').classList.add('hidden');
   document.getElementById('messageForm').classList.remove('hidden');
