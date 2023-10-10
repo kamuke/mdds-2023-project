@@ -30,7 +30,7 @@ const renderModal = (movieID) => {
     movies.forEach(movie => {
         if(movieID === movie._id.toString()){
             //poster.src = '../img/posters/' + movie._id + '.jpg';
-            video.src = 'https://www.youtube.com/embed/' + movie.videolink;
+            video.src = movie.videolink;
             genre.innerText = movie.genre;
             name.innerText = movie.name;
             director.innerText = movie.director;
