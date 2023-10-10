@@ -24,7 +24,7 @@ https://mediapalvelin.northeurope.cloudapp.azure.com/
 
 This document provides details about the various endpoints available in the API and how to use them.
 
->:warning: Requires access to MongoDB
+>:warning: backend requires access credentials to MongoDB if you want to run it locally.
 
 ## Table of Contents
 - [Authentication](#authentication)
@@ -339,6 +339,7 @@ HTTP/1.1 500 Internal Server Error
 | `genre`              | String   | Yes      | movie genre               |
 | `summary`            | String   | Yes      | movie summary             |
 | `director`           | String   | Yes      | movie director            |
+| `videolink`          | String   | Yes      | link to the movie file    |
 
 **Success Response:**
 ```javascript

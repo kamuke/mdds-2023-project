@@ -26,6 +26,9 @@ const mongoString = process.env.DATABASE_URL
 mongoose.connect(mongoString);
 const database = mongoose.connection;
 
+// sanitize the input to prevent NoSQL injection
+mongoose.set('sanitizeFilter', true);
+
 database.on('error', (error) => {
   console.log(error);
 });
