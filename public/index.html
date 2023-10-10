@@ -470,13 +470,14 @@
             <!-- Modal content -->
             <div class="relative bg-gray-800 rounded-lg shadow">
                 <!-- Modal header -->
-                <div class="rounded-t h-40 overflow-hidden relative">
+                <div class="rounded-t h-60 overflow-hidden relative">
                     <button id="closeModal" type="button" class="absolute m-2 right-0 text-gray-950 bg-primary hover:bg-gradient-to-tr from-primary to-tetriary rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                         </svg>
                         <span class="sr-only">Close modal</span>
                     </button>
+                    <!-- <img class="w-full h-full object-cover object-center" src="https://picsum.photos/500/1000" id="modalPoster"> -->
                     <iframe id="modalVideo" height="100%" width="100%" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <!-- Modal body -->
@@ -490,23 +491,25 @@
                       Movie Name
                     </h3>
                     <p class="text-gray-100 mb-5 flex gap-1">    
-                      Directed by <span id="modalDirector"></span>
+                      Directed by <span id="modalDirector">John Something</span>
                     </p>
                     <p class="text-gray-100 flex gap-1">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>                      
-                      Length: <span id="modalLength">0</span> minutes
+                      Length: <span id="modalLength">40</span> minutes
                     </p>
                     
                     <p class="text-gray-100 flex gap-1">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
                       </svg>                      
-                      Age rating: <span id="modalRating">0</span>
+                      Age rating: <span id="modalRating">12</span>
                     </p>
                     <p class="text-gray-300 mt-5" id="modalText">
-                    </p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </span>
                 </div>
                 <!-- Modal footter -->
                 <div class="flex items-center p-6 border-t-4 border-primary space-x-2 bg-gradient-to-b from-gray-800 to-gray-900">
@@ -514,10 +517,10 @@
                   href="/index.html#live"
                   class="transition-all inline-flex items-center justify-center rounded-lg px-4 py-2 mr-4 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
                   aria-label="Scroll to live"
-                >
+                  >
                   Watch Live
-                </a>
-                <a
+                  </a>
+                  <a
                   href="/comments.html"
                   class="inline-flex items-center justify-center rounded-lg mr-8 px-4 py-2 text-gray-100 border-2 border-transparent uppercase font-semibold hover:border-2 hover:border-gray-100"
                   aria-label="Go to message board"
