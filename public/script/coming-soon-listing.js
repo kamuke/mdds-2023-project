@@ -26,12 +26,9 @@ const loopMovies = (movies) => {
     // TODO: clean this mess up
     filterMovieByTime.forEach(movie => {
         //show max 4 listings
-        console.log(listingCounter);
         if(listingCounter < 4){
             const time = new Date(movie.time);
             const endTime = new Date(movie.endTime);
-
-            console.log(currentTime.getHours())
 
             //check if time has passed current time, if no more listings, change section title header txt and render movies
             if(endTime.getHours() > currentTime.getHours() || endTime.getHours() === currentTime.getHours() && endTime.getMinutes() >= currentTime.getMinutes()){
