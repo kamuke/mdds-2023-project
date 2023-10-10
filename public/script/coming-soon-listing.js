@@ -39,9 +39,6 @@ const loopMovies = (movies) => {
         }
 
     });
-
-    //open up movie info modal on click (check movie-modal.js)
-    openModal();
 };
 
 const renderMovie = (movie, time, endTime) => {
@@ -108,6 +105,9 @@ const refreshListRender = () => {
             }
         });
     }
+
+    //open up movie info modal on click (check movie-modal.js)
+    openModal();
 }
 
 //init
