@@ -166,7 +166,7 @@
         </div>
 
         <!-- Movie listing -->
-        <div class="mx-3 grid grid-cols-12 gap-8 pt-12 mb-8" id="list-program">
+        <div class="mx-3 grid grid-cols-12 gap-8 pt-12 pl-4 mb-8" id="list-program">
           
       </section>
       <!-- Program section ends -->
@@ -185,7 +185,7 @@
                         <span class="sr-only">Close modal</span>
                     </button>
                     <!-- <img class="w-full h-full object-cover object-center" src="https://picsum.photos/500/1000" id="modalPoster"> -->
-                    <iframe height="100%" width="100%" src="https://www.youtube.com/embed/rAwwKXE9690" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe id="modalVideo" height="100%" width="100%" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <!-- Modal body -->
                 <div class="p-6">
@@ -224,9 +224,18 @@
                   href="/index.html#live"
                   class="transition-all inline-flex items-center justify-center rounded-lg px-4 py-2 mr-4 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
                   aria-label="Scroll to live"
-                >
+                  >
                   Watch Live
-                </a>                  <button type="button" class="inline-flex items-center justify-center rounded-lg mr-8 px-4 py-2 text-gray-100 border-2 border-transparent uppercase font-semibold hover:border-2 hover:border-gray-100">Buy tickets</button>
+                  </a>
+                  <a
+                  href="/comments.html"
+                  class="inline-flex items-center justify-center rounded-lg mr-8 px-4 py-2 text-gray-100 border-2 border-transparent uppercase font-semibold hover:border-2 hover:border-gray-100"
+                  aria-label="Go to message board"
+                  style="display: none;"
+                  id="reviewBtn"
+                  >
+                  Review?
+                  </a>
                 </div>
             </div>
         </div>
