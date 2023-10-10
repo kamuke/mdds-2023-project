@@ -1,7 +1,7 @@
 'use strict';
 
 const streamURL = 'http://195.148.104.124:1935/jakelu/cakeve/playlist.m3u8';
-// TODO: Change right path to stream record file
+// TODO: Change right path to stream record file './video/stream_record.mp4'
 const recordedStreamFilePath = './video/stream_record.mp4';
 // TODO: Change right starting time for countdown
 const streamStartTime = new Date('October 11, 2023 14:15:00');

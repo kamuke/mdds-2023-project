@@ -12,9 +12,9 @@
       href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="icon" type="image/x-icon" href="img/favicon.png" />
     <script src="script/serialize.js" defer></script>
-    <script src="script/auth-user.js" defer ></script>
+    <script src="script/auth-user.js" defer></script>
     <script src="script/fetch-movies.js" defer></script>
     <script src="script/program.js" defer></script>
     <script src="script/movie-modal.js" defer></script>
@@ -106,29 +106,25 @@
             </li>
             <li>
               <a
-              id="login-link"
-              href="login.html"
-              class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
-              aria-current="page"
-              >Login/Register</a
-            >
+                id="login-link"
+                href="login.html"
+                class="transition-all block py-2 px-4 text-gray-100 hover:bg-secondary hover:text-gray-950 rounded-lg lg:rounded-full"
+                aria-current="page"
+                >Login/Register</a
+              >
             </li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <a
-    href="movieform.html"
-    class="block w-48 py-2 px-4 mx-auto bg-secondary text-gray-950 rounded-lg lg:rounded-full"
-    aria-current="page"
-    >Add a movie</a
-  >
     <main>
       <!-- Hero sections starts -->
-      <section class="max-w-screen-2xl mx-auto px-4 grid grid-cols-12">
+      <section
+        class="max-w-screen-2xl mx-auto px-4 grid grid-cols-12 items-center justify-center"
+      >
         <div
-          class="pt-6 lg:py-44 col-span-12 lg:col-span-6 order-last lg:-order-1"
+          class="text-center lg:text-left pt-6 lg:py-44 col-span-12 lg:col-span-6 order-last lg:-order-1"
         >
           <h1
             class="mb-6 md:mb-8 text-3xl md:text-6xl text-gray-100 font-display tracking-wider"
@@ -136,141 +132,219 @@
             <span class="text-secondary">Program</span> 2023
           </h1>
           <p class="mb-8 md:mb-12 font-light text-gray-300 md:text-xl">
-            Get ready for a cinematic journey like no other as we bring you an exciting lineup of films from around the world. Join us as we celebrate the magic of storytelling through the art of filmmaking. Check out our program/calendar below and start planning your unforgettable cinematic adventure.
+            Get ready for a cinematic journey like no other as we bring you an
+            exciting lineup of films from around the world. Join us as we
+            celebrate the magic of storytelling through the art of filmmaking.
+            Check out our program/calendar below and start planning your
+            unforgettable cinematic adventure.
           </p>
         </div>
-        <!-- Parallax scroll hero img starts -->
-        <div class="hidden lg:block col-span-6 relative z-0">          
+        <div class="hidden lg:block col-span-6 relative z-0">
+          <img
+            src="img/program.png"
+            alt="Colorful illustration"
+            class="mx-auto h-4/5 object-cover"
+          />
         </div>
       </section>
       <!-- Hero sections ends -->
 
-      <!-- Program section starts -->
-      <section class="bg-gradient-to-b from-gray-950 via-gray-800 to-gray-800 max-w-screen-2xl mx-auto px-4 pb-14 lg:pb-20 py-14 flex flex-col items-center" id="program">
-        <h2
-          class="text-2xl md:text-4xl text-gray-100 font-display tracking-wider"
+      <div class="bg-gradient-to-b from-gray-950 to-gray-800">
+        <!-- Program section starts -->
+        <section
+          class="max-w-screen-2xl mx-auto px-4 pb-14 lg:pb-20 py-14 flex flex-col items-center"
+          id="program"
         >
-          <span class="date block">11.10.2023</span>
-          <span class="weekday block pt-3">Wednesday</span>
-        </h2>
-        <p class="py-5 font-light text-gray-300 md:text-xl">
-          Filter program by genre:
-        </p>
-        <!-- Genre listing -->
-        <div class="" id="">
-          <ul id="list-genre" class="list-none flex">
-            <li id="All" class="cursor-pointer">
-              <span id='active-genre' class="inline-block px-2 py-1 mr-2 bg-secondary-900 text-secondary-100 rounded-full font-semibold uppercase tracking-wide text-xs">All</span>
-            </li>
-          </ul>
-        </div>
+          <h2
+            class="text-2xl md:text-4xl text-gray-100 font-display tracking-wider"
+          >
+            <span class="date block">11.10.2023</span>
+            <span class="weekday block pt-3">Wednesday</span>
+          </h2>
+          <p class="py-5 font-light text-gray-300 md:text-xl">
+            Filter program by genre:
+          </p>
+          <!-- Genre listing -->
+          <div class="" id="">
+            <ul
+              id="list-genre"
+              class="list-none flex flex-wrap justify-center items-center gap-2"
+            >
+              <li id="All" class="cursor-pointer">
+                <span
+                  id="active-genre"
+                  class="inline-block px-2 py-1 bg-secondary-900 text-secondary-100 rounded-full font-semibold uppercase tracking-wide text-xs"
+                  >All</span
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Movie listing -->
+          <div
+            class="mx-3 grid grid-cols-12 gap-8 pt-12 pl-4 mb-8"
+            id="list-program"
+          ></div>
+        </section>
+        <!-- Program section ends -->
+      </div>
 
-        <!-- Movie listing -->
-        <div class="mx-3 grid grid-cols-12 gap-8 pt-12 pl-4 mb-8" id="list-program">
-          
-      </section>
-      <!-- Program section ends -->
-    
       <!-- Modal section starts, manipulate with DOM -->
       <div id="movieModal" class="hidden">
         <div class="relative w-full max-w-2xl max-h-full">
-            <!-- Modal content -->
-            <div class="relative bg-gray-800 rounded-lg shadow">
-                <!-- Modal header -->
-                <div class="rounded-t h-60 overflow-hidden relative">
-                    <button id="closeModal" type="button" class="absolute m-2 right-0 text-gray-950 bg-primary hover:bg-gradient-to-tr from-primary to-tetriary rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                    <!-- <img class="w-full h-full object-cover object-center" src="https://picsum.photos/500/1000" id="modalPoster"> -->
-                    <iframe id="modalVideo" height="100%" width="100%" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <!-- Modal body -->
-                <div class="p-6">
-                    <div>
-                      <p class="inline-block px-2 py-1 bg-secondary-100 text-secondary-900 rounded-full font-semibold uppercase tracking-wide text-xs" id="modalGenre">
-                        Genre
-                      </p>
-                    </div>
-                    <h3 class="mt-5 text-2xl font-semibold text-gray-100" id="modalName">
-                      Movie Name
-                    </h3>
-                    <p class="text-gray-100 mb-5 flex gap-1">    
-                      Directed by <span id="modalDirector">John Something</span>
-                    </p>
-                    <p class="text-gray-100 flex gap-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>                      
-                      Length: <span id="modalLength">40</span> minutes
-                    </p>
-                    
-                    <p class="text-gray-100 flex gap-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
-                      </svg>                      
-                      Age rating: <span id="modalRating">12</span>
-                    </p>
-                    <p class="text-gray-300 mt-5" id="modalText">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </span>
-                </div>
-                <!-- Modal footter -->
-                <div class="flex items-center p-6 border-t-4 border-primary space-x-2 bg-gradient-to-b from-gray-800 to-gray-900">
-                  <a
-                  href="/index.html#live"
-                  class="transition-all inline-flex items-center justify-center rounded-lg px-4 py-2 mr-4 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
-                  aria-label="Scroll to live"
-                  >
-                  Watch Live
-                  </a>
-                  <a
-                  href="/comments.html"
-                  class="inline-flex items-center justify-center rounded-lg mr-8 px-4 py-2 text-gray-100 border-2 border-transparent uppercase font-semibold hover:border-2 hover:border-gray-100"
-                  aria-label="Go to message board"
-                  style="display: none;"
-                  id="reviewBtn"
-                  >
-                  Review?
-                  </a>
-                </div>
+          <!-- Modal content -->
+          <div class="relative bg-gray-800 rounded-lg shadow">
+            <!-- Modal header -->
+            <div class="rounded-t h-60 overflow-hidden relative">
+              <button
+                id="closeModal"
+                type="button"
+                class="absolute m-2 right-0 text-gray-950 bg-primary hover:bg-gradient-to-tr from-primary to-tetriary rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
+              >
+                <svg
+                  class="w-3 h-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                  />
+                </svg>
+                <span class="sr-only">Close modal</span>
+              </button>
+              <!-- <img class="w-full h-full object-cover object-center" src="https://picsum.photos/500/1000" id="modalPoster"> -->
+              <iframe
+                id="modalVideo"
+                height="100%"
+                width="100%"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
             </div>
+            <!-- Modal body -->
+            <div class="p-6">
+              <div>
+                <p
+                  class="inline-block px-2 py-1 bg-secondary-100 text-secondary-900 rounded-full font-semibold uppercase tracking-wide text-xs"
+                  id="modalGenre"
+                >
+                  Genre
+                </p>
+              </div>
+              <h3
+                class="mt-5 text-2xl font-semibold text-gray-100"
+                id="modalName"
+              >
+                Movie Name
+              </h3>
+              <p class="text-gray-100 mb-5 flex gap-1">
+                Directed by <span id="modalDirector">John Something</span>
+              </p>
+              <p class="text-gray-100 flex gap-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Length: <span id="modalLength">40</span> minutes
+              </p>
+
+              <p class="text-gray-100 flex gap-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"
+                  />
+                </svg>
+                Age rating: <span id="modalRating">12</span>
+              </p>
+              <p class="text-gray-300 mt-5" id="modalText">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+            <!-- Modal footter -->
+            <div
+              class="flex items-center p-6 border-t-4 border-primary space-x-2 bg-gradient-to-b from-gray-800 to-gray-900"
+            >
+              <a
+                href="/index.html#live"
+                class="transition-all inline-flex items-center justify-center rounded-lg px-4 py-2 mr-4 text-gray-950 border-2 bg-primary border-primary uppercase font-semibold hover:border-transparent hover:bg-gradient-to-tr from-primary to-tetriary"
+                aria-label="Scroll to live"
+              >
+                Watch Live
+              </a>
+              <a
+                href="/comments.html"
+                class="inline-flex items-center justify-center rounded-lg mr-8 px-4 py-2 text-gray-100 border-2 border-transparent uppercase font-semibold hover:border-2 hover:border-gray-100"
+                aria-label="Go to message board"
+                style="display: none"
+                id="reviewBtn"
+              >
+                Review?
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Modal section end -->
-
     </main>
 
-    <footer class="max-w-screen-2xl mx-auto pb-4 px-4 bg-gray-800">
-      <div class="w-full mx-auto p-4 md:py-8 bg-gray-900 rounded-lg">
-        <div
-          class="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-4"
-        >
-          <div class="flex items-center justify-between">
-            <span class="text-sm text-gray-100 sm:text-center"
-              >© 2023 <a href="#" class="hover:underline">Metropolia Ciné</a>.
-              All Rights Reserved.
-            </span>
-          </div>
-          <ul
-            class="flex flex-wrap gap-4 items-center text-sm font-semibold text-gray-100"
+    <div class="bg-gray-800">
+      <footer class="max-w-screen-2xl mx-auto pb-4 px-4">
+        <div class="w-full mx-auto p-4 md:py-8 bg-gray-900 rounded-lg">
+          <div
+            class="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-4"
           >
-            <li>
-              <a href="info.html" class="hover:underline">Info</a>
-            </li>
-            <li>
-              <a href="info.html#contact" class="hover:underline">Contact</a>
-            </li>
-            <li>
-              <a href="#" class="hover:underline">Privacy Policy</a>
-            </li>
-          </ul>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-100 sm:text-center"
+                >© 2023 <a href="#" class="hover:underline">Metropolia Ciné</a>.
+                All Rights Reserved.
+              </span>
+            </div>
+            <ul
+              class="flex flex-wrap gap-4 items-center text-sm font-semibold text-gray-100"
+            >
+              <li>
+                <a href="info.html" class="hover:underline">Info</a>
+              </li>
+              <li>
+                <a href="info.html#contact" class="hover:underline">Contact</a>
+              </li>
+              <li>
+                <a href="#" class="hover:underline">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
     <dialog id="modal1"></dialog>
     <dialog id="modal2"></dialog>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
