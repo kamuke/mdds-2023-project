@@ -140,6 +140,7 @@ router.post('/addMovie', async (req, res) => {
     genre: req.body.genre,
     summary: req.body.summary,
     director: req.body.director,
+    videolink: req.body.videolink,
   });
   const token = req.headers['x-access-token'];
   const authResult = verifyToken(token);
