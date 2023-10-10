@@ -32,12 +32,12 @@ This document provides details about the various endpoints available in the API 
   - [Login](#login)
   - [Authenticate User](#authenticate-user)
 - [Messages](#messages)
-  - [Post Message](#post-a-message)
-  - [Delete Message](#delete-a-message)
+  - [Post a Message](#post-a-message)
+  - [Delete a Message](#delete-a-message)
   - [Get All Messages](#get-all-messages)
 - [Movies](#movies)
   - [Get Movies](#get-movies)
-  - [Add Movie](#add-movie)
+  - [Add a Movie](#add-movie)
 
 ## Authentication
 
@@ -206,7 +206,7 @@ HTTP/1.1 500 Internal Server Error
 }
 ```
 
-## Delete a Message
+### Delete a Message
 
 **Endpoint:** `DELETE /api/deleteMessage`
 
@@ -250,7 +250,7 @@ HTTP/1.1 500 Internal Server Error
 }
 ```
 
-## Get All Messages
+### Get All Messages
 
 **Endpoint:** `GET /api/getAllMessages`
 
@@ -317,7 +317,7 @@ HTTP/1.1 500 Internal Server Error
 }
 ```
 
-## Add Movie
+### Add a Movie
 
 **Endpoint:** `POST /api/addMovie`
 
