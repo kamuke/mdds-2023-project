@@ -30,14 +30,14 @@ This document provides details about the various endpoints available in the API 
 - [Authentication](#authentication)
   - [Register](#register)
   - [Login](#login)
-  - [Authenticate User](#authenticate-user)
+  - [Authenticate user](#authenticate-user)
 - [Messages](#messages)
-  - [Post a Message](#post-a-message)
-  - [Delete a Message](#delete-a-message)
-  - [Get All Messages](#get-all-messages)
+  - [Post a message](#post-a-message)
+  - [Delete a message](#delete-a-message)
+  - [Get all messages](#get-all-messages)
 - [Movies](#movies)
-  - [Get Movies](#get-movies)
-  - [Add a Movie](#add-movie)
+  - [Get all movies](#get-all-movies)
+  - [Add a movie](#add-a-movie)
 
 ## Authentication
 
@@ -129,7 +129,7 @@ HTTP/1.1 500 Internal Server Error
 }
 ```
 
-### Authenticate User
+### Authenticate user
 
 **Endpoint:** `POST /api/authUser`
 
@@ -160,7 +160,7 @@ HTTP/1.1 400 Bad Request
 
 ## Messages
 
-### Post a Message
+### Post a message
 
 **Endpoint:** `POST /api/postMessage`
 
@@ -206,7 +206,7 @@ HTTP/1.1 500 Internal Server Error
 }
 ```
 
-### Delete a Message
+### Delete a message
 
 **Endpoint:** `DELETE /api/deleteMessage`
 
@@ -250,7 +250,7 @@ HTTP/1.1 500 Internal Server Error
 }
 ```
 
-### Get All Messages
+### Get all messages
 
 **Endpoint:** `GET /api/getAllMessages`
 
@@ -283,7 +283,7 @@ HTTP/1.1 500 Internal Server Error
 
 ## Movies
 
-### Get Movies
+### Get all movies
 
 **Endpoint:** `GET /api/getMovies`
 
@@ -317,7 +317,7 @@ HTTP/1.1 500 Internal Server Error
 }
 ```
 
-### Add a Movie
+### Add a movie
 
 **Endpoint:** `POST /api/addMovie`
 
