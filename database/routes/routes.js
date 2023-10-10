@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 module.exports = router;
 const commentModel = require('../models/comment-model');
-const registerModel = require('../models/register-model');
+const userModel = require('../models/user-model');
 const movieModel = require('../models/movie-model');
 
 // signs jwt token with secret key
@@ -19,12 +19,12 @@ const verifyToken = (token) => {
   return jwt.verify(token, process.env.JWT_SECRET);
 };
 
-// jwt token verification
+// jwt token verification endpoint
 router.post('/authUser', (req, res) => {
   const token = req.headers['x-access-token'];
   const authResult = verifyToken(token);
   if (!authResult) {
-    return res.status(401).json({message: 'Invalid credentials'});
+    return res.status(400).json({message: 'Invalid credentials'});
   } 
   res.status(200).json({message: 'Authorized'});
 });
@@ -32,7 +32,7 @@ router.post('/authUser', (req, res) => {
 // user registration creating crypto hash of password
 router.post('/register', async (req, res) => {
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
-  const data = new registerModel({
+  const data = new userModel({
     email: req.body.email,
     name: req.body.name,
     password: hashedPassword
@@ -51,13 +51,13 @@ router.post('/register', async (req, res) => {
 // user login compares crypto hash of password, and generates jwt token
 router.post('/login', async (req, res) => {
   try {
-    const user = await registerModel.findOne({ 'email': req.body.email });
+    const user = await userModel.findOne({ 'email': req.body.email });
     if (!user) {
-      return res.status(401).json({message: 'User not found'});
+      return res.status(400).json({message: 'User not found'});
     }
     const passwordMatch = bcrypt.compare(req.body.password, user.password);
     if (!passwordMatch) {
-      return res.status(401).json({ error: 'Invalid password' });
+      return res.status(400).json({ error: 'Invalid password' });
     }
     const token = generateToken(user);
     res.status(200).json({ id:user._id, name: user.name, email: user.email, token: token });
@@ -79,7 +79,7 @@ router.post('/postMessage', async (req, res) => {
   const token = req.headers['x-access-token'];
   const authResult = verifyToken(token);
   if (!authResult) {
-    return res.status(401).json({message: 'Invalid credentials'});
+    return res.status(400).json({message: 'Invalid credentials'});
   }
   try {
     await data.save();
@@ -94,12 +94,12 @@ router.delete('/deleteMessage', async (req, res) => {
   const token = req.headers['x-access-token'];
   const authResult = verifyToken(token);
   if (!authResult) {
-    return res.status(401).json({message: 'Invalid credentials'});
+    return res.status(400).json({message: 'Invalid credentials'});
   }
   try {
-    const user = await registerModel.findOne({email: req.body.senderEmail});
+    const user = await userModel.findOne({email: req.body.senderEmail});
     if (user._id.toString() !== req.body.userId) {
-      return res.status(401).json({message: 'Invalid credentials'});
+      return res.status(400).json({message: 'Invalid credentials'});
     }
     await commentModel.deleteOne({ _id: req.body.messageId });
     res.status(200).json({message: 'Message deleted successfully'})
@@ -144,7 +144,7 @@ router.post('/addMovie', async (req, res) => {
   const token = req.headers['x-access-token'];
   const authResult = verifyToken(token);
   if (!authResult) {
-    return res.status(401).json({message: 'Invalid credentials'});
+    return res.status(400).json({message: 'Invalid credentials'});
   }
   try {
     await data.save();
