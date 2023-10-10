@@ -80,7 +80,7 @@ io.on('connection', (socket) => {
   socket.on('join room', (room) => {
     socket.join(room);
     console.log(`${socket.id} joining room`, room);
-    io.to(room).emit('chat history', rooms[room]);
+    socket.emit('chat history', rooms[room]);
   });
 
   socket.on('chat message', (msg) => {
