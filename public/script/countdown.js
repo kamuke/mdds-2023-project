@@ -1,12 +1,11 @@
 'use strict';
 
-// TODO: Change right stream url
-const streamURL =
-  'http://195.148.104.124:1935/jakelu/testistriimi/playlist.m3u8';
-// TODO: Change right path to stream file
-const recordedStreamFilePath = './video/2023-10-11_stream_record.mp4';
+const streamURL = 'http://195.148.104.124:1935/jakelu/cakeve/playlist.m3u8';
+// TODO: Change right path to stream record file
+const recordedStreamFilePath = './video/stream_record.mp4';
 // TODO: Change right starting time for countdown
-const streamStartTime = new Date('October 11, 2023 12:00:00');
+const streamStartTime = new Date('October 11, 2023 14:15:00');
+console.log(streamStartTime.toString());
 const goToLiveBtn = document.querySelector('#go-to-live-btn');
 const liveHeading = document.querySelector('#live-heading');
 const countdown = document.querySelector('#countdown');
