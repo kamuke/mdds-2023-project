@@ -59,5 +59,7 @@ closeModalBtn.addEventListener('click', (event) => {
 });
 
 const closeModal = () => {
+    const video = document.getElementById('modalVideo');
+    video.src = '';
     movieModal.classList = 'hidden';
 }
