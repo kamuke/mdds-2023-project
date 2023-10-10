@@ -51,9 +51,8 @@ const renderMovie = (movies) => {
                 linkWrapper.classList = 'movie-listing rounded-lg col-span-12 md:col-span-6 lg:col-span-3 group cursor-pointer';
                 divHoverElement.classList = 'group-hover:bg-secondary rounded-lg';
                 container.classList = 'bg-gray-900 rounded-lg shadow-xl -translate-x-3 -translate-y-3 flex flex-row md:flex-col';
-                poster.classList = 'rounded-lg h-36 md:h-56 w-1/2 md:w-full object-cover';
-                // TODO: get movie poster
-                poster.src = 'https://picsum.photos/500/1000';
+                poster.classList = 'rounded-lg h-36 md:h-56 w-1/2 md:w-full object-cover';       
+                poster.src = '../img/posters/' + movie._id + '.jpg';
                 divFlex.classList = 'p-5 md:p-4 flex flex-col items-stretch w-full';
                 genre.classList = 'inline-block px-2 py-1 bg-secondary-100 text-secondary-900 rounded-full font-semibold uppercase tracking-wide text-xs';
                 genre.innerHTML = movie.genre;
