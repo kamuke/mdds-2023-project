@@ -30,6 +30,7 @@ This document provides details about the various endpoints available in the API 
 - [Authentication](#authentication)
   - [Register](#register)
   - [Login](#login)
+  - [Authenticate User](#authenticate-user)
 - [Messages](#messages)
   - [Post Message](#post-a-message)
   - [Delete Message](#delete-a-message)
@@ -39,7 +40,9 @@ This document provides details about the various endpoints available in the API 
   - [Add Movie](#add-movie)
 
 ## Authentication
+
 ### Register
+
 **Endpoint:** `POST /api/register`
 
 **Description:** Registers a new user and stores their information in the database.
@@ -60,7 +63,6 @@ HTTP/1.1 200 OK
 }
 ```
 
-
 **Error Response:**
 ```javascript 
 HTTP/1.1 400 Bad Request
@@ -79,6 +81,7 @@ HTTP/1.1 500 Internal Server Error
 ```
 
 ### Login
+
 **Endpoint:** `POST /api/login`
 
 **Description:** Logs in a user and generates a JWT token.
@@ -125,8 +128,40 @@ HTTP/1.1 500 Internal Server Error
   "message": "Network error"
 }
 ```
+
+### Authenticate User
+
+**Endpoint:** `POST /api/authUser`
+
+**Description:** verifies jwt token and returns either http 200 or 400.
+
+**Header**
+| Field                | Type     | Required | Description           |
+|----------------------|----------|----------|-----------------------|
+| `x-access-token`     | String   | Yes      | Authentication token  |
+
+**Success Response:**
+```javascript
+HTTP/1.1 200 OK
+
+{
+  "message": "Authorized"
+}
+```
+
+**Error Response:**
+```javascript 
+HTTP/1.1 400 Bad Request
+
+{
+  "message": "Invalid credentials"
+}
+```
+
 ## Messages
+
 ### Post a Message
+
 **Endpoint:** `POST /api/postMessage`
 
 **Description:** Posts a message to the database.
@@ -153,6 +188,7 @@ HTTP/1.1 200 OK
   "message": "Message sent successfully"
 }
 ```
+
 **Error Response:**
 ```javascript 
 HTTP/1.1 400 Bad Request
@@ -161,6 +197,7 @@ HTTP/1.1 400 Bad Request
   "message": "Invalid credentials"
 }
 ```
+
 ```javascript
 HTTP/1.1 500 Internal Server Error
 
@@ -168,7 +205,9 @@ HTTP/1.1 500 Internal Server Error
   "message": "Network error"
 }
 ```
+
 ## Delete a Message
+
 **Endpoint:** `DELETE /api/deleteMessage`
 
 **Description:** Deletes a message from the database.
@@ -193,6 +232,7 @@ HTTP/1.1 200 OK
   "message": "Message deleted successfully"
 }
 ```
+
 **Error Response:**
 ```javascript 
 HTTP/1.1 400 Bad Request
@@ -201,6 +241,7 @@ HTTP/1.1 400 Bad Request
   "message": "Invalid credentials"
 }
 ```
+
 ```javascript
 HTTP/1.1 500 Internal Server Error
 
@@ -208,7 +249,9 @@ HTTP/1.1 500 Internal Server Error
   "message": "Network error"
 }
 ```
+
 ## Get All Messages
+
 **Endpoint:** `GET /api/getAllMessages`
 
 **Description:** Retrieves all messages from the database.
@@ -224,10 +267,11 @@ HTTP/1.1 200 OK
     "rating": 5,
     "comment": "This is a comment.",
     "senderEmail": "user@example.com"
-  }
+  },
   //... more messages
 ]
 ```
+
 **Error Response:**
 ```javascript
 HTTP/1.1 500 Internal Server Error
@@ -236,8 +280,11 @@ HTTP/1.1 500 Internal Server Error
   "message": "Network error"
 }
 ```
+
 ## Movies
+
 ### Get Movies
+
 **Endpoint:** `GET /api/getMovies`
 
 **Description:** Retrieves all movies from the database.
@@ -256,10 +303,11 @@ HTTP/1.1 200 OK
     "genre": "Action",
     "summary": "Movie summary",
     "director": "Director Name"
-  }
+  },
   //... more movies
 ]
 ```
+
 **Error Response:**
 ```javascript
 HTTP/1.1 500 Internal Server Error
@@ -268,7 +316,9 @@ HTTP/1.1 500 Internal Server Error
   "message": "Network error"
 }
 ```
+
 ## Add Movie
+
 **Endpoint:** `POST /api/addMovie`
 
 **Description:** Adds a new movie to the database.
@@ -298,6 +348,7 @@ HTTP/1.1 200 OK
   "message": "Movie added successfully"
 }
 ```
+
 **Error Response:**
 ```javascript 
 HTTP/1.1 400 Bad Request
@@ -306,6 +357,7 @@ HTTP/1.1 400 Bad Request
   "message": "Invalid credentials"
 }
 ```
+
 ```javascript
 HTTP/1.1 500 Internal Server Error
 
