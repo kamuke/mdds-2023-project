@@ -55,7 +55,6 @@ roomSelect.addEventListener('change', () => {
   messages.innerHTML = '';
   selectedRoom = roomSelect.value;
   socket.emit('join room', selectedRoom);
-  console.log('joining room ' + selectedRoom);
 });
 
 // toggles user list and message view
@@ -71,9 +70,7 @@ usersButton.addEventListener('click', () => {
 
 // joins chat on page load
 socket.on('connect', () => {
-  console.log('user is connected', socket.id);
   socket.emit('join room', selectedRoom);
-  console.log('joining room ' + selectedRoom);
 });
 
 // updates user list with name and socket.id
@@ -83,7 +80,7 @@ socket.on('user list', (users) => {
 
   users.forEach((user) => {
     const li = document.createElement('li');
-    li.textContent = `${user.username} (${user.id})`;
+    li.textContent = `${user.username}`;
 
     li.classList.add(
       'font-semibold',
@@ -117,7 +114,6 @@ socket.on('chat history', (chatHistory) => {
 // displays message on receiving a message
 socket.on('chat message', (msg) => {
   if (roomSelect.value !== msg.room) return;
-  console.log('chat message', msg);
   displayMessage(msg);
 });
 

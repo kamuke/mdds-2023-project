@@ -51,7 +51,6 @@ form.addEventListener('submit', async (evt) => {
 
   const unauthorizedMessage = localStorage.getItem('unauthorizedMessage');
   if (unauthorizedMessage) {
-      console.log('unauthorizedMessage', unauthorizedMessage);
       dialogFail.innerText = unauthorizedMessage;
       dialogFail.showModal();
       setTimeout(() => {

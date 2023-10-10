@@ -68,7 +68,6 @@ router.post('/login', async (req, res) => {
 
 // posts message to database and verifies jwt token
 router.post('/postMessage', async (req, res) => {
-  console.log('req.body', req.body);
   const data = new commentModel({
     name: req.body.name,
     title: req.body.title,
