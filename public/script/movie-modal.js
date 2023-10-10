@@ -18,8 +18,7 @@ const openModal = () => {
 // Render out modal
 const renderModal = (movieID) => {
     movieModal.classList = 'bg-gradient-to-b from-gray-700 fixed top-0 left-0 right-0 flex justify-center items-center w-full p-4 md:inset-0 h-[calc(100%-1rem)] max-h-full';
-
-    const poster = document.getElementById('modalPoster');
+    const video = document.getElementById('modalVideo');
     const genre = document.getElementById('modalGenre');
     const name = document.getElementById('modalName');
     const director = document.getElementById('modalDirector');
@@ -30,7 +29,8 @@ const renderModal = (movieID) => {
     // loop through movies, get the clicked one's info
     movies.forEach(movie => {
         if(movieID === movie._id.toString()){
-            poster.src = '../img/posters/' + movie._id + '.jpg';
+            //poster.src = '../img/posters/' + movie._id + '.jpg';
+            video.src = 'https://www.youtube.com/embed/' + movie.videolink;
             genre.innerText = movie.genre;
             name.innerText = movie.name;
             director.innerText = movie.director;
@@ -40,6 +40,10 @@ const renderModal = (movieID) => {
             return;
         }
     });
+    // if user logged in, show review button
+    if (localStorage.getItem('userInfo')) {
+        document.getElementById('reviewBtn').style.display = 'block';
+    }
 };
 
 //add a window click listener, hide modal when clicking outside of it

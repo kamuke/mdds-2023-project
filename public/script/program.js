@@ -83,7 +83,6 @@ const renderMovie = (movies) => {
         movieList.appendChild(startTimeDiv);
     
         // render Movie
-        // TODO: add max-height and then text overflow fixes.
         const linkWrapper = document.createElement('a');
         const divHoverElement = document.createElement('div');
         const container = document.createElement('div');
@@ -103,7 +102,7 @@ const renderMovie = (movies) => {
         container.classList = 'bg-gray-900 rounded-lg shadow-xl hover:-translate-x-3 hover:-translate-y-3 flex flex-row md:flex-col';
         poster.classList = 'rounded-lg h-64 md:h-56 w-1/2 md:w-full object-cover';
         //poster.src = 'https://picsum.photos/500/1000';
-        poster.src = '../img/posters/' + movie._id + '.jpg';
+        poster.src = 'img/posters/' + movie._id + '.jpg';
         divFlex.classList = 'p-5 md:p-4 flex flex-col items-stretch w-full';
         genre.classList = 'inline-block px-2 py-1 bg-secondary-100 text-secondary-900 rounded-full font-semibold uppercase tracking-wide text-xs';
         genre.innerHTML = movie.genre;
@@ -113,7 +112,7 @@ const renderMovie = (movies) => {
         length.innerHTML = movieTime.getHours() + ':' + movieTime.getMinutes().toString().padStart(2, '0') + '-' + movieEndTime.getHours() + ':' + movieEndTime.getMinutes().toString().padStart(2, '0');
         director.classList = 'whitespace-break-spaces text-gray-300 pt-2';
         director.innerHTML = '<span class="font-semibold">Director: </span><span>'+movie.director+'</span>';
-        summary.classList = 'whitespace-break-spaces truncate ... text-gray-300 pt-2';
+        summary.classList = 'line-clamp-1 text-gray-300 pt-2';
         summary.innerHTML = '<span class="font-semibold">Summary: </span><span>'+movie.summary+'</span>';
     
         linkWrapper.appendChild(divHoverElement);
