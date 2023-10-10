@@ -26,12 +26,9 @@ const loopMovies = (movies) => {
     // TODO: clean this mess up
     filterMovieByTime.forEach(movie => {
         //show max 4 listings
-        console.log(listingCounter);
         if(listingCounter < 4){
             const time = new Date(movie.time);
             const endTime = new Date(movie.endTime);
-
-            console.log(currentTime.getHours())
 
             //check if time has passed current time, if no more listings, change section title header txt and render movies
             if(endTime.getHours() > currentTime.getHours() || endTime.getHours() === currentTime.getHours() && endTime.getMinutes() >= currentTime.getMinutes()){
@@ -42,9 +39,6 @@ const loopMovies = (movies) => {
         }
 
     });
-
-    //open up movie info modal on click (check movie-modal.js)
-    openModal();
 };
 
 const renderMovie = (movie, time, endTime) => {
@@ -64,7 +58,7 @@ const renderMovie = (movie, time, endTime) => {
     divHoverElement.classList = 'group-hover:bg-secondary rounded-lg';
     container.classList = 'bg-gray-900 rounded-lg shadow-xl -translate-x-3 -translate-y-3 flex flex-row md:flex-col';
     poster.classList = 'rounded-lg h-36 md:h-56 w-1/2 md:w-full object-cover';       
-    poster.src = '../img/posters/' + movie._id + '.jpg';
+    poster.src = 'img/posters/' + movie._id + '.jpg';
     divFlex.classList = 'p-5 md:p-4 flex flex-col items-stretch w-full';
     genre.classList = 'inline-block px-2 py-1 bg-secondary-100 text-secondary-900 rounded-full font-semibold uppercase tracking-wide text-xs';
     genre.innerHTML = movie.genre;
@@ -111,6 +105,9 @@ const refreshListRender = () => {
             }
         });
     }
+
+    //open up movie info modal on click (check movie-modal.js)
+    openModal();
 }
 
 //init
