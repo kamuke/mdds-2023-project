@@ -34,7 +34,11 @@ const dataSchema = new mongoose.Schema({
         director: {
             type: String,
             required: true
-        }
+        },
+        videolink: {
+            type: String,
+            required: true
+        },
 }, { timestamps: true, versionKey: false, collection: 'Movies'  });
 
 module.exports = mongoose.model('movies', dataSchema);
