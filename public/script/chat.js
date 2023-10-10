@@ -13,7 +13,6 @@ const usersList = document.getElementById('userList');
 
 let selectedRoom = roomSelect.value;
 
-
 // check for user info in local storage and joins the chat with username if found and hides join form
 const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 if (userInfo) {
@@ -109,7 +108,7 @@ socket.on('user list', (users) => {
 
 // loads chat history on joining a room
 socket.on('chat history', (chatHistory) => {
-  messages.innerText = '';
+  messages.innerHTML = '';
   for (const message of chatHistory) {
     displayMessage(message);
   }
@@ -117,6 +116,7 @@ socket.on('chat history', (chatHistory) => {
 
 // displays message on receiving a message
 socket.on('chat message', (msg) => {
+  if (roomSelect.value !== msg.room) return;
   console.log('chat message', msg);
   displayMessage(msg);
 });
