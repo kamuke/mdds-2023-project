@@ -24,7 +24,7 @@ https://mediapalvelin.northeurope.cloudapp.azure.com/
 
 This document provides details about the various endpoints available in the API and how to use them.
 
->:warning: backend requires access credentials to MongoDB if you want to run it locally.
+>:warning: API requires access credentials to MongoDB if you want to run it locally.
 
 ## Table of Contents
 - [Authentication](#authentication)
@@ -45,7 +45,7 @@ This document provides details about the various endpoints available in the API 
 
 **Endpoint:** `POST /api/register`
 
-**Description:** Registers a new user and stores their information in the database.
+**Description:** Registers a new user and stores their information into the database.
 
 **Parameter**
 | Field                | Type     | Required | Description               |
@@ -302,7 +302,8 @@ HTTP/1.1 200 OK
     "rating": 4.5,
     "genre": "Action",
     "summary": "Movie summary",
-    "director": "Director Name"
+    "director": "Director Name",
+    "videolink": "https://www.youtube.com/..."
   },
   //... more movies
 ]
